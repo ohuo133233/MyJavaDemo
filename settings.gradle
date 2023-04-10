@@ -50,3 +50,4 @@ dependencyResolutionManagement {
 rootProject.name = "MyJavaDemo"
 include ':app'
 include ':apt'
+include ':chat'
