@@ -9,8 +9,13 @@ color teal_700
 color white
 drawable ic_launcher_background
 drawable ic_launcher_foreground
+id button
+id button2
 id edit_text
+id message_list
 id send_message
+id you_name
+layout activity_friends
 layout activity_main
 mipmap ic_launcher
 mipmap ic_launcher_round

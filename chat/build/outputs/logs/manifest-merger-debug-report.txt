@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from E:\AndroidStudioProjects\MyJavaDemo\chat\src\main\AndroidManifest.xml:2:1-27:12
-INJECTED from E:\AndroidStudioProjects\MyJavaDemo\chat\src\main\AndroidManifest.xml:2:1-27:12
-INJECTED from E:\AndroidStudioProjects\MyJavaDemo\chat\src\main\AndroidManifest.xml:2:1-27:12
-INJECTED from E:\AndroidStudioProjects\MyJavaDemo\chat\src\main\AndroidManifest.xml:2:1-27:12
+ADDED from E:\AndroidStudioProjects\MyJavaDemo\chat\src\main\AndroidManifest.xml:2:1-35:12
+INJECTED from E:\AndroidStudioProjects\MyJavaDemo\chat\src\main\AndroidManifest.xml:2:1-35:12
+INJECTED from E:\AndroidStudioProjects\MyJavaDemo\chat\src\main\AndroidManifest.xml:2:1-35:12
+INJECTED from E:\AndroidStudioProjects\MyJavaDemo\chat\src\main\AndroidManifest.xml:2:1-35:12
 MERGED from [com.google.android.material:material:1.5.0] E:\AndroidStudioTools\.gradle\caches\transforms-3\598c05c81fe9254b4832878dd4a0db6b\transformed\material-1.5.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.3] E:\AndroidStudioTools\.gradle\caches\transforms-3\313e22a46d683565eab6931c61c47408\transformed\constraintlayout-2.1.3\AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.appcompat:appcompat:1.4.1] E:\AndroidStudioTools\.gradle\caches\transforms-3\c9231f61ffc2ed8722bea521977306ff\transformed\appcompat-1.4.1\AndroidManifest.xml:17:1-24:12
@@ -43,20 +43,20 @@ MERGED from [androidx.documentfile:documentfile:1.0.0] E:\AndroidStudioTools\.gr
 MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] E:\AndroidStudioTools\.gradle\caches\transforms-3\5c31521eb266c26ef211a1f53b56b07e\transformed\localbroadcastmanager-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.print:print:1.0.0] E:\AndroidStudioTools\.gradle\caches\transforms-3\66860c319137074465b1f3af9d4ca7e4\transformed\print-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.annotation:annotation-experimental:1.1.0] E:\AndroidStudioTools\.gradle\caches\transforms-3\d1b81e9b9294b0bc78ebcbc0700bfe58\transformed\annotation-experimental-1.1.0\AndroidManifest.xml:17:1-24:12
-INJECTED from E:\AndroidStudioProjects\MyJavaDemo\chat\src\main\AndroidManifest.xml:2:1-27:12
-INJECTED from E:\AndroidStudioProjects\MyJavaDemo\chat\src\main\AndroidManifest.xml:2:1-27:12
-INJECTED from E:\AndroidStudioProjects\MyJavaDemo\chat\src\main\AndroidManifest.xml:2:1-27:12
+INJECTED from E:\AndroidStudioProjects\MyJavaDemo\chat\src\main\AndroidManifest.xml:2:1-35:12
+INJECTED from E:\AndroidStudioProjects\MyJavaDemo\chat\src\main\AndroidManifest.xml:2:1-35:12
+INJECTED from E:\AndroidStudioProjects\MyJavaDemo\chat\src\main\AndroidManifest.xml:2:1-35:12
 	package
 		INJECTED from E:\AndroidStudioProjects\MyJavaDemo\chat\src\main\AndroidManifest.xml
-		ADDED from E:\AndroidStudioProjects\MyJavaDemo\chat\src\main\AndroidManifest.xml:2:1-27:12
+		ADDED from E:\AndroidStudioProjects\MyJavaDemo\chat\src\main\AndroidManifest.xml:2:1-35:12
 		INJECTED from E:\AndroidStudioProjects\MyJavaDemo\chat\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from E:\AndroidStudioProjects\MyJavaDemo\chat\src\main\AndroidManifest.xml
-		ADDED from E:\AndroidStudioProjects\MyJavaDemo\chat\src\main\AndroidManifest.xml:2:1-27:12
+		ADDED from E:\AndroidStudioProjects\MyJavaDemo\chat\src\main\AndroidManifest.xml:2:1-35:12
 		INJECTED from E:\AndroidStudioProjects\MyJavaDemo\chat\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from E:\AndroidStudioProjects\MyJavaDemo\chat\src\main\AndroidManifest.xml
-		ADDED from E:\AndroidStudioProjects\MyJavaDemo\chat\src\main\AndroidManifest.xml:2:1-27:12
+		ADDED from E:\AndroidStudioProjects\MyJavaDemo\chat\src\main\AndroidManifest.xml:2:1-35:12
 		INJECTED from E:\AndroidStudioProjects\MyJavaDemo\chat\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from E:\AndroidStudioProjects\MyJavaDemo\chat\src\main\AndroidManifest.xml:2:11-69
@@ -65,7 +65,7 @@ ADDED from E:\AndroidStudioProjects\MyJavaDemo\chat\src\main\AndroidManifest.xml
 	android:name
 		ADDED from E:\AndroidStudioProjects\MyJavaDemo\chat\src\main\AndroidManifest.xml:4:22-64
 application
-ADDED from E:\AndroidStudioProjects\MyJavaDemo\chat\src\main\AndroidManifest.xml:5:5-25:19
+ADDED from E:\AndroidStudioProjects\MyJavaDemo\chat\src\main\AndroidManifest.xml:6:5-33:19
 MERGED from [com.google.android.material:material:1.5.0] E:\AndroidStudioTools\.gradle\caches\transforms-3\598c05c81fe9254b4832878dd4a0db6b\transformed\material-1.5.0\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.5.0] E:\AndroidStudioTools\.gradle\caches\transforms-3\598c05c81fe9254b4832878dd4a0db6b\transformed\material-1.5.0\AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.3] E:\AndroidStudioTools\.gradle\caches\transforms-3\313e22a46d683565eab6931c61c47408\transformed\constraintlayout-2.1.3\AndroidManifest.xml:9:5-20
@@ -83,39 +83,45 @@ MERGED from [androidx.startup:startup-runtime:1.0.0] E:\AndroidStudioTools\.grad
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.7.0] E:\AndroidStudioTools\.gradle\caches\transforms-3\5586099dc2be2a001572cf14c2426ba8\transformed\core-1.7.0\AndroidManifest.xml:24:18-86
 	android:supportsRtl
-		ADDED from E:\AndroidStudioProjects\MyJavaDemo\chat\src\main\AndroidManifest.xml:10:9-35
+		ADDED from E:\AndroidStudioProjects\MyJavaDemo\chat\src\main\AndroidManifest.xml:11:9-35
 	android:label
-		ADDED from E:\AndroidStudioProjects\MyJavaDemo\chat\src\main\AndroidManifest.xml:8:9-41
+		ADDED from E:\AndroidStudioProjects\MyJavaDemo\chat\src\main\AndroidManifest.xml:9:9-41
 	android:roundIcon
-		ADDED from E:\AndroidStudioProjects\MyJavaDemo\chat\src\main\AndroidManifest.xml:9:9-54
+		ADDED from E:\AndroidStudioProjects\MyJavaDemo\chat\src\main\AndroidManifest.xml:10:9-54
 	android:icon
-		ADDED from E:\AndroidStudioProjects\MyJavaDemo\chat\src\main\AndroidManifest.xml:7:9-43
+		ADDED from E:\AndroidStudioProjects\MyJavaDemo\chat\src\main\AndroidManifest.xml:8:9-43
 	android:allowBackup
-		ADDED from E:\AndroidStudioProjects\MyJavaDemo\chat\src\main\AndroidManifest.xml:6:9-35
+		ADDED from E:\AndroidStudioProjects\MyJavaDemo\chat\src\main\AndroidManifest.xml:7:9-35
 	android:theme
-		ADDED from E:\AndroidStudioProjects\MyJavaDemo\chat\src\main\AndroidManifest.xml:11:9-48
-activity#com.example.chat.MainActivity
-ADDED from E:\AndroidStudioProjects\MyJavaDemo\chat\src\main\AndroidManifest.xml:12:9-24:20
+		ADDED from E:\AndroidStudioProjects\MyJavaDemo\chat\src\main\AndroidManifest.xml:12:9-48
+activity#com.example.chat.FriendsActivity
+ADDED from E:\AndroidStudioProjects\MyJavaDemo\chat\src\main\AndroidManifest.xml:13:9-19:20
 	android:exported
-		ADDED from E:\AndroidStudioProjects\MyJavaDemo\chat\src\main\AndroidManifest.xml:14:13-36
+		ADDED from E:\AndroidStudioProjects\MyJavaDemo\chat\src\main\AndroidManifest.xml:15:13-37
 	android:name
-		ADDED from E:\AndroidStudioProjects\MyJavaDemo\chat\src\main\AndroidManifest.xml:13:13-41
-intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from E:\AndroidStudioProjects\MyJavaDemo\chat\src\main\AndroidManifest.xml:15:13-19:29
-action#android.intent.action.MAIN
-ADDED from E:\AndroidStudioProjects\MyJavaDemo\chat\src\main\AndroidManifest.xml:16:17-69
-	android:name
-		ADDED from E:\AndroidStudioProjects\MyJavaDemo\chat\src\main\AndroidManifest.xml:16:25-66
-category#android.intent.category.LAUNCHER
-ADDED from E:\AndroidStudioProjects\MyJavaDemo\chat\src\main\AndroidManifest.xml:18:17-77
-	android:name
-		ADDED from E:\AndroidStudioProjects\MyJavaDemo\chat\src\main\AndroidManifest.xml:18:27-74
+		ADDED from E:\AndroidStudioProjects\MyJavaDemo\chat\src\main\AndroidManifest.xml:14:13-44
 meta-data#android.app.lib_name
-ADDED from E:\AndroidStudioProjects\MyJavaDemo\chat\src\main\AndroidManifest.xml:21:13-23:36
+ADDED from E:\AndroidStudioProjects\MyJavaDemo\chat\src\main\AndroidManifest.xml:16:13-18:36
 	android:value
-		ADDED from E:\AndroidStudioProjects\MyJavaDemo\chat\src\main\AndroidManifest.xml:23:17-33
+		ADDED from E:\AndroidStudioProjects\MyJavaDemo\chat\src\main\AndroidManifest.xml:18:17-33
 	android:name
-		ADDED from E:\AndroidStudioProjects\MyJavaDemo\chat\src\main\AndroidManifest.xml:22:17-52
+		ADDED from E:\AndroidStudioProjects\MyJavaDemo\chat\src\main\AndroidManifest.xml:17:17-52
+activity#com.example.chat.MainActivity
+ADDED from E:\AndroidStudioProjects\MyJavaDemo\chat\src\main\AndroidManifest.xml:20:9-32:20
+	android:exported
+		ADDED from E:\AndroidStudioProjects\MyJavaDemo\chat\src\main\AndroidManifest.xml:22:13-36
+	android:name
+		ADDED from E:\AndroidStudioProjects\MyJavaDemo\chat\src\main\AndroidManifest.xml:21:13-41
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from E:\AndroidStudioProjects\MyJavaDemo\chat\src\main\AndroidManifest.xml:23:13-27:29
+action#android.intent.action.MAIN
+ADDED from E:\AndroidStudioProjects\MyJavaDemo\chat\src\main\AndroidManifest.xml:24:17-69
+	android:name
+		ADDED from E:\AndroidStudioProjects\MyJavaDemo\chat\src\main\AndroidManifest.xml:24:25-66
+category#android.intent.category.LAUNCHER
+ADDED from E:\AndroidStudioProjects\MyJavaDemo\chat\src\main\AndroidManifest.xml:26:17-77
+	android:name
+		ADDED from E:\AndroidStudioProjects\MyJavaDemo\chat\src\main\AndroidManifest.xml:26:27-74
 uses-sdk
 INJECTED from E:\AndroidStudioProjects\MyJavaDemo\chat\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from E:\AndroidStudioProjects\MyJavaDemo\chat\src\main\AndroidManifest.xml

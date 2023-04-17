@@ -2603,6 +2603,8 @@ int id bounce 0x7f08005e
 int id bounceBoth 0x7f08005f
 int id bounceEnd 0x7f080060
 int id bounceStart 0x7f080061
+int id button 0x7f0801df
+int id button2 0x7f0801e0
 int id buttonPanel 0x7f080062
 int id cache_measures 0x7f080063
 int id callMeasure 0x7f080064
@@ -2766,6 +2768,7 @@ int id material_timepicker_ok_button 0x7f080101
 int id material_timepicker_view 0x7f080102
 int id material_value_index 0x7f080103
 int id message 0x7f080104
+int id message_list 0x7f0801e1
 int id middle 0x7f080105
 int id mini 0x7f080106
 int id month_grid 0x7f080107
@@ -2982,6 +2985,7 @@ int id wrap_content 0x7f0801d9
 int id wrap_content_constrained 0x7f0801da
 int id x_left 0x7f0801db
 int id x_right 0x7f0801dc
+int id you_name 0x7f0801de
 int id zero_corner_chip 0x7f0801dd
 int integer abc_config_activityDefaultDur 0x7f090000
 int integer abc_config_activityShortDur 0x7f090001
@@ -3068,6 +3072,7 @@ int layout abc_search_dropdown_item_icons_2line 0x7f0b0018
 int layout abc_search_view 0x7f0b0019
 int layout abc_select_dialog_material 0x7f0b001a
 int layout abc_tooltip 0x7f0b001b
+int layout activity_friends 0x7f0b0074
 int layout activity_main 0x7f0b001c
 int layout custom_dialog 0x7f0b001d
 int layout design_bottom_navigation_item 0x7f0b001e

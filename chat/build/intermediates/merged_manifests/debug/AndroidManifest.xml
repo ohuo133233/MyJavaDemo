@@ -21,6 +21,13 @@
         android:testOnly="true"
         android:theme="@style/Theme.MyJavaDemo" >
         <activity
+            android:name="com.example.chat.FriendsActivity"
+            android:exported="false" >
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name="com.example.chat.MainActivity"
             android:exported="true" >
             <intent-filter>

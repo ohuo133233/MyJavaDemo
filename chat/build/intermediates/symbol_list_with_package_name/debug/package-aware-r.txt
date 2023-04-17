@@ -2604,6 +2604,8 @@ id bounce
 id bounceBoth
 id bounceEnd
 id bounceStart
+id button
+id button2
 id buttonPanel
 id cache_measures
 id callMeasure
@@ -2767,6 +2769,7 @@ id material_timepicker_ok_button
 id material_timepicker_view
 id material_value_index
 id message
+id message_list
 id middle
 id mini
 id month_grid
@@ -2983,6 +2986,7 @@ id wrap_content
 id wrap_content_constrained
 id x_left
 id x_right
+id you_name
 id zero_corner_chip
 integer abc_config_activityDefaultDur
 integer abc_config_activityShortDur
@@ -3069,6 +3073,7 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
+layout activity_friends
 layout activity_main
 layout custom_dialog
 layout design_bottom_navigation_item

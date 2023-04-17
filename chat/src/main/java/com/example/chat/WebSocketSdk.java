@@ -23,12 +23,11 @@ public class WebSocketSdk {
             }
         }
         return sInstance;
-
     }
 
 
     public void connect(String address, String port) throws URISyntaxException {
-        client = new WebSocketChatClient(new URI("ws://" + address + port + " /my-websocket-endpoint"));
+        client = new WebSocketChatClient(new URI("ws://" + address + ":" + port + "/my-websocket-endpoint"));
         client.connect();
     }
 
@@ -37,7 +36,7 @@ public class WebSocketSdk {
         client.close();
     }
 
-    public void sendMessage(String string){
+    public void sendMessage(String string) {
         Message message = new Message();
         message.setName("默认");
         message.setSend_id("1");
