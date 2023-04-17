@@ -21,14 +21,28 @@
         android:testOnly="true"
         android:theme="@style/Theme.MyJavaDemo" >
         <activity
-            android:name="com.example.chat.FriendsActivity"
+            android:name="com.example.chat.friends.AddFriendsActivity"
             android:exported="false" >
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name="com.example.chat.MainActivity"
+            android:name="com.example.chat.chat.ChatActivity"
+            android:exported="false" >
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name="com.example.chat.HomeActivity"
+            android:exported="false" >
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name="com.example.chat.mian.MainActivity"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

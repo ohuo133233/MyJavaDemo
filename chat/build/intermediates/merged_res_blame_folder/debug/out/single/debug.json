@@ -8,16 +8,8 @@
         "source": "E:\\AndroidStudioTools\\.gradle\\daemon\\7.4\\com.example.chat-main-7:\\mipmap-xxhdpi\\ic_launcher_round.webp"
     },
     {
-        "merged": "E:\\AndroidStudioTools\\.gradle\\daemon\\7.4\\com.example.chat-merged_res-5:\\mipmap-mdpi_ic_launcher.webp.flat",
-        "source": "E:\\AndroidStudioTools\\.gradle\\daemon\\7.4\\com.example.chat-main-7:\\mipmap-mdpi\\ic_launcher.webp"
-    },
-    {
-        "merged": "E:\\AndroidStudioTools\\.gradle\\daemon\\7.4\\com.example.chat-merged_res-5:\\drawable-anydpi-v24_ic_launcher_foreground.xml.flat",
-        "source": "E:\\AndroidStudioTools\\.gradle\\daemon\\7.4\\com.example.chat-pngs-0:\\drawable-anydpi-v24\\ic_launcher_foreground.xml"
-    },
-    {
-        "merged": "E:\\AndroidStudioTools\\.gradle\\daemon\\7.4\\com.example.chat-merged_res-5:\\mipmap-mdpi_ic_launcher_round.webp.flat",
-        "source": "E:\\AndroidStudioTools\\.gradle\\daemon\\7.4\\com.example.chat-main-7:\\mipmap-mdpi\\ic_launcher_round.webp"
+        "merged": "com.example.chat-merged_res-5:/layout_chat_item.xml.flat",
+        "source": "com.example.chat-main-7:/layout/chat_item.xml"
     },
     {
         "merged": "E:\\AndroidStudioTools\\.gradle\\daemon\\7.4\\com.example.chat-merged_res-5:\\mipmap-hdpi_ic_launcher_round.webp.flat",
@@ -32,28 +24,64 @@
         "source": "E:\\AndroidStudioTools\\.gradle\\daemon\\7.4\\com.example.chat-main-7:\\mipmap-xxxhdpi\\ic_launcher.webp"
     },
     {
-        "merged": "E:\\AndroidStudioTools\\.gradle\\daemon\\7.4\\com.example.chat-merged_res-5:\\mipmap-xxhdpi_ic_launcher.webp.flat",
-        "source": "E:\\AndroidStudioTools\\.gradle\\daemon\\7.4\\com.example.chat-main-7:\\mipmap-xxhdpi\\ic_launcher.webp"
-    },
-    {
         "merged": "E:\\AndroidStudioTools\\.gradle\\daemon\\7.4\\com.example.chat-merged_res-5:\\layout_activity_main.xml.flat",
         "source": "E:\\AndroidStudioTools\\.gradle\\daemon\\7.4\\com.example.chat-main-7:\\layout\\activity_main.xml"
-    },
-    {
-        "merged": "E:\\AndroidStudioTools\\.gradle\\daemon\\7.4\\com.example.chat-merged_res-5:\\mipmap-hdpi_ic_launcher.webp.flat",
-        "source": "E:\\AndroidStudioTools\\.gradle\\daemon\\7.4\\com.example.chat-main-7:\\mipmap-hdpi\\ic_launcher.webp"
     },
     {
         "merged": "E:\\AndroidStudioTools\\.gradle\\daemon\\7.4\\com.example.chat-merged_res-5:\\mipmap-xhdpi_ic_launcher.webp.flat",
         "source": "E:\\AndroidStudioTools\\.gradle\\daemon\\7.4\\com.example.chat-main-7:\\mipmap-xhdpi\\ic_launcher.webp"
     },
     {
-        "merged": "com.example.chat-merged_res-5:/layout_activity_main.xml.flat",
-        "source": "com.example.chat-main-7:/layout/activity_main.xml"
-    },
-    {
         "merged": "E:\\AndroidStudioTools\\.gradle\\daemon\\7.4\\com.example.chat-merged_res-5:\\mipmap-xxxhdpi_ic_launcher_round.webp.flat",
         "source": "E:\\AndroidStudioTools\\.gradle\\daemon\\7.4\\com.example.chat-main-7:\\mipmap-xxxhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "E:\\AndroidStudioTools\\.gradle\\daemon\\7.4\\com.example.chat-merged_res-5:\\layout_fragment_chat.xml.flat",
+        "source": "E:\\AndroidStudioTools\\.gradle\\daemon\\7.4\\com.example.chat-main-7:\\layout\\fragment_chat.xml"
+    },
+    {
+        "merged": "E:\\AndroidStudioTools\\.gradle\\daemon\\7.4\\com.example.chat-merged_res-5:\\mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "E:\\AndroidStudioTools\\.gradle\\daemon\\7.4\\com.example.chat-main-7:\\mipmap-mdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "E:\\AndroidStudioTools\\.gradle\\daemon\\7.4\\com.example.chat-merged_res-5:\\drawable-anydpi-v24_ic_launcher_foreground.xml.flat",
+        "source": "E:\\AndroidStudioTools\\.gradle\\daemon\\7.4\\com.example.chat-pngs-0:\\drawable-anydpi-v24\\ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "E:\\AndroidStudioTools\\.gradle\\daemon\\7.4\\com.example.chat-merged_res-5:\\layout_activity_chat.xml.flat",
+        "source": "E:\\AndroidStudioTools\\.gradle\\daemon\\7.4\\com.example.chat-main-7:\\layout\\activity_chat.xml"
+    },
+    {
+        "merged": "E:\\AndroidStudioTools\\.gradle\\daemon\\7.4\\com.example.chat-merged_res-5:\\layout_chat_item.xml.flat",
+        "source": "E:\\AndroidStudioTools\\.gradle\\daemon\\7.4\\com.example.chat-main-7:\\layout\\chat_item.xml"
+    },
+    {
+        "merged": "E:\\AndroidStudioTools\\.gradle\\daemon\\7.4\\com.example.chat-merged_res-5:\\mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "E:\\AndroidStudioTools\\.gradle\\daemon\\7.4\\com.example.chat-main-7:\\mipmap-mdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "E:\\AndroidStudioTools\\.gradle\\daemon\\7.4\\com.example.chat-merged_res-5:\\mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "E:\\AndroidStudioTools\\.gradle\\daemon\\7.4\\com.example.chat-main-7:\\mipmap-xxhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "E:\\AndroidStudioTools\\.gradle\\daemon\\7.4\\com.example.chat-merged_res-5:\\mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "E:\\AndroidStudioTools\\.gradle\\daemon\\7.4\\com.example.chat-main-7:\\mipmap-hdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "E:\\AndroidStudioTools\\.gradle\\daemon\\7.4\\com.example.chat-merged_res-5:\\layout_fragment_chat_list.xml.flat",
+        "source": "E:\\AndroidStudioTools\\.gradle\\daemon\\7.4\\com.example.chat-main-7:\\layout\\fragment_chat_list.xml"
+    },
+    {
+        "merged": "E:\\AndroidStudioTools\\.gradle\\daemon\\7.4\\com.example.chat-merged_res-5:\\layout_activity_add_friends.xml.flat",
+        "source": "E:\\AndroidStudioTools\\.gradle\\daemon\\7.4\\com.example.chat-main-7:\\layout\\activity_add_friends.xml"
+    },
+    {
+        "merged": "E:\\AndroidStudioTools\\.gradle\\daemon\\7.4\\com.example.chat-merged_res-5:\\layout_activity_home.xml.flat",
+        "source": "E:\\AndroidStudioTools\\.gradle\\daemon\\7.4\\com.example.chat-main-7:\\layout\\activity_home.xml"
+    },
+    {
+        "merged": "E:\\AndroidStudioTools\\.gradle\\daemon\\7.4\\com.example.chat-merged_res-5:\\layout_fragment_friends.xml.flat",
+        "source": "E:\\AndroidStudioTools\\.gradle\\daemon\\7.4\\com.example.chat-main-7:\\layout\\fragment_friends.xml"
     },
     {
         "merged": "E:\\AndroidStudioTools\\.gradle\\daemon\\7.4\\com.example.chat-merged_res-5:\\mipmap-xhdpi_ic_launcher_round.webp.flat",
