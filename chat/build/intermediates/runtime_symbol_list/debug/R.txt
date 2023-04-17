@@ -2704,6 +2704,7 @@ int id floating 0x7f0800be
 int id forever 0x7f0800bf
 int id fragment_container_view_tag 0x7f0800c0
 int id friends 0x7f0801e3
+int id friends_list 0x7f0801ee
 int id frost 0x7f0800c1
 int id ghost_view 0x7f0800c2
 int id ghost_view_holder 0x7f0800c3
@@ -2727,6 +2728,8 @@ int id ignore 0x7f0800d4
 int id ignoreRequest 0x7f0800d5
 int id image 0x7f0800d6
 int id imageView 0x7f0801eb
+int id imageView2 0x7f0801ed
+int id imageView3 0x7f0801ef
 int id immediateStop 0x7f0800d7
 int id included 0x7f0800d8
 int id info 0x7f0800d9
@@ -2949,6 +2952,8 @@ int id textSpacerNoTitle 0x7f0801ac
 int id textStart 0x7f0801ad
 int id textTop 0x7f0801ae
 int id textView 0x7f0801ec
+int id textView2 0x7f0801f0
+int id textView3 0x7f0801f1
 int id text_input_end_icon 0x7f0801af
 int id text_input_error_icon 0x7f0801b0
 int id text_input_start_icon 0x7f0801b1
@@ -3106,6 +3111,9 @@ int layout design_text_input_end_icon 0x7f0b002b
 int layout design_text_input_start_icon 0x7f0b002c
 int layout fragment_chat_list 0x7f0b0079
 int layout fragment_friends 0x7f0b0078
+int layout fragment_more 0x7f0b007c
+int layout fragment_my 0x7f0b007d
+int layout friends_item 0x7f0b007e
 int layout m3_alert_dialog 0x7f0b002d
 int layout m3_alert_dialog_actions 0x7f0b002e
 int layout m3_alert_dialog_title 0x7f0b002f
@@ -3223,7 +3231,6 @@ int string error_icon_content_description 0x7f0f0025
 int string exposed_dropdown_menu_content_description 0x7f0f0026
 int string fab_transformation_scrim_behavior 0x7f0f0027
 int string fab_transformation_sheet_behavior 0x7f0f0028
-int string hello_blank_fragment 0x7f0f0084
 int string hide_bottom_view_on_scroll_behavior 0x7f0f0029
 int string icon_content_description 0x7f0f002a
 int string item_view_role_description 0x7f0f002b

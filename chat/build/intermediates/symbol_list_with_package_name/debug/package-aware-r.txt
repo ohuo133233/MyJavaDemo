@@ -2705,6 +2705,7 @@ id floating
 id forever
 id fragment_container_view_tag
 id friends
+id friends_list
 id frost
 id ghost_view
 id ghost_view_holder
@@ -2728,6 +2729,8 @@ id ignore
 id ignoreRequest
 id image
 id imageView
+id imageView2
+id imageView3
 id immediateStop
 id included
 id info
@@ -2950,6 +2953,8 @@ id textSpacerNoTitle
 id textStart
 id textTop
 id textView
+id textView2
+id textView3
 id text_input_end_icon
 id text_input_error_icon
 id text_input_start_icon
@@ -3107,6 +3112,9 @@ layout design_text_input_end_icon
 layout design_text_input_start_icon
 layout fragment_chat_list
 layout fragment_friends
+layout fragment_more
+layout fragment_my
+layout friends_item
 layout m3_alert_dialog
 layout m3_alert_dialog_actions
 layout m3_alert_dialog_title
@@ -3224,7 +3232,6 @@ string error_icon_content_description
 string exposed_dropdown_menu_content_description
 string fab_transformation_scrim_behavior
 string fab_transformation_sheet_behavior
-string hello_blank_fragment
 string hide_bottom_view_on_scroll_behavior
 string icon_content_description
 string item_view_role_description

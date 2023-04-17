@@ -16,7 +16,10 @@ id chat
 id chat_list
 id edit_text
 id friends
+id friends_list
 id imageView
+id imageView2
+id imageView3
 id login
 id message_list
 id more
@@ -24,6 +27,8 @@ id my
 id search_friends
 id send_message
 id textView
+id textView2
+id textView3
 id view_page
 id you_name
 layout activity_add_friends
@@ -33,8 +38,10 @@ layout activity_main
 layout chat_item
 layout fragment_chat_list
 layout fragment_friends
+layout fragment_more
+layout fragment_my
+layout friends_item
 mipmap ic_launcher
 mipmap ic_launcher_round
 string app_name
-string hello_blank_fragment
 style Theme.MyJavaDemo
