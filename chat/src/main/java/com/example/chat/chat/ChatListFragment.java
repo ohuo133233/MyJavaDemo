@@ -1,5 +1,6 @@
 package com.example.chat.chat;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,8 +23,7 @@ public class ChatListFragment extends Fragment {
     private RecyclerView mRecyclerView;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View layout = inflater.inflate(R.layout.fragment_chat_list, container, false);
         initView(layout);
         return layout;
@@ -37,11 +37,7 @@ public class ChatListFragment extends Fragment {
         strings.add("测试数据");
         strings.add("测试数据");
 
-        CommonRecyclerViewAdapter<String> commonRecyclerViewAdapter = new CommonRecyclerViewAdapter.Build<String>()
-                .setContext(requireContext())
-                .setDataList(strings)
-                .setLayoutId(R.layout.chat_item)
-                .build();
+        CommonRecyclerViewAdapter<String> commonRecyclerViewAdapter = new CommonRecyclerViewAdapter.Build<String>().setContext(requireContext()).setDataList(strings).setLayoutId(R.layout.chat_item).build();
 
         mRecyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
         mRecyclerView.setAdapter(commonRecyclerViewAdapter);
@@ -49,7 +45,13 @@ public class ChatListFragment extends Fragment {
         commonRecyclerViewAdapter.setCommonRecyclerViewAdapterBackCall(new CommonRecyclerViewAdapterBackCall() {
             @Override
             public void onBindViewHolder(@NonNull CommonRecyclerViewHolder holder, int position) {
-//                holder.getView(R.id)
+                View itemView = holder.getItemView();
+                itemView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        startActivity(new Intent(requireContext(), ChatActivity.class));
+                    }
+                });
             }
         });
     }

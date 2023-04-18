@@ -37,8 +37,11 @@ public class WebSocketChatClient extends WebSocketClient {
         switch (message.getMessageType()) {
             case MessageType.ON_LINE:
                 break;
-            case MessageType.MESSAGE:
-                WebSocketSdk.getInstance().replyToMessage(message.getRecipient_id());
+            case MessageType.PRIVATE_CHAT:
+                // 收到私聊消息，首先回复对面已收到
+                //   WebSocketSdk.getInstance().replyToMessage(message.getRecipient_id());
+                // 解析消息类型
+                WebSocketSdk.getInstance().decodeMessage(message);
                 break;
             case MessageType.REPLY_MESSAGE:
 

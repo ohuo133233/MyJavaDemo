@@ -6,116 +6,116 @@
 6
 7    <uses-sdk
 8        android:minSdkVersion="21"
-8-->E:\AndroidStudioProjects\MyJavaDemo\chat\src\main\AndroidManifest.xml
+8-->D:\AndroidStudioProjects\my\MyJavaDemo\chat\src\main\AndroidManifest.xml
 9        android:targetSdkVersion="32" />
-9-->E:\AndroidStudioProjects\MyJavaDemo\chat\src\main\AndroidManifest.xml
+9-->D:\AndroidStudioProjects\my\MyJavaDemo\chat\src\main\AndroidManifest.xml
 10
 11    <uses-permission android:name="android.permission.INTERNET" />
-11-->E:\AndroidStudioProjects\MyJavaDemo\chat\src\main\AndroidManifest.xml:4:5-67
-11-->E:\AndroidStudioProjects\MyJavaDemo\chat\src\main\AndroidManifest.xml:4:22-64
+11-->D:\AndroidStudioProjects\my\MyJavaDemo\chat\src\main\AndroidManifest.xml:4:5-67
+11-->D:\AndroidStudioProjects\my\MyJavaDemo\chat\src\main\AndroidManifest.xml:4:22-64
 12
 13    <application
-13-->E:\AndroidStudioProjects\MyJavaDemo\chat\src\main\AndroidManifest.xml:6:5-47:19
+13-->D:\AndroidStudioProjects\my\MyJavaDemo\chat\src\main\AndroidManifest.xml:6:5-47:19
 14        android:allowBackup="true"
-14-->E:\AndroidStudioProjects\MyJavaDemo\chat\src\main\AndroidManifest.xml:7:9-35
+14-->D:\AndroidStudioProjects\my\MyJavaDemo\chat\src\main\AndroidManifest.xml:7:9-35
 15        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-15-->[androidx.core:core:1.7.0] E:\AndroidStudioTools\.gradle\caches\transforms-3\5586099dc2be2a001572cf14c2426ba8\transformed\core-1.7.0\AndroidManifest.xml:24:18-86
+15-->[androidx.core:core:1.7.0] D:\Android\gradle\caches\transforms-3\5586099dc2be2a001572cf14c2426ba8\transformed\core-1.7.0\AndroidManifest.xml:24:18-86
 16        android:debuggable="true"
 17        android:icon="@mipmap/ic_launcher"
-17-->E:\AndroidStudioProjects\MyJavaDemo\chat\src\main\AndroidManifest.xml:8:9-43
+17-->D:\AndroidStudioProjects\my\MyJavaDemo\chat\src\main\AndroidManifest.xml:8:9-43
 18        android:label="@string/app_name"
-18-->E:\AndroidStudioProjects\MyJavaDemo\chat\src\main\AndroidManifest.xml:9:9-41
+18-->D:\AndroidStudioProjects\my\MyJavaDemo\chat\src\main\AndroidManifest.xml:9:9-41
 19        android:roundIcon="@mipmap/ic_launcher_round"
-19-->E:\AndroidStudioProjects\MyJavaDemo\chat\src\main\AndroidManifest.xml:10:9-54
+19-->D:\AndroidStudioProjects\my\MyJavaDemo\chat\src\main\AndroidManifest.xml:10:9-54
 20        android:supportsRtl="true"
-20-->E:\AndroidStudioProjects\MyJavaDemo\chat\src\main\AndroidManifest.xml:11:9-35
+20-->D:\AndroidStudioProjects\my\MyJavaDemo\chat\src\main\AndroidManifest.xml:11:9-35
 21        android:testOnly="true"
 22        android:theme="@style/Theme.MyJavaDemo" >
-22-->E:\AndroidStudioProjects\MyJavaDemo\chat\src\main\AndroidManifest.xml:12:9-48
+22-->D:\AndroidStudioProjects\my\MyJavaDemo\chat\src\main\AndroidManifest.xml:12:9-48
 23        <activity
-23-->E:\AndroidStudioProjects\MyJavaDemo\chat\src\main\AndroidManifest.xml:13:9-19:20
+23-->D:\AndroidStudioProjects\my\MyJavaDemo\chat\src\main\AndroidManifest.xml:13:9-19:20
 24            android:name="com.example.chat.friends.AddFriendsActivity"
-24-->E:\AndroidStudioProjects\MyJavaDemo\chat\src\main\AndroidManifest.xml:14:13-55
+24-->D:\AndroidStudioProjects\my\MyJavaDemo\chat\src\main\AndroidManifest.xml:14:13-55
 25            android:exported="false" >
-25-->E:\AndroidStudioProjects\MyJavaDemo\chat\src\main\AndroidManifest.xml:15:13-37
+25-->D:\AndroidStudioProjects\my\MyJavaDemo\chat\src\main\AndroidManifest.xml:15:13-37
 26            <meta-data
-26-->E:\AndroidStudioProjects\MyJavaDemo\chat\src\main\AndroidManifest.xml:16:13-18:36
+26-->D:\AndroidStudioProjects\my\MyJavaDemo\chat\src\main\AndroidManifest.xml:16:13-18:36
 27                android:name="android.app.lib_name"
-27-->E:\AndroidStudioProjects\MyJavaDemo\chat\src\main\AndroidManifest.xml:17:17-52
+27-->D:\AndroidStudioProjects\my\MyJavaDemo\chat\src\main\AndroidManifest.xml:17:17-52
 28                android:value="" />
-28-->E:\AndroidStudioProjects\MyJavaDemo\chat\src\main\AndroidManifest.xml:18:17-33
+28-->D:\AndroidStudioProjects\my\MyJavaDemo\chat\src\main\AndroidManifest.xml:18:17-33
 29        </activity>
 30        <activity
-30-->E:\AndroidStudioProjects\MyJavaDemo\chat\src\main\AndroidManifest.xml:20:9-26:20
+30-->D:\AndroidStudioProjects\my\MyJavaDemo\chat\src\main\AndroidManifest.xml:20:9-26:20
 31            android:name="com.example.chat.chat.ChatActivity"
-31-->E:\AndroidStudioProjects\MyJavaDemo\chat\src\main\AndroidManifest.xml:21:13-46
+31-->D:\AndroidStudioProjects\my\MyJavaDemo\chat\src\main\AndroidManifest.xml:21:13-46
 32            android:exported="false" >
-32-->E:\AndroidStudioProjects\MyJavaDemo\chat\src\main\AndroidManifest.xml:22:13-37
+32-->D:\AndroidStudioProjects\my\MyJavaDemo\chat\src\main\AndroidManifest.xml:22:13-37
 33            <meta-data
-33-->E:\AndroidStudioProjects\MyJavaDemo\chat\src\main\AndroidManifest.xml:16:13-18:36
+33-->D:\AndroidStudioProjects\my\MyJavaDemo\chat\src\main\AndroidManifest.xml:16:13-18:36
 34                android:name="android.app.lib_name"
-34-->E:\AndroidStudioProjects\MyJavaDemo\chat\src\main\AndroidManifest.xml:17:17-52
+34-->D:\AndroidStudioProjects\my\MyJavaDemo\chat\src\main\AndroidManifest.xml:17:17-52
 35                android:value="" />
-35-->E:\AndroidStudioProjects\MyJavaDemo\chat\src\main\AndroidManifest.xml:18:17-33
+35-->D:\AndroidStudioProjects\my\MyJavaDemo\chat\src\main\AndroidManifest.xml:18:17-33
 36        </activity>
 37        <activity
-37-->E:\AndroidStudioProjects\MyJavaDemo\chat\src\main\AndroidManifest.xml:27:9-33:20
+37-->D:\AndroidStudioProjects\my\MyJavaDemo\chat\src\main\AndroidManifest.xml:27:9-33:20
 38            android:name="com.example.chat.HomeActivity"
-38-->E:\AndroidStudioProjects\MyJavaDemo\chat\src\main\AndroidManifest.xml:28:13-41
+38-->D:\AndroidStudioProjects\my\MyJavaDemo\chat\src\main\AndroidManifest.xml:28:13-41
 39            android:exported="false" >
-39-->E:\AndroidStudioProjects\MyJavaDemo\chat\src\main\AndroidManifest.xml:29:13-37
+39-->D:\AndroidStudioProjects\my\MyJavaDemo\chat\src\main\AndroidManifest.xml:29:13-37
 40            <meta-data
-40-->E:\AndroidStudioProjects\MyJavaDemo\chat\src\main\AndroidManifest.xml:16:13-18:36
+40-->D:\AndroidStudioProjects\my\MyJavaDemo\chat\src\main\AndroidManifest.xml:16:13-18:36
 41                android:name="android.app.lib_name"
-41-->E:\AndroidStudioProjects\MyJavaDemo\chat\src\main\AndroidManifest.xml:17:17-52
+41-->D:\AndroidStudioProjects\my\MyJavaDemo\chat\src\main\AndroidManifest.xml:17:17-52
 42                android:value="" />
-42-->E:\AndroidStudioProjects\MyJavaDemo\chat\src\main\AndroidManifest.xml:18:17-33
+42-->D:\AndroidStudioProjects\my\MyJavaDemo\chat\src\main\AndroidManifest.xml:18:17-33
 43        </activity>
 44        <activity
-44-->E:\AndroidStudioProjects\MyJavaDemo\chat\src\main\AndroidManifest.xml:34:9-46:20
+44-->D:\AndroidStudioProjects\my\MyJavaDemo\chat\src\main\AndroidManifest.xml:34:9-46:20
 45            android:name="com.example.chat.mian.MainActivity"
-45-->E:\AndroidStudioProjects\MyJavaDemo\chat\src\main\AndroidManifest.xml:35:13-46
+45-->D:\AndroidStudioProjects\my\MyJavaDemo\chat\src\main\AndroidManifest.xml:35:13-46
 46            android:exported="true" >
-46-->E:\AndroidStudioProjects\MyJavaDemo\chat\src\main\AndroidManifest.xml:36:13-36
+46-->D:\AndroidStudioProjects\my\MyJavaDemo\chat\src\main\AndroidManifest.xml:36:13-36
 47            <intent-filter>
-47-->E:\AndroidStudioProjects\MyJavaDemo\chat\src\main\AndroidManifest.xml:37:13-41:29
+47-->D:\AndroidStudioProjects\my\MyJavaDemo\chat\src\main\AndroidManifest.xml:37:13-41:29
 48                <action android:name="android.intent.action.MAIN" />
-48-->E:\AndroidStudioProjects\MyJavaDemo\chat\src\main\AndroidManifest.xml:38:17-69
-48-->E:\AndroidStudioProjects\MyJavaDemo\chat\src\main\AndroidManifest.xml:38:25-66
+48-->D:\AndroidStudioProjects\my\MyJavaDemo\chat\src\main\AndroidManifest.xml:38:17-69
+48-->D:\AndroidStudioProjects\my\MyJavaDemo\chat\src\main\AndroidManifest.xml:38:25-66
 49
 50                <category android:name="android.intent.category.LAUNCHER" />
-50-->E:\AndroidStudioProjects\MyJavaDemo\chat\src\main\AndroidManifest.xml:40:17-77
-50-->E:\AndroidStudioProjects\MyJavaDemo\chat\src\main\AndroidManifest.xml:40:27-74
+50-->D:\AndroidStudioProjects\my\MyJavaDemo\chat\src\main\AndroidManifest.xml:40:17-77
+50-->D:\AndroidStudioProjects\my\MyJavaDemo\chat\src\main\AndroidManifest.xml:40:27-74
 51            </intent-filter>
 52
 53            <meta-data
-53-->E:\AndroidStudioProjects\MyJavaDemo\chat\src\main\AndroidManifest.xml:16:13-18:36
+53-->D:\AndroidStudioProjects\my\MyJavaDemo\chat\src\main\AndroidManifest.xml:16:13-18:36
 54                android:name="android.app.lib_name"
-54-->E:\AndroidStudioProjects\MyJavaDemo\chat\src\main\AndroidManifest.xml:17:17-52
+54-->D:\AndroidStudioProjects\my\MyJavaDemo\chat\src\main\AndroidManifest.xml:17:17-52
 55                android:value="" />
-55-->E:\AndroidStudioProjects\MyJavaDemo\chat\src\main\AndroidManifest.xml:18:17-33
+55-->D:\AndroidStudioProjects\my\MyJavaDemo\chat\src\main\AndroidManifest.xml:18:17-33
 56        </activity>
 57
 58        <provider
-58-->[androidx.emoji2:emoji2:1.0.0] E:\AndroidStudioTools\.gradle\caches\transforms-3\4b580972190c9e236a669c6a1f1f8a9e\transformed\emoji2-1.0.0\AndroidManifest.xml:26:9-34:20
+58-->[androidx.emoji2:emoji2:1.0.0] D:\Android\gradle\caches\transforms-3\4b580972190c9e236a669c6a1f1f8a9e\transformed\emoji2-1.0.0\AndroidManifest.xml:26:9-34:20
 59            android:name="androidx.startup.InitializationProvider"
-59-->[androidx.emoji2:emoji2:1.0.0] E:\AndroidStudioTools\.gradle\caches\transforms-3\4b580972190c9e236a669c6a1f1f8a9e\transformed\emoji2-1.0.0\AndroidManifest.xml:27:13-67
+59-->[androidx.emoji2:emoji2:1.0.0] D:\Android\gradle\caches\transforms-3\4b580972190c9e236a669c6a1f1f8a9e\transformed\emoji2-1.0.0\AndroidManifest.xml:27:13-67
 60            android:authorities="com.example.chat.androidx-startup"
-60-->[androidx.emoji2:emoji2:1.0.0] E:\AndroidStudioTools\.gradle\caches\transforms-3\4b580972190c9e236a669c6a1f1f8a9e\transformed\emoji2-1.0.0\AndroidManifest.xml:28:13-68
+60-->[androidx.emoji2:emoji2:1.0.0] D:\Android\gradle\caches\transforms-3\4b580972190c9e236a669c6a1f1f8a9e\transformed\emoji2-1.0.0\AndroidManifest.xml:28:13-68
 61            android:exported="false" >
-61-->[androidx.emoji2:emoji2:1.0.0] E:\AndroidStudioTools\.gradle\caches\transforms-3\4b580972190c9e236a669c6a1f1f8a9e\transformed\emoji2-1.0.0\AndroidManifest.xml:29:13-37
+61-->[androidx.emoji2:emoji2:1.0.0] D:\Android\gradle\caches\transforms-3\4b580972190c9e236a669c6a1f1f8a9e\transformed\emoji2-1.0.0\AndroidManifest.xml:29:13-37
 62            <meta-data
-62-->[androidx.emoji2:emoji2:1.0.0] E:\AndroidStudioTools\.gradle\caches\transforms-3\4b580972190c9e236a669c6a1f1f8a9e\transformed\emoji2-1.0.0\AndroidManifest.xml:31:13-33:52
+62-->[androidx.emoji2:emoji2:1.0.0] D:\Android\gradle\caches\transforms-3\4b580972190c9e236a669c6a1f1f8a9e\transformed\emoji2-1.0.0\AndroidManifest.xml:31:13-33:52
 63                android:name="androidx.emoji2.text.EmojiCompatInitializer"
-63-->[androidx.emoji2:emoji2:1.0.0] E:\AndroidStudioTools\.gradle\caches\transforms-3\4b580972190c9e236a669c6a1f1f8a9e\transformed\emoji2-1.0.0\AndroidManifest.xml:32:17-75
+63-->[androidx.emoji2:emoji2:1.0.0] D:\Android\gradle\caches\transforms-3\4b580972190c9e236a669c6a1f1f8a9e\transformed\emoji2-1.0.0\AndroidManifest.xml:32:17-75
 64                android:value="androidx.startup" />
-64-->[androidx.emoji2:emoji2:1.0.0] E:\AndroidStudioTools\.gradle\caches\transforms-3\4b580972190c9e236a669c6a1f1f8a9e\transformed\emoji2-1.0.0\AndroidManifest.xml:33:17-49
+64-->[androidx.emoji2:emoji2:1.0.0] D:\Android\gradle\caches\transforms-3\4b580972190c9e236a669c6a1f1f8a9e\transformed\emoji2-1.0.0\AndroidManifest.xml:33:17-49
 65            <meta-data
-65-->[androidx.lifecycle:lifecycle-process:2.4.0] E:\AndroidStudioTools\.gradle\caches\transforms-3\dd1064e81b3445eb173cd45521bfd469\transformed\lifecycle-process-2.4.0\AndroidManifest.xml:31:13-33:52
+65-->[androidx.lifecycle:lifecycle-process:2.4.0] D:\Android\gradle\caches\transforms-3\dd1064e81b3445eb173cd45521bfd469\transformed\lifecycle-process-2.4.0\AndroidManifest.xml:31:13-33:52
 66                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
-66-->[androidx.lifecycle:lifecycle-process:2.4.0] E:\AndroidStudioTools\.gradle\caches\transforms-3\dd1064e81b3445eb173cd45521bfd469\transformed\lifecycle-process-2.4.0\AndroidManifest.xml:32:17-78
+66-->[androidx.lifecycle:lifecycle-process:2.4.0] D:\Android\gradle\caches\transforms-3\dd1064e81b3445eb173cd45521bfd469\transformed\lifecycle-process-2.4.0\AndroidManifest.xml:32:17-78
 67                android:value="androidx.startup" />
-67-->[androidx.lifecycle:lifecycle-process:2.4.0] E:\AndroidStudioTools\.gradle\caches\transforms-3\dd1064e81b3445eb173cd45521bfd469\transformed\lifecycle-process-2.4.0\AndroidManifest.xml:33:17-49
+67-->[androidx.lifecycle:lifecycle-process:2.4.0] D:\Android\gradle\caches\transforms-3\dd1064e81b3445eb173cd45521bfd469\transformed\lifecycle-process-2.4.0\AndroidManifest.xml:33:17-49
 68        </provider>
 69    </application>
 70
