@@ -44,7 +44,8 @@ layout fragment_friends
 layout fragment_more
 layout fragment_my
 layout friends_item
-layout message_item
+layout my_message_item
+layout you_message_item
 mipmap ic_launcher
 mipmap ic_launcher_round
 string app_name

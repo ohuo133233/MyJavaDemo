@@ -2,8 +2,8 @@ package com.example.chat.sdk;
 
 import android.util.Log;
 
-import com.example.chat.base.Message;
-import com.example.chat.base.MessageType;
+import com.example.chat.base.chat.Message;
+import com.example.chat.base.chat.MessageType;
 import com.google.gson.Gson;
 
 import java.net.URI;

@@ -2,10 +2,10 @@ package com.example.chat.sdk;
 
 import android.util.Log;
 
-import com.example.chat.base.User;
-import com.example.chat.base.DeviceType;
-import com.example.chat.base.Message;
-import com.example.chat.base.MessageType;
+import com.example.chat.base.chat.DeviceType;
+import com.example.chat.base.chat.Message;
+import com.example.chat.base.chat.MessageType;
+import com.example.chat.base.manager.UserManager;
 import com.google.gson.Gson;
 
 import java.net.URI;
@@ -39,21 +39,22 @@ public class WebSocketSdk {
      * @param address IP地址
      * @param port    端口
      */
-    // TODO 连接成功和失败的回调
     public void connect(String address, String port, ConnectCallBack connectCallBack) {
         try {
             client = new WebSocketChatClient(new URI("ws://" + address + ":" + port + "/my-websocket-endpoint"));
         } catch (URISyntaxException e) {
-            // TODO 连接失败的一种
             e.printStackTrace();
             connectCallBack.fail();
         }
         client.connect();
-
+        connectCallBack.success();
 
     }
 
-    public void login(){
+    /**
+     * 登录消息，通知服务端上线
+     */
+    public void login() {
         sendMessage(MessageType.ON_LINE, "上线消息", "0");
     }
 
@@ -73,29 +74,30 @@ public class WebSocketSdk {
     public void sendMessage(String string, String recipientId) {
         Message message = new Message();
         message.setDeviceType(DeviceType.ANDROID);
-        message.setName(User.getInstance().getNAME());
-        message.setSend_id(User.getInstance().getID() + "");
+        message.setName(UserManager.getInstance().getNAME());
+        message.setSend_id(UserManager.getInstance().getID() + "");
         message.setRecipient_id(recipientId);
         message.setMessageType(MessageType.PRIVATE_CHAT);
         message.setMessage(string);
         message.setTime(System.currentTimeMillis());
 
-        Gson gson = new Gson();
-        String json = gson.toJson(message, Message.class);
-        Log.d("TAG", "sendMessage: " + json);
-        client.send(json);
+        sendMessage(message);
     }
 
     public void sendMessage(int messageType, String string, String recipientId) {
         Message message = new Message();
         message.setDeviceType(DeviceType.ANDROID);
-        message.setName(User.getInstance().getNAME());
-        message.setSend_id(User.getInstance().getID() + "");
+        message.setName(UserManager.getInstance().getNAME());
+        message.setSend_id(UserManager.getInstance().getID() + "");
         message.setRecipient_id(recipientId);
         message.setMessageType(messageType);
         message.setMessage(string);
         message.setTime(System.currentTimeMillis());
 
+        sendMessage(message);
+    }
+
+    public void sendMessage(Message message) {
         Gson gson = new Gson();
         String json = gson.toJson(message, Message.class);
         Log.d("TAG", "sendMessage: " + json);
@@ -112,8 +114,8 @@ public class WebSocketSdk {
         Message message = new Message();
         message.setMessageType(MessageType.REPLY_MESSAGE);
         message.setDeviceType(DeviceType.ANDROID);
-        message.setName(User.getInstance().getNAME());
-        message.setSend_id(User.getInstance().getID() + "");
+        message.setName(UserManager.getInstance().getNAME());
+        message.setSend_id(UserManager.getInstance().getID() + "");
         message.setRecipient_id(recipientId);
         message.setMessage("已经接受到消息");
     }

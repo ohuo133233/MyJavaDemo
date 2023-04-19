@@ -2,6 +2,7 @@ package com.example.chat.chat;
 
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -11,9 +12,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.chat.R;
-import com.example.chat.base.CommonRecyclerViewAdapter;
-import com.example.chat.base.Message;
-import com.example.chat.base.User;
+import com.example.chat.base.common.CommonRecyclerViewAdapter;
+import com.example.chat.base.common.IMutableItemView;
+import com.example.chat.base.chat.Message;
+import com.example.chat.base.manager.UserManager;
 import com.example.chat.sdk.MessageCallBack;
 import com.example.chat.sdk.WebSocketSdk;
 
@@ -43,6 +45,9 @@ public class ChatActivity extends AppCompatActivity {
 
     }
 
+    private final int one = 1;
+    private final int two = 2;
+
     private void initView() {
 
         Button back = findViewById(R.id.back);
@@ -60,19 +65,52 @@ public class ChatActivity extends AppCompatActivity {
 
         send_message.setOnClickListener(v -> {
             String messageString = edit_text.getText().toString().trim();
-            int id = User.getInstance().getID();
-            if (id==1){
+            int id = UserManager.getInstance().getID();
+            if (id == 1) {
                 WebSocketSdk.getInstance().sendMessage(messageString, "2");
-            }else {
+            } else {
                 WebSocketSdk.getInstance().sendMessage(messageString, "1");
             }
-
+            // 添加到本地消息
             addMessage(messageString);
             edit_text.setText("");
             mMessageAdapter.notifyDataSetChanged();
         });
 
-        mMessageAdapter = new CommonRecyclerViewAdapter.Build<Message>().setContext(this).setLayoutId(R.layout.message_item).setDataList(mMessageList).build();
+
+        IMutableItemView iMutableItemView = new IMutableItemView() {
+            @Override
+            public int getItemViewType(int position) {
+                switch (position) {
+                    case 1:
+                        return one;
+                    case 2:
+                        return two;
+                    default:
+                        return one;
+                }
+            }
+
+            @Override
+            public int onCreateViewHolder(ViewGroup parent, int viewType) {
+                switch (viewType) {
+                    case one:
+                        return R.layout.my_message_item;
+                    case two:
+                        return R.layout.you_message_item;
+                    default:
+                        return R.layout.my_message_item;
+                }
+            }
+        };
+
+        mMessageAdapter = new CommonRecyclerViewAdapter.Build<Message>()
+                .setContext(this)
+                .setLayoutId(R.layout.my_message_item)
+                .setDataList(mMessageList)
+                .setMutableItemView(iMutableItemView)
+                .build();
+
         message_list.setAdapter(mMessageAdapter);
         message_list.setLayoutManager(new LinearLayoutManager(this));
 
@@ -86,7 +124,7 @@ public class ChatActivity extends AppCompatActivity {
     private void addMessage(String messageString) {
         Message message = new Message();
         message.setMessage(messageString);
-        message.setName(User.getInstance().getNAME());
+        message.setName(UserManager.getInstance().getNAME());
         message.setTime(System.currentTimeMillis());
         mMessageList.add(message);
     }

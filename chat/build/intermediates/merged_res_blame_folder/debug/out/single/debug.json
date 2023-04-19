@@ -52,10 +52,6 @@
         "source": "D:\\Android\\gradle\\daemon\\7.4\\com.example.chat-main-27:\\layout\\fragment_chat_list.xml"
     },
     {
-        "merged": "com.example.chat-merged_res-25:/layout_activity_main.xml.flat",
-        "source": "com.example.chat-main-27:/layout/activity_main.xml"
-    },
-    {
         "merged": "D:\\Android\\gradle\\daemon\\7.4\\com.example.chat-merged_res-25:\\mipmap-hdpi_ic_launcher.webp.flat",
         "source": "D:\\Android\\gradle\\daemon\\7.4\\com.example.chat-main-27:\\mipmap-hdpi\\ic_launcher.webp"
     },
@@ -70,6 +66,14 @@
     {
         "merged": "D:\\Android\\gradle\\daemon\\7.4\\com.example.chat-merged_res-25:\\mipmap-xxhdpi_ic_launcher_round.webp.flat",
         "source": "D:\\Android\\gradle\\daemon\\7.4\\com.example.chat-main-27:\\mipmap-xxhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.example.chat-merged_res-25:/layout_my_message_item.xml.flat",
+        "source": "com.example.chat-main-27:/layout/my_message_item.xml"
+    },
+    {
+        "merged": "com.example.chat-merged_res-25:/layout_you_message_item.xml.flat",
+        "source": "com.example.chat-main-27:/layout/you_message_item.xml"
     },
     {
         "merged": "D:\\Android\\gradle\\daemon\\7.4\\com.example.chat-merged_res-25:\\layout_activity_chat.xml.flat",

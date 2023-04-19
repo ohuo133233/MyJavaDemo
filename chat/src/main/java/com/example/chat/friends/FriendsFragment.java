@@ -12,9 +12,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.chat.R;
-import com.example.chat.base.CommonRecyclerViewAdapter;
-import com.example.chat.base.CommonRecyclerViewAdapterBackCall;
-import com.example.chat.base.CommonRecyclerViewHolder;
+import com.example.chat.base.common.CommonRecyclerViewAdapter;
+import com.example.chat.base.common.CommonRecyclerViewAdapterBackCall;
+import com.example.chat.base.common.CommonRecyclerViewHolder;
 
 import java.util.ArrayList;
 

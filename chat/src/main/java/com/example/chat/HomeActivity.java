@@ -9,7 +9,7 @@ import android.view.View;
 import android.widget.Button;
 
 
-import com.example.chat.base.CommonFragmentAdapter;
+import com.example.chat.base.common.CommonFragmentAdapter;
 import com.example.chat.chat.ChatListFragment;
 import com.example.chat.friends.FriendsFragment;
 import com.example.chat.more.MoreFragment;
@@ -24,7 +24,6 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-
         initView();
     }
 
