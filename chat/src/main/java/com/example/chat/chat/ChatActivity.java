@@ -51,10 +51,13 @@ public class ChatActivity extends AppCompatActivity {
     private void initView() {
 
         Button back = findViewById(R.id.back);
+        TextView you_name = findViewById(R.id.you_name);
         EditText edit_text = findViewById(R.id.edit_text);
         Button send_message = findViewById(R.id.send_message);
         RecyclerView message_list = findViewById(R.id.message_list);
 
+        // TODO 设置对方姓名
+//        you_name.setText();
 
         back.setOnClickListener(new View.OnClickListener() {
             @Override
