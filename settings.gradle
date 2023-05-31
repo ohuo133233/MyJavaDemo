@@ -51,3 +51,7 @@ rootProject.name = "MyJavaDemo"
 include ':app'
 include ':apt'
 include ':chat'
+include ':locale'
+include ':virtualdisplay'
+include ':unity'
+include ':ui'

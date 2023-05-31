@@ -48,7 +48,6 @@ public class WebSocketSdk {
         }
         client.connect();
         connectCallBack.success();
-
     }
 
     /**

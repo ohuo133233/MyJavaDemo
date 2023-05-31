@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -17,7 +18,8 @@ import com.example.chat.my.MyFragment;
 
 import java.util.ArrayList;
 
-public class HomeActivity extends AppCompatActivity {
+public class HomeActivity extends AppCompatActivity implements View.OnClickListener {
+    private static final String TAG = "HomeActivity";
     private ViewPager2 mViewPager2;
 
     @Override
@@ -49,31 +51,31 @@ public class HomeActivity extends AppCompatActivity {
         Button friends = findViewById(R.id.friends);
         Button more = findViewById(R.id.more);
         Button my = findViewById(R.id.my);
+        chat.setOnClickListener(this);
+        friends.setOnClickListener(this);
+        more.setOnClickListener(this);
+        my.setOnClickListener(this);
 
+    }
 
-        chat.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.chat:
                 mViewPager2.setCurrentItem(0);
-            }
-        });
-        friends.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+                break;
+            case R.id.friends:
                 mViewPager2.setCurrentItem(1);
-            }
-        });
-        more.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+                break;
+            case R.id.more:
                 mViewPager2.setCurrentItem(2);
-            }
-        });
-        my.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+                break;
+            case R.id.my:
                 mViewPager2.setCurrentItem(3);
-            }
-        });
+                break;
+            default:
+                Log.e(TAG, "错误");
+                break;
+        }
     }
 }

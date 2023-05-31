@@ -9,21 +9,38 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
+        android:screenOrientation="landscape"
         android:supportsRtl="true"
-        android:theme="@style/Theme.MyJavaDemo"
-        tools:targetApi="31">
+        android:theme="@style/Theme.MyJavaDemo">
+
+
+        <activity
+            android:name=".path.RoleMovePathActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".path.TouchPathViewActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".path.PathViewActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".base.BaseActivity"
+            android:exported="false" />
+        <activity
+            android:name=".path.PathActivity"
+            android:exported="false"
+            android:screenOrientation="landscape" />
         <activity
             android:name=".surface.SurfaceViewActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
-
-
         </activity>
         <activity
             android:name=".MainActivity"
-            android:exported="true">
+            android:exported="true"
+            android:screenOrientation="landscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

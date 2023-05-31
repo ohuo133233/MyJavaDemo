@@ -27,6 +27,7 @@ id message
 id message_list
 id more
 id my
+id search
 id search_friends
 id send_message
 id textView

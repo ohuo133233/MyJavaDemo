@@ -1,15 +1,14 @@
 package com.example.demo.surface;
 
 import android.os.Bundle;
-import android.view.SurfaceView;
-import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.demo.R;
+import com.example.demo.path.PathView;
 
 public class SurfaceViewActivity extends AppCompatActivity {
-    protected PathSurface mSurfaceView;
+    protected PathView mSurfaceView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
