@@ -8,6 +8,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyJavaDemo">
         <activity
+            android:name=".PropertyAnimationActivity"
+            android:exported="false" />
+        <activity
             android:name=".ViewScaleActivity"
             android:exported="false" />
         <activity

@@ -18,7 +18,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class ViewScaleActivity extends AppCompatActivity {
-    private int duration = 500;
+
     private static final String TAG = "ViewScaleActivity";
 
 
@@ -80,7 +80,6 @@ public class ViewScaleActivity extends AppCompatActivity {
         scaleAnimation.setDuration(duration);
         scaleAnimation.setInterpolator(new LinearInterpolator());
         return scaleAnimation;
-
     }
 
 

@@ -14,7 +14,9 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/apt" />
             <option value="$PROJECT_DIR$/chat" />
+            <option value="$PROJECT_DIR$/dialog" />
             <option value="$PROJECT_DIR$/locale" />
+            <option value="$PROJECT_DIR$/suspended" />
             <option value="$PROJECT_DIR$/ui" />
             <option value="$PROJECT_DIR$/unity" />
             <option value="$PROJECT_DIR$/virtualdisplay" />
