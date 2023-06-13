@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
         Button start_property_animation = findViewById(R.id.start_property_animation);
 
         start_property_animation.setOnClickListener((v -> {
-            Intent intent = new Intent(this, ViewAnimationActivity.class);
+            Intent intent = new Intent(this, PropertyAnimationActivity.class);
             startActivity(intent);
         }));
 

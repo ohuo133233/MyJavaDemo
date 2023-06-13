@@ -16,6 +16,7 @@
             <option value="$PROJECT_DIR$/chat" />
             <option value="$PROJECT_DIR$/dialog" />
             <option value="$PROJECT_DIR$/locale" />
+            <option value="$PROJECT_DIR$/mediaplayer" />
             <option value="$PROJECT_DIR$/suspended" />
             <option value="$PROJECT_DIR$/ui" />
             <option value="$PROJECT_DIR$/unity" />
