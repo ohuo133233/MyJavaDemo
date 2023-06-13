@@ -16,20 +16,16 @@ public class StatusBar {
 
     //将状态栏设置为传入的color
     public void setColor(int color){
-        if (Build.VERSION.SDK_INT >= 21) {
-            View view = activity.getWindow().getDecorView();
-            view.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN | View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
-            activity.getWindow().setStatusBarColor(activity.getResources().getColor(color));
-        }
+        View view = activity.getWindow().getDecorView();
+        view.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN | View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
+        activity.getWindow().setStatusBarColor(activity.getResources().getColor(color));
     }
 
 
     public void setTransparent(){
-        if (Build.VERSION.SDK_INT >= 21) {
-            View view = activity.getWindow().getDecorView();
-            view.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN | View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
-            activity.getWindow().setStatusBarColor(Color.TRANSPARENT);
-        }
+        View view = activity.getWindow().getDecorView();
+        view.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN | View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
+        activity.getWindow().setStatusBarColor(Color.TRANSPARENT);
     }
 
     //隐藏状态栏

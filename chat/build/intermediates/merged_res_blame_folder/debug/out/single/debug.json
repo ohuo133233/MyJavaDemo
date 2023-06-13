@@ -1,106 +1,106 @@
 [
     {
-        "merged": "com.example.chat-merged_res-25:/mipmap-hdpi_ic_launcher.webp.flat",
-        "source": "com.example.chat-main-27:/mipmap-hdpi/ic_launcher.webp"
+        "merged": "com.example.chat-merged_res-5:/mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.chat-main-7:/mipmap-hdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "com.example.chat-merged_res-25:/mipmap-anydpi-v26_ic_launcher.xml.flat",
-        "source": "com.example.chat-main-27:/mipmap-anydpi-v26/ic_launcher.xml"
+        "merged": "com.example.chat-merged_res-5:/mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "com.example.chat-main-7:/mipmap-xxxhdpi/ic_launcher.webp"
     },
     {
-        "merged": "com.example.chat-merged_res-25:/mipmap-xhdpi_ic_launcher.webp.flat",
-        "source": "com.example.chat-main-27:/mipmap-xhdpi/ic_launcher.webp"
+        "merged": "com.example.chat-merged_res-5:/layout_chat_item.xml.flat",
+        "source": "com.example.chat-main-7:/layout/chat_item.xml"
     },
     {
-        "merged": "com.example.chat-merged_res-25:/layout_fragment_my.xml.flat",
-        "source": "com.example.chat-main-27:/layout/fragment_my.xml"
+        "merged": "com.example.chat-merged_res-5:/layout_my_message_item.xml.flat",
+        "source": "com.example.chat-main-7:/layout/my_message_item.xml"
     },
     {
-        "merged": "com.example.chat-merged_res-25:/mipmap-hdpi_ic_launcher_round.webp.flat",
-        "source": "com.example.chat-main-27:/mipmap-hdpi/ic_launcher_round.webp"
+        "merged": "com.example.chat-merged_res-5:/layout_activity_chat.xml.flat",
+        "source": "com.example.chat-main-7:/layout/activity_chat.xml"
     },
     {
-        "merged": "com.example.chat-merged_res-25:/mipmap-xxxhdpi_ic_launcher.webp.flat",
-        "source": "com.example.chat-main-27:/mipmap-xxxhdpi/ic_launcher.webp"
+        "merged": "com.example.chat-merged_res-5:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.chat-main-7:/mipmap-xxxhdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "com.example.chat-merged_res-25:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
-        "source": "com.example.chat-main-27:/mipmap-xxhdpi/ic_launcher_round.webp"
+        "merged": "com.example.chat-merged_res-5:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "com.example.chat-main-7:/mipmap-anydpi-v26/ic_launcher_round.xml"
     },
     {
-        "merged": "com.example.chat-merged_res-25:/layout_activity_home.xml.flat",
-        "source": "com.example.chat-main-27:/layout/activity_home.xml"
+        "merged": "com.example.chat-merged_res-5:/layout_you_message_item.xml.flat",
+        "source": "com.example.chat-main-7:/layout/you_message_item.xml"
     },
     {
-        "merged": "com.example.chat-merged_res-25:/layout_activity_chat.xml.flat",
-        "source": "com.example.chat-main-27:/layout/activity_chat.xml"
+        "merged": "com.example.chat-merged_res-5:/mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "com.example.chat-main-7:/mipmap-xhdpi/ic_launcher.webp"
     },
     {
-        "merged": "com.example.chat-merged_res-25:/drawable-anydpi-v24_ic_launcher_foreground.xml.flat",
-        "source": "com.example.chat-pngs-20:/drawable-anydpi-v24/ic_launcher_foreground.xml"
+        "merged": "com.example.chat-merged_res-5:/mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.chat-main-7:/mipmap-xhdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "com.example.chat-merged_res-25:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
-        "source": "com.example.chat-main-27:/mipmap-anydpi-v26/ic_launcher_round.xml"
+        "merged": "com.example.chat-merged_res-5:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "com.example.chat-main-7:/mipmap-anydpi-v26/ic_launcher.xml"
     },
     {
-        "merged": "com.example.chat-merged_res-25:/mipmap-xhdpi_ic_launcher_round.webp.flat",
-        "source": "com.example.chat-main-27:/mipmap-xhdpi/ic_launcher_round.webp"
+        "merged": "com.example.chat-merged_res-5:/layout_fragment_my.xml.flat",
+        "source": "com.example.chat-main-7:/layout/fragment_my.xml"
     },
     {
-        "merged": "com.example.chat-merged_res-25:/drawable_ic_launcher_background.xml.flat",
-        "source": "com.example.chat-main-27:/drawable/ic_launcher_background.xml"
+        "merged": "com.example.chat-merged_res-5:/layout_friends_item.xml.flat",
+        "source": "com.example.chat-main-7:/layout/friends_item.xml"
     },
     {
-        "merged": "com.example.chat-merged_res-25:/layout_fragment_friends.xml.flat",
-        "source": "com.example.chat-main-27:/layout/fragment_friends.xml"
+        "merged": "com.example.chat-merged_res-5:/drawable-anydpi-v24_ic_launcher_foreground.xml.flat",
+        "source": "com.example.chat-pngs-0:/drawable-anydpi-v24/ic_launcher_foreground.xml"
     },
     {
-        "merged": "com.example.chat-merged_res-25:/layout_activity_main.xml.flat",
-        "source": "com.example.chat-main-27:/layout/activity_main.xml"
+        "merged": "com.example.chat-merged_res-5:/drawable_ic_launcher_background.xml.flat",
+        "source": "com.example.chat-main-7:/drawable/ic_launcher_background.xml"
     },
     {
-        "merged": "com.example.chat-merged_res-25:/layout_friends_item.xml.flat",
-        "source": "com.example.chat-main-27:/layout/friends_item.xml"
+        "merged": "com.example.chat-merged_res-5:/layout_fragment_more.xml.flat",
+        "source": "com.example.chat-main-7:/layout/fragment_more.xml"
     },
     {
-        "merged": "com.example.chat-merged_res-25:/layout_activity_add_friends.xml.flat",
-        "source": "com.example.chat-main-27:/layout/activity_add_friends.xml"
+        "merged": "com.example.chat-merged_res-5:/mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "com.example.chat-main-7:/mipmap-mdpi/ic_launcher.webp"
     },
     {
-        "merged": "com.example.chat-merged_res-25:/layout_fragment_chat_list.xml.flat",
-        "source": "com.example.chat-main-27:/layout/fragment_chat_list.xml"
+        "merged": "com.example.chat-merged_res-5:/layout_activity_home.xml.flat",
+        "source": "com.example.chat-main-7:/layout/activity_home.xml"
     },
     {
-        "merged": "com.example.chat-merged_res-25:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
-        "source": "com.example.chat-main-27:/mipmap-xxxhdpi/ic_launcher_round.webp"
+        "merged": "com.example.chat-merged_res-5:/mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.chat-main-7:/mipmap-mdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "com.example.chat-merged_res-25:/layout_fragment_more.xml.flat",
-        "source": "com.example.chat-main-27:/layout/fragment_more.xml"
+        "merged": "com.example.chat-merged_res-5:/mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "com.example.chat-main-7:/mipmap-xxhdpi/ic_launcher.webp"
     },
     {
-        "merged": "com.example.chat-merged_res-25:/layout_my_message_item.xml.flat",
-        "source": "com.example.chat-main-27:/layout/my_message_item.xml"
+        "merged": "com.example.chat-merged_res-5:/mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "com.example.chat-main-7:/mipmap-hdpi/ic_launcher.webp"
     },
     {
-        "merged": "com.example.chat-merged_res-25:/mipmap-xxhdpi_ic_launcher.webp.flat",
-        "source": "com.example.chat-main-27:/mipmap-xxhdpi/ic_launcher.webp"
+        "merged": "com.example.chat-merged_res-5:/layout_activity_main.xml.flat",
+        "source": "com.example.chat-main-7:/layout/activity_main.xml"
     },
     {
-        "merged": "com.example.chat-merged_res-25:/layout_you_message_item.xml.flat",
-        "source": "com.example.chat-main-27:/layout/you_message_item.xml"
+        "merged": "com.example.chat-merged_res-5:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.chat-main-7:/mipmap-xxhdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "com.example.chat-merged_res-25:/layout_chat_item.xml.flat",
-        "source": "com.example.chat-main-27:/layout/chat_item.xml"
+        "merged": "com.example.chat-merged_res-5:/layout_fragment_chat_list.xml.flat",
+        "source": "com.example.chat-main-7:/layout/fragment_chat_list.xml"
     },
     {
-        "merged": "com.example.chat-merged_res-25:/mipmap-mdpi_ic_launcher.webp.flat",
-        "source": "com.example.chat-main-27:/mipmap-mdpi/ic_launcher.webp"
+        "merged": "com.example.chat-merged_res-5:/layout_activity_add_friends.xml.flat",
+        "source": "com.example.chat-main-7:/layout/activity_add_friends.xml"
     },
     {
-        "merged": "com.example.chat-merged_res-25:/mipmap-mdpi_ic_launcher_round.webp.flat",
-        "source": "com.example.chat-main-27:/mipmap-mdpi/ic_launcher_round.webp"
+        "merged": "com.example.chat-merged_res-5:/layout_fragment_friends.xml.flat",
+        "source": "com.example.chat-main-7:/layout/fragment_friends.xml"
     }
 ]

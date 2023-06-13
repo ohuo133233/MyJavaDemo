@@ -23,6 +23,7 @@ import com.wang.recyclerview.CommonRecyclerViewAdapter;
 import com.wang.recyclerview.CommonRecyclerViewAdapterBackCall;
 import com.wang.recyclerview.CommonRecyclerViewHolder;
 
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
@@ -31,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
     private String TAG = "MainActivity";
     private PowerManager.WakeLock mWakeLock;
     private boolean isDrag;
+    private Player mPlayer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,9 +46,7 @@ public class MainActivity extends AppCompatActivity {
 
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 
-        MediaPlayer mediaPlayer = MediaPlayer.create(this, R.raw.a);
-
-        SurfaceView surfaceView = findViewById(R.id.surface_view);
+        mPlayer = findViewById(R.id.player);
         SeekBar seekbar = findViewById(R.id.seekbar);
 
         ImageButton play = findViewById(R.id.play);
@@ -75,23 +75,17 @@ public class MainActivity extends AppCompatActivity {
         file_list.setLayoutManager(new LinearLayoutManager(this));
 
         play.setOnClickListener(v -> {
-            if (mediaPlayer.isPlaying()) {
-                Log.d(TAG, "onCreate: 设置为播放状态");
-                mediaPlayer.pause();
-            } else {
-                Log.d(TAG, "onCreate: 设置为暂停状态");
-                mediaPlayer.start();
-            }
+                mPlayer.startAndPause();
         });
 
         stop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mediaPlayer.release();
+                mPlayer.release();
             }
         });
 
-        int duration = mediaPlayer.getDuration();
+        int duration = mPlayer.getDuration();
         Log.d(TAG, "视频长度毫秒: " + duration);
         Log.d(TAG, "视频长度秒: " + duration / 1000);
         String endTime = convertMilliseconds(duration);
@@ -101,34 +95,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         seekbar.setMax(duration / 1000);
-        new Thread() {
-            @Override
-            public void run() {
-                super.run();
 
-                while (progress < duration) {
-                    start_time.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            start_time.setText(convertMilliseconds(mediaPlayer.getCurrentPosition()));
-                        }
-                    });
-
-                    if (isDrag) {
-                        return;
-                    }
-                    progress += 1;
-                    seekbar.setProgress(progress);
-
-
-                    try {
-                        Thread.sleep(1000);
-                    } catch (InterruptedException e) {
-                        throw new RuntimeException(e);
-                    }
-                }
-            }
-        }.start();
 
         seekbar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
@@ -136,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
 
                 Log.d(TAG, "onProgressChanged: progress: " + progress);
                 //    mediaPlayer.seekTo(progress);
-                int currentPosition = mediaPlayer.getCurrentPosition();
+                int currentPosition = mPlayer.getCurrentPosition();
                 Log.d(TAG, "onProgressChanged: currentPosition: " + currentPosition);
             }
 
@@ -153,23 +120,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        surfaceView.getHolder().addCallback(new SurfaceHolder.Callback() {
-            @Override
-            public void surfaceCreated(@NonNull SurfaceHolder holder) {
-                mediaPlayer.setSurface(surfaceView.getHolder().getSurface());
-                mediaPlayer.start();
-            }
-
-            @Override
-            public void surfaceChanged(@NonNull SurfaceHolder holder, int format, int width, int height) {
-
-            }
-
-            @Override
-            public void surfaceDestroyed(@NonNull SurfaceHolder holder) {
-
-            }
-        });
 
     }
 
@@ -187,7 +137,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onPause() {
         super.onPause();
         // 释放WakeLock
-        mWakeLock.release();
+//        mWakeLock.release();
     }
 
     public String convertMilliseconds(long milliseconds) {
