@@ -3,11 +3,15 @@ package com.example.mediaplayer;
 import android.content.Context;
 import android.media.MediaPlayer;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class Player extends SurfaceView implements SurfaceHolder.Callback {
     private MediaPlayer mMediaPlayer;
@@ -35,12 +39,47 @@ public class Player extends SurfaceView implements SurfaceHolder.Callback {
         getHolder().addCallback(this);
     }
 
+    private IPlayer mIPlayer;
+
+    public void setPlayer(IPlayer iPlayer) {
+        mIPlayer = iPlayer;
+    }
 
     @Override
     public void surfaceCreated(@NonNull SurfaceHolder surfaceHolder) {
         mMediaPlayer = MediaPlayer.create(mContext, R.raw.a);
         mMediaPlayer.setSurface(surfaceHolder.getSurface());
         mMediaPlayer.start();
+
+        // 设置准备完成的监听器
+        mMediaPlayer.setOnPreparedListener(mp -> {
+            // MediaPlayer 准备完成时的回调方法
+
+            // 创建一个定时器任务，每秒获取播放进度
+            TimerTask timerTask = new TimerTask() {
+                @Override
+                public void run() {
+                    if (mMediaPlayer == null) {
+                        return;
+                    }
+                    if (mMediaPlayer.isPlaying()) {
+                        // 获取当前播放位置
+                        int currentPosition = mMediaPlayer.getCurrentPosition();
+//                        Log.d(TAG, "run: currentPosition: " + currentPosition);
+//                        Log.d(TAG, "run: duration: " + mMediaPlayer.getDuration());
+                        if (mIPlayer != null) {
+                            mIPlayer.OnProgressListener(mMediaPlayer, currentPosition, mMediaPlayer.getDuration());
+                        }
+                    }
+                }
+            };
+
+            // 创建一个定时器，每秒执行一次任务
+            Timer timer = new Timer();
+            // 延迟0毫秒后开始执行任务，每隔0.5秒执行一次
+            timer.schedule(timerTask, 0, 500);
+        });
+
     }
 
     @Override
@@ -50,7 +89,7 @@ public class Player extends SurfaceView implements SurfaceHolder.Callback {
 
     @Override
     public void surfaceDestroyed(@NonNull SurfaceHolder surfaceHolder) {
-
+        mMediaPlayer.release();
     }
 
     /**
@@ -126,12 +165,27 @@ public class Player extends SurfaceView implements SurfaceHolder.Callback {
 
     /**
      * 持续时间
+     *
+     * @return 返回毫秒
      */
     public int getDuration() {
         if (mMediaPlayer != null) {
             return mMediaPlayer.getDuration();
         }
         return 0;
+    }
+
+    /**
+     * 返回当前视频的总时间
+     * 例如:01:33:59
+     *
+     * @return 返回字符串类型的时分秒
+     */
+    public String getTime() {
+        if (mMediaPlayer != null) {
+            return convertMilliseconds(mMediaPlayer.getDuration());
+        }
+        return null;
     }
 
     /**
@@ -142,6 +196,38 @@ public class Player extends SurfaceView implements SurfaceHolder.Callback {
             return mMediaPlayer.getCurrentPosition();
         }
         return 0;
+    }
+
+    /**
+     * 当前时间
+     *
+     * @return 返回字符串类型的时分秒
+     */
+    public String getCurrentTime() {
+        if (mMediaPlayer != null) {
+            return convertMilliseconds(mMediaPlayer.getCurrentPosition());
+        }
+        return null;
+    }
+
+
+    public void seekTo(int msec) {
+        if (mMediaPlayer != null) {
+            mMediaPlayer.seekTo(msec);
+        }
+    }
+
+    public String convertMilliseconds(long milliseconds) {
+        // 计算小时、分钟和秒
+        long hours = milliseconds / (60 * 60 * 1000);
+        milliseconds %= (60 * 60 * 1000);
+        long minutes = milliseconds / (60 * 1000);
+        milliseconds %= (60 * 1000);
+        long seconds = milliseconds / 1000;
+
+        // 构建格式化的时间字符串
+        String time = String.format("%02d:%02d:%02d", hours, minutes, seconds);
+        return time;
     }
 
 
