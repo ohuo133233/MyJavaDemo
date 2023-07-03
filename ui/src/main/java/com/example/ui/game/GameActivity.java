@@ -1,9 +1,11 @@
 package com.example.ui.game;
 
+import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.WindowManager;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,19 +18,20 @@ public class GameActivity extends AppCompatActivity {
     private final String TAG = "GameActivity";
     private Player mPlayer;
 
+    private float down_x;
+    private float down_y;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_game);
 
         mPlayer = findViewById(R.id.player);
-
-
     }
 
-    private int start;
-    private float down_x;
-    private float down_y;
+
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
@@ -36,37 +39,26 @@ public class GameActivity extends AppCompatActivity {
             case MotionEvent.ACTION_DOWN:
                 down_x = event.getX();
                 down_y = event.getY();
-                KLog.d(TAG, " ACTION_DOWN down_x: " + down_x);
-                KLog.d(TAG, " ACTION_DOWN down_y: " + down_y);
-
-                int width = mPlayer.getWidth();
-                int height = mPlayer.getHeight();
-                KLog.d(TAG, " ACTION_DOWN width: " + width);
-                KLog.d(TAG, " ACTION_DOWN height: " + height);
-//                mPlayer.setVisibility(View.GONE);
-//                mPlayer.setX(down_x);
-//                mPlayer.setY(down_y);
-//                mPlayer.invalidate();
-
-                mPlayer.setTranslationX(down_x);
-                mPlayer.setTranslationY(down_y);
 
                 break;
             case MotionEvent.ACTION_UP:
                 int x = (int) event.getX();
                 int y = (int) event.getY();
-//                KLog.d(TAG, " ACTION_UP x: " + x);
-//                KLog.d(TAG, " ACTION_UP y: " + y);
-//                mPlayer.setX(0);
-//                mPlayer.setY(0);
-//                mPlayer.invalidate();
-                mPlayer.layout(x, y, x + mPlayer.getWidth(), y + mPlayer.getHeight());
-//                setOnTouchKey(offsetX,offsetY,x,y);
+
+                // 创建平移动画
+                ObjectAnimator animatorX = ObjectAnimator.ofFloat(mPlayer, "translationX", x);
+                ObjectAnimator animatorY = ObjectAnimator.ofFloat(mPlayer, "translationY", y);
+
+                // 设置动画的持续时间
+                animatorX.setDuration(1000);
+                animatorY.setDuration(1000);
+
+                // 启动动画
+                animatorX.start();
+                animatorY.start();
                 break;
 
         }
-
-
         return true;
     }
 
