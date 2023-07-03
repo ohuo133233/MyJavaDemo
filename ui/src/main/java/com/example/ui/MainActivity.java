@@ -1,11 +1,15 @@
 package com.example.ui;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.ui.game.GameActivity;
+import com.example.ui.gesture.GestureActivity;
+import com.example.ui.property.PropertyAnimationActivity;
+import com.example.ui.view.ViewAnimationActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -16,8 +20,9 @@ public class MainActivity extends AppCompatActivity {
 
 
         Button start_view_animation = findViewById(R.id.start_view_animation);
-        Button start_path = findViewById(R.id.start_path);
+        Button start_gesture = findViewById(R.id.start_gesture);
         Button start_property_animation = findViewById(R.id.start_property_animation);
+        Button start_game = findViewById(R.id.start_game);
 
         start_property_animation.setOnClickListener((v -> {
             Intent intent = new Intent(this, PropertyAnimationActivity.class);
@@ -29,13 +34,16 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         }));
 
-        start_path.setOnClickListener((v -> {
-//            Intent intent = new Intent(this, ViewAnimationActivity.class);
-//            startActivity(intent);
+        start_gesture.setOnClickListener((v -> {
+            Intent intent = new Intent(this, GestureActivity.class);
+            startActivity(intent);
+        }));
+
+        start_game.setOnClickListener((v -> {
+            Intent intent = new Intent(this, GameActivity.class);
+            startActivity(intent);
         }));
 
 
-        Intent intent = new Intent(this, ViewAnimationActivity.class);
-        startActivity(intent);
     }
 }

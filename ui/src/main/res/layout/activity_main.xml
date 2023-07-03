@@ -20,9 +20,15 @@
         android:text="属性动画" />
 
     <Button
-        android:id="@+id/start_path"
+        android:id="@+id/start_gesture"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Path演示" />
+        android:text="手势演示" />
+
+    <Button
+        android:id="@+id/start_game"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Game"/>
 
 </LinearLayout>

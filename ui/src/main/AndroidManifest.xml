@@ -8,13 +8,32 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyJavaDemo">
         <activity
-            android:name=".PropertyAnimationActivity"
+            android:name=".gesture.GestureActivity"
             android:exported="false" />
         <activity
-            android:name=".ViewScaleActivity"
+            android:name=".property.PropertyTranslateActivity"
             android:exported="false" />
         <activity
-            android:name=".ViewAnimationActivity"
+            android:name=".game.GameActivity"
+            android:theme="@style/Theme.Design.NoActionBar"
+            android:exported="false" />
+        <activity
+            android:name=".view.ViewRotateActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.ViewAlphaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.ViewTranslateActivity"
+            android:exported="false" />
+        <activity
+            android:name=".property.PropertyAnimationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.ViewScaleActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.ViewAnimationActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

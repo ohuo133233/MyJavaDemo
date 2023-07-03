@@ -75,12 +75,11 @@ public class MainActivity extends AppCompatActivity {
         commonRecyclerViewAdapter.setCommonRecyclerViewAdapterBackCall((holder, position) -> {
             holder.getItemView().setOnClickListener(v -> {
                 Group group = holder.getView(R.id.group);
-                if (group.getVisibility()==View.VISIBLE){
+                if (group.getVisibility() == View.VISIBLE) {
                     group.setVisibility(View.GONE);
-                }else {
+                } else {
                     group.setVisibility(View.VISIBLE);
                 }
-
             });
             TextView textView = holder.getView(R.id.title);
             textView.setText(list.get(position));
@@ -140,24 +139,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
-
-//
-//    @Override
-//    protected void onResume() {
-//        super.onResume();
-//        // 获取电源管理器和WakeLock
-////        PowerManager powerManager = (PowerManager) getSystemService(Context.POWER_SERVICE);
-////        mWakeLock = powerManager.newWakeLock(PowerManager.FULL_WAKE_LOCK, "VideoPlayerActivity");
-////        mWakeLock.acquire();
-//    }
-//
-//    @Override
-//    protected void onPause() {
-//        super.onPause();
-//        // 释放WakeLock
-////        mWakeLock.release();
-//    }
 
 
 }

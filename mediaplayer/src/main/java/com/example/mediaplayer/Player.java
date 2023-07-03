@@ -14,9 +14,10 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class Player extends SurfaceView implements SurfaceHolder.Callback {
-    private MediaPlayer mMediaPlayer;
     private final String TAG = "Player";
+    private MediaPlayer mMediaPlayer;
     private Context mContext;
+    private IPlayer mIPlayer;
 
     public Player(Context context) {
         super(context);
@@ -38,8 +39,6 @@ public class Player extends SurfaceView implements SurfaceHolder.Callback {
         this.mContext = context;
         getHolder().addCallback(this);
     }
-
-    private IPlayer mIPlayer;
 
     public void setPlayer(IPlayer iPlayer) {
         mIPlayer = iPlayer;
