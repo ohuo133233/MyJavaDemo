@@ -20,6 +20,11 @@ public class GameActivity extends AppCompatActivity {
 
     private float down_x;
     private float down_y;
+    private static final int LEFT = 1;
+    private static final int RIGHT = 2;
+    private static final int UP = 3;
+    private static final int BOTTOM = 4;
+    private static int currentDirection;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +35,6 @@ public class GameActivity extends AppCompatActivity {
 
         mPlayer = findViewById(R.id.player);
     }
-
 
 
     @Override
@@ -72,6 +76,7 @@ public class GameActivity extends AppCompatActivity {
      * @param y       起手y
      */
     private void setOnTouchKey(float offsetX, float offsetY, float x, float y) {
+
         if (offsetX >= offsetY) {
             if (down_y < y) {
                 currentDirection = UP;
@@ -106,90 +111,42 @@ public class GameActivity extends AppCompatActivity {
 
     }
 
-    private static final int LEFT = 1;
-
-    private static final int RIGHT = 2;
-
-    private static final int UP = 3;
-    private static final int BOTTOM = 4;
-    private static int currentDirection;
-
     private void up() {
         KLog.d(TAG, "up");
         mPlayer.up();
-        ValueAnimator valueAnimator = ValueAnimator.ofInt((int) mPlayer.getY(), (int) mPlayer.getY() - 200);
-        valueAnimator.setDuration(1000);
-        valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(@NonNull ValueAnimator animation) {
-                Integer animatedValue = (Integer) animation.getAnimatedValue();
-                int width = mPlayer.getWidth();
-                int height = mPlayer.getHeight();
-//                KLog.d(TAG, "mPlayer width: " + width);
-//                KLog.d(TAG, "mPlayer height: " + height);
-//                KLog.d(TAG, "animatedValue: " + animatedValue);
-                mPlayer.layout(animatedValue, animatedValue, animatedValue + width, animatedValue + height);
-            }
-        });
-        valueAnimator.start();
+        move((int) mPlayer.getY(), (int) mPlayer.getY() - 200);
     }
 
     private void bottom() {
         KLog.d(TAG, "bottom");
         mPlayer.bottom();
-        ValueAnimator valueAnimator = ValueAnimator.ofInt((int) mPlayer.getY(), (int) mPlayer.getY() + 200);
-        valueAnimator.setDuration(1000);
-        valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(@NonNull ValueAnimator animation) {
-                Integer animatedValue = (Integer) animation.getAnimatedValue();
-                int width = mPlayer.getWidth();
-                int height = mPlayer.getHeight();
-//                KLog.d(TAG, "mPlayer width: " + width);
-//                KLog.d(TAG, "mPlayer height: " + height);
-//                KLog.d(TAG, "animatedValue: " + animatedValue);
-                mPlayer.layout(animatedValue, animatedValue, animatedValue + width, animatedValue + height);
-            }
-        });
-        valueAnimator.start();
+        move((int) mPlayer.getY(), (int) mPlayer.getY() + 200);
     }
 
     private void left() {
         KLog.d(TAG, "left");
         mPlayer.left();
-        ValueAnimator valueAnimator = ValueAnimator.ofInt((int) mPlayer.getX(), (int) mPlayer.getX() - 200);
-        valueAnimator.setDuration(1000);
-        valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(@NonNull ValueAnimator animation) {
-                Integer animatedValue = (Integer) animation.getAnimatedValue();
-                int width = mPlayer.getWidth();
-                int height = mPlayer.getHeight();
-//                KLog.d(TAG, "mPlayer width: " + width);
-//                KLog.d(TAG, "mPlayer height: " + height);
-//                KLog.d(TAG, "animatedValue: " + animatedValue);
-                mPlayer.layout(animatedValue, animatedValue, animatedValue + width, animatedValue + height);
-            }
-        });
-        valueAnimator.start();
+        move((int) mPlayer.getX(), (int) mPlayer.getX() - 200);
+
     }
 
     private void right() {
         KLog.d(TAG, "right");
         mPlayer.right();
-        ValueAnimator valueAnimator = ValueAnimator.ofInt((int) mPlayer.getX(), (int) mPlayer.getX() + 200);
+        move((int) mPlayer.getX(), (int) mPlayer.getX() + 200);
+    }
+
+    private void move(int x, int y) {
+        ValueAnimator valueAnimator = ValueAnimator.ofInt(x, y);
         valueAnimator.setDuration(1000);
-        valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(@NonNull ValueAnimator animation) {
-                Integer animatedValue = (Integer) animation.getAnimatedValue();
-                int width = mPlayer.getWidth();
-                int height = mPlayer.getHeight();
+        valueAnimator.addUpdateListener(animation -> {
+            Integer animatedValue = (Integer) animation.getAnimatedValue();
+            int width = mPlayer.getWidth();
+            int height = mPlayer.getHeight();
 //                KLog.d(TAG, "mPlayer width: " + width);
 //                KLog.d(TAG, "mPlayer height: " + height);
 //                KLog.d(TAG, "animatedValue: " + animatedValue);
-                mPlayer.layout(animatedValue, animatedValue, animatedValue + width, animatedValue + height);
-            }
+            mPlayer.layout(animatedValue, animatedValue, animatedValue + width, animatedValue + height);
         });
         valueAnimator.start();
     }
