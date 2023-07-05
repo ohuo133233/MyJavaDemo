@@ -5,26 +5,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".property.PropertyAnimationActivity">
+    tools:context=".property.AnimatorSetActivity">
 
 
     <Button
-        android:id="@+id/translate"
+        android:id="@+id/sequentially"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="平移" />
+        android:text="sequentially" />
 
     <Button
-        android:id="@+id/object"
+        android:id="@+id/together"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Object" />
-
-    <Button
-        android:id="@+id/animator_set"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="animatorSet" />
-
+        android:text="together" />
 
 </LinearLayout>

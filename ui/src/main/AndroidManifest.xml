@@ -8,6 +8,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyNoActionBar">
         <activity
+            android:name=".property.AnimatorSetActivity"
+            android:exported="false" />
+        <activity
+            android:name=".property.ObjectPropertyActivity"
+            android:exported="false" />
+        <activity
+            android:name=".evaluator.EvaluatorActivity"
+            android:exported="false" />
+        <activity
+            android:name=".interpolator.InterpolatorActivity"
+            android:exported="false" />
+        <activity
             android:name=".gesture.GestureActivity"
             android:exported="false" />
         <activity
@@ -15,8 +27,8 @@
             android:exported="false" />
         <activity
             android:name=".game.GameActivity"
-            android:screenOrientation="landscape"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="landscape" />
         <activity
             android:name=".view.ViewRotateActivity"
             android:exported="false" />

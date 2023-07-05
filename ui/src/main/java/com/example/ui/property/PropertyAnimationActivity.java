@@ -21,5 +21,17 @@ public class PropertyAnimationActivity extends AppCompatActivity {
                 startActivity(new Intent(PropertyAnimationActivity.this, PropertyTranslateActivity.class));
             }
         });
+        findViewById(R.id.object).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(PropertyAnimationActivity.this, ObjectPropertyActivity.class));
+            }
+        });
+        findViewById(R.id.animator_set).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(PropertyAnimationActivity.this, AnimatorSetActivity.class));
+            }
+        });
     }
 }

@@ -29,6 +29,18 @@
         android:id="@+id/start_game"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Game"/>
+        android:text="Game" />
+
+    <Button
+        android:id="@+id/start_interpolator"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="插值器" />
+
+    <Button
+        android:id="@+id/start_evaluator"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Evaluator" />
 
 </LinearLayout>
