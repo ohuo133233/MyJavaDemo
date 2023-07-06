@@ -6,6 +6,7 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.ui.demo.DemoAnimationActivity;
 import com.example.ui.evaluator.EvaluatorActivity;
 import com.example.ui.game.GameActivity;
 import com.example.ui.gesture.GestureActivity;
@@ -27,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
         Button start_game = findViewById(R.id.start_game);
         Button start_interpolator = findViewById(R.id.start_interpolator);
         Button start_evaluator = findViewById(R.id.start_evaluator);
+        Button demo = findViewById(R.id.demo);
 
         start_property_animation.setOnClickListener((v -> {
             Intent intent = new Intent(this, PropertyAnimationActivity.class);
@@ -55,6 +57,11 @@ public class MainActivity extends AppCompatActivity {
 
         start_evaluator.setOnClickListener((v -> {
             Intent intent = new Intent(this, EvaluatorActivity.class);
+            startActivity(intent);
+        }));
+
+        demo.setOnClickListener((v -> {
+            Intent intent = new Intent(this, DemoAnimationActivity.class);
             startActivity(intent);
         }));
 

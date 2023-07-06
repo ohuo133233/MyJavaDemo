@@ -43,4 +43,10 @@
         android:layout_height="wrap_content"
         android:text="Evaluator" />
 
+    <Button
+        android:id="@+id/demo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="演示动画"/>
+
 </LinearLayout>

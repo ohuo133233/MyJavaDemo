@@ -8,6 +8,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyNoActionBar">
         <activity
+            android:name=".demo.DemoAnimationActivity"
+            android:exported="false" />
+        <activity
             android:name=".property.AnimatorSetActivity"
             android:exported="false" />
         <activity

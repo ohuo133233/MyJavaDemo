@@ -20,4 +20,24 @@
         android:layout_height="wrap_content"
         android:text="together" />
 
+    <Button
+        android:id="@+id/one_to_two"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="先透明后同时位移和旋转" />
+
+    <Button
+        android:id="@+id/delay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="延迟动画"/>
+
+
+    <Button
+        android:id="@+id/demo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Demo" />
+
 </LinearLayout>
