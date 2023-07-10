@@ -1,15 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".interpolator.InterpolatorActivity">
 
+
     <Button
-        android:id="@+id/button"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp" />
-</RelativeLayout>
+        android:id="@+id/default_interpolator"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="默认插值器" />
+
+    <Button
+        android:id="@+id/custom_interpolator"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="自定义插值器" />
+
+
+</LinearLayout>

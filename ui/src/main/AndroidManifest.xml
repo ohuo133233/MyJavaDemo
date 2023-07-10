@@ -8,6 +8,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyNoActionBar">
         <activity
+            android:name=".interpolator.CustomInterpolatorActivity"
+            android:exported="false" />
+        <activity
+            android:name=".interpolator.DefaultInterpolatorActivity"
+            android:exported="false" />
+        <activity
             android:name=".property.ValuesHolderActivity"
             android:exported="false" />
         <activity

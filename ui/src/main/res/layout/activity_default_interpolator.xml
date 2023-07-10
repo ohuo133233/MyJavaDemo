@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".interpolator.DefaultInterpolatorActivity">
+
+    <Button
+        android:id="@+id/no_interpolator"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="无插值器" />
+
+    <Button
+        android:id="@+id/accelerate_decelerate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="加速减速插值器" />
+
+    <Button
+        android:id="@+id/accelerate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="加速插值器" />
+
+    <Button
+        android:id="@+id/decelerate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="减速插值器" />
+
+    <Button
+        android:id="@+id/bounce"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="弹跳插值器" />
+
+    <Button
+        android:id="@+id/linear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="线性插值器" />
+
+    <Button
+        android:id="@+id/anticipate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="初始偏移插值器" />
+
+    <Button
+        android:id="@+id/overshoot"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="结束偏移插值器" />
+
+    <Button
+        android:id="@+id/anticipate_overshoot"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="开始结束偏移插值器" />
+
+    <Button
+        android:id="@+id/cycle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="循环插值器" />
+
+    <Button
+        android:id="@+id/demo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:text="Demo" />
+
+
+</LinearLayout>

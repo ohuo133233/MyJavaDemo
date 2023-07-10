@@ -1,42 +1,38 @@
 package com.example.ui.interpolator;
 
-import android.animation.ValueAnimator;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.ui.R;
-import com.wang.logtools.KLog;
 
-public class InterpolatorActivity extends AppCompatActivity {
-
-    private String TAG = "InterpolatorActivity";
+public class InterpolatorActivity extends AppCompatActivity implements View.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_interpolator);
 
-        Button button = findViewById(R.id.button);
+        Button default_interpolator = findViewById(R.id.default_interpolator);
+        Button custom_interpolator = findViewById(R.id.custom_interpolator);
 
-        ValueAnimator valueAnimator = ValueAnimator.ofInt(0, 200);
-        valueAnimator.setDuration(1000);
-        valueAnimator.addUpdateListener(animation -> {
-            Integer animatedValue = (Integer) animation.getAnimatedValue();
-            KLog.d(TAG, "animatedValue: " + animatedValue);
-            int width = button.getWidth();
-            int height = button.getHeight();
-            int left = button.getLeft();
-            int right = button.getRight();
+        default_interpolator.setOnClickListener(this);
+        custom_interpolator.setOnClickListener(this);
 
-            KLog.d(TAG, "width: " + width);
-            KLog.d(TAG, "height: " + height);
-            KLog.d(TAG, "left: " + left);
-            KLog.d(TAG, "right: " + right);
+    }
 
-            button.layout(button.getLeft(), animatedValue, button.getRight(), animatedValue + button.getHeight());
-        });
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.default_interpolator:
+                startActivity(new Intent(InterpolatorActivity.this, DefaultInterpolatorActivity.class));
+                break;
+            case R.id.custom_interpolator:
+                startActivity(new Intent(InterpolatorActivity.this, CustomInterpolatorActivity.class));
+                break;
+        }
     }
 }
