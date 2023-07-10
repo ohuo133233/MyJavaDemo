@@ -30,7 +30,6 @@ public class AnimatorSetActivity extends AppCompatActivity implements View.OnCli
         one_to_two.setOnClickListener(this);
         delay.setOnClickListener(this);
 
-
     }
 
     @Override

@@ -9,10 +9,10 @@
 
 
     <Button
-        android:id="@+id/translate"
+        android:id="@+id/valueAnimator"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="平移" />
+        android:text="valueAnimator" />
 
     <Button
         android:id="@+id/object"
@@ -25,6 +25,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="animator_Set" />
+
+    <Button
+        android:id="@+id/values_holder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="values_holder" />
 
 
 </LinearLayout>
