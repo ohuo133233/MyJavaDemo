@@ -1,12 +1,11 @@
 package com.example.ui.evaluator;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.ui.R;
 
@@ -24,8 +23,12 @@ public class EvaluatorActivity extends AppCompatActivity {
             Integer animatedValue = (Integer) animation.getAnimatedValue();
             button2.layout(button2.getLeft(), animatedValue, button2.getRight(), animatedValue + button2.getHeight());
         });
-        valueAnimator.setDuration(1000);
-//        valueAnimator.setEvaluator(new MyEvaluator());
+        valueAnimator.setDuration(5000);
+        valueAnimator.setEvaluator(new MyEvaluator());
+//        valueAnimator.setEvaluator(new FloatEvaluator());
+//        valueAnimator.setEvaluator(new FloatEvaluator());
         valueAnimator.start();
+
+        ObjectAnimator scaleX = ObjectAnimator.ofFloat(button2, "scaleX", 0, 2, 1);
     }
 }

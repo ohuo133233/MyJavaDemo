@@ -49,6 +49,14 @@ public class GameActivity extends AppCompatActivity {
                 int x = (int) event.getX();
                 int y = (int) event.getY();
 
+                // 获取 View 的中心点
+                float centerX = mPlayer.getX() + mPlayer.getWidth() / 2f;
+                float centerY = mPlayer.getY() + mPlayer.getHeight() / 2f;
+
+                // 计算位移后的目标位置
+                float targetX = centerX + x;
+                float targetY = centerY + y;
+
                 // 创建平移动画
                 ObjectAnimator animatorX = ObjectAnimator.ofFloat(mPlayer, "translationX", x);
                 ObjectAnimator animatorY = ObjectAnimator.ofFloat(mPlayer, "translationY", y);
@@ -60,6 +68,8 @@ public class GameActivity extends AppCompatActivity {
                 // 启动动画
                 animatorX.start();
                 animatorY.start();
+
+               mPlayer.setAutoOrientation(x,y);
                 break;
 
         }

@@ -1,15 +1,16 @@
 package com.example.ui.property;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.animation.ObjectAnimator;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.ui.R;
 
 public class ObjectPropertyActivity extends AppCompatActivity implements View.OnClickListener {
+    private static final String TAG = ObjectPropertyActivity.class.getSimpleName();
     private Button mTest;
 
     @Override
@@ -36,7 +37,7 @@ public class ObjectPropertyActivity extends AppCompatActivity implements View.On
 
     private void scale() {
         ObjectAnimator scaleX = ObjectAnimator.ofFloat(mTest, "scaleX", 0, 2, 1);
-        ObjectAnimator scaleY = ObjectAnimator.ofFloat(mTest, "scaleX", 0, 2, 1);
+        ObjectAnimator scaleY = ObjectAnimator.ofFloat(mTest, "scaleY", 0, 2, 1);
         scaleX.setDuration(1000);
         scaleY.setDuration(1000);
         scaleX.start();
