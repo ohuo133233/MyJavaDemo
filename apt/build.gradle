@@ -4,7 +4,7 @@ plugins {
 
 android {
     namespace 'com.wang.apt'
-    compileSdk 32
+    compileSdk 33
 
     defaultConfig {
         applicationId "com.wang.apt"
@@ -30,9 +30,9 @@ android {
 
 dependencies {
 
-    implementation 'androidx.appcompat:appcompat:1.5.1'
-    implementation 'com.google.android.material:material:1.7.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation(libs.appcompat)
+    implementation(libs.material)
+    implementation(libs.constraintlayout)
     // 依赖apt-processor
     implementation 'fast.wang:processor:0.0.12'
 }
