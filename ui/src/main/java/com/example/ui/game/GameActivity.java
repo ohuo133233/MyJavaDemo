@@ -52,8 +52,8 @@ public class GameActivity extends AppCompatActivity {
 
                 break;
             case MotionEvent.ACTION_UP:
-                int x = (int) event.getX();
-                int y = (int) event.getY();
+                float x =  event.getX();
+                float y =  event.getY();
                 mMap.move(mPlayer, x, y);
 
 //                mPlayer.setAutoOrientation(x, y);

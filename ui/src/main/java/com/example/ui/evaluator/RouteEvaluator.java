@@ -8,19 +8,21 @@ import com.example.ui.game.map.Route;
 public class RouteEvaluator implements TypeEvaluator<Route> {
 
     private String TAG = "RouteEvaluator";
-
+    private   Route route = new Route();
     @Override
     public Route evaluate(float fraction, Route startRoute, Route endRoute) {
-        Route route1 = new Route();
-//        int x= (int) (route.getX() + fraction * (t1.getX() - route.getX()));
-//        int y= (int) (route.getY() + fraction * (t1.getY() - route.getY()));
+
+        int x= (int) (startRoute.getX() + fraction * (endRoute.getX() - startRoute.getX()));
+        int y= (int) (startRoute.getY() + fraction * (endRoute.getY() - startRoute.getY()));
 
         Log.d(TAG, "startRoute :" + startRoute);
         Log.d(TAG, "endRoute :" + endRoute);
-        route1.setX(100);
-        route1.setY(100);
+        Log.d(TAG, "x :" + x);
+        Log.d(TAG, "y :" + y);
+        route.setX(x);
+        route.setY(y);
 
-        return route1;
+        return route;
 
     }
 }

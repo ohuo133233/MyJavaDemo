@@ -8,12 +8,12 @@ import android.view.View;
 import android.widget.ImageView;
 
 import androidx.annotation.Nullable;
-import androidx.coordinatorlayout.widget.CoordinatorLayout;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.example.ui.R;
 import com.wang.logtools.KLog;
 
-public class Player extends CoordinatorLayout {
+public class Player extends ConstraintLayout {
 
     private ImageView mImageView;
 
