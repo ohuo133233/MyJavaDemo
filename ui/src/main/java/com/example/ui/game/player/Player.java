@@ -1,21 +1,19 @@
-package com.example.ui.game;
+package com.example.ui.game.player;
 
 import android.content.Context;
 import android.graphics.drawable.AnimationDrawable;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 
 import androidx.annotation.Nullable;
-import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
 
 import com.example.ui.R;
 import com.wang.logtools.KLog;
 
-public class Player extends LinearLayout {
+public class Player extends CoordinatorLayout {
 
     private ImageView mImageView;
 
@@ -40,11 +38,6 @@ public class Player extends LinearLayout {
         init(context);
     }
 
-    public Player(Context context, @Nullable AttributeSet attrs, int defStyleAttr, int defStyleRes) {
-        super(context, attrs, defStyleAttr, defStyleRes);
-        init(context);
-    }
-
 
     private void init(Context context) {
         View view = LayoutInflater.from(context).inflate(R.layout.player, this, true);
@@ -54,33 +47,33 @@ public class Player extends LinearLayout {
 
         mImageView = view.findViewById(R.id.imageView);
 
-        mBottomAnimationDrawable = new AnimationDrawable();
-        mBottomAnimationDrawable.addFrame(getResources().getDrawable(R.mipmap.bottom_1), 200);
-        mBottomAnimationDrawable.addFrame(getResources().getDrawable(R.mipmap.bottom_2), 200);
-        mBottomAnimationDrawable.addFrame(getResources().getDrawable(R.mipmap.bottom_3), 200);
-        mBottomAnimationDrawable.addFrame(getResources().getDrawable(R.mipmap.bottom_4), 200);
-        mBottomAnimationDrawable.setOneShot(true);
-
-        mUpAnimationDrawable = new AnimationDrawable();
-        mUpAnimationDrawable.addFrame(getResources().getDrawable(R.mipmap.up_1), 200);
-        mUpAnimationDrawable.addFrame(getResources().getDrawable(R.mipmap.up_2), 200);
-        mUpAnimationDrawable.addFrame(getResources().getDrawable(R.mipmap.up_3), 200);
-        mUpAnimationDrawable.addFrame(getResources().getDrawable(R.mipmap.up_4), 200);
-        mUpAnimationDrawable.setOneShot(true);
-
-        mLeftAnimationDrawable = new AnimationDrawable();
-        mLeftAnimationDrawable.addFrame(getResources().getDrawable(R.mipmap.right_1), 200);
-        mLeftAnimationDrawable.addFrame(getResources().getDrawable(R.mipmap.right_2), 200);
-        mLeftAnimationDrawable.addFrame(getResources().getDrawable(R.mipmap.right_3), 200);
-        mLeftAnimationDrawable.addFrame(getResources().getDrawable(R.mipmap.right_4), 200);
-        mLeftAnimationDrawable.setOneShot(false);
-
-        mRightAnimationDrawable = new AnimationDrawable();
-        mRightAnimationDrawable.addFrame(getResources().getDrawable(R.mipmap.left_1), 200);
-        mRightAnimationDrawable.addFrame(getResources().getDrawable(R.mipmap.left_2), 200);
-        mRightAnimationDrawable.addFrame(getResources().getDrawable(R.mipmap.left_3), 200);
-        mRightAnimationDrawable.addFrame(getResources().getDrawable(R.mipmap.left_4), 200);
-        mRightAnimationDrawable.setOneShot(false);
+//        mBottomAnimationDrawable = new AnimationDrawable();
+//        mBottomAnimationDrawable.addFrame(getResources().getDrawable(R.mipmap.bottom_1), 200);
+//        mBottomAnimationDrawable.addFrame(getResources().getDrawable(R.mipmap.bottom_2), 200);
+//        mBottomAnimationDrawable.addFrame(getResources().getDrawable(R.mipmap.bottom_3), 200);
+//        mBottomAnimationDrawable.addFrame(getResources().getDrawable(R.mipmap.bottom_4), 200);
+//        mBottomAnimationDrawable.setOneShot(true);
+//
+//        mUpAnimationDrawable = new AnimationDrawable();
+//        mUpAnimationDrawable.addFrame(getResources().getDrawable(R.mipmap.up_1), 200);
+//        mUpAnimationDrawable.addFrame(getResources().getDrawable(R.mipmap.up_2), 200);
+//        mUpAnimationDrawable.addFrame(getResources().getDrawable(R.mipmap.up_3), 200);
+//        mUpAnimationDrawable.addFrame(getResources().getDrawable(R.mipmap.up_4), 200);
+//        mUpAnimationDrawable.setOneShot(true);
+//
+//        mLeftAnimationDrawable = new AnimationDrawable();
+//        mLeftAnimationDrawable.addFrame(getResources().getDrawable(R.mipmap.right_1), 200);
+//        mLeftAnimationDrawable.addFrame(getResources().getDrawable(R.mipmap.right_2), 200);
+//        mLeftAnimationDrawable.addFrame(getResources().getDrawable(R.mipmap.right_3), 200);
+//        mLeftAnimationDrawable.addFrame(getResources().getDrawable(R.mipmap.right_4), 200);
+//        mLeftAnimationDrawable.setOneShot(false);
+//
+//        mRightAnimationDrawable = new AnimationDrawable();
+//        mRightAnimationDrawable.addFrame(getResources().getDrawable(R.mipmap.left_1), 200);
+//        mRightAnimationDrawable.addFrame(getResources().getDrawable(R.mipmap.left_2), 200);
+//        mRightAnimationDrawable.addFrame(getResources().getDrawable(R.mipmap.left_3), 200);
+//        mRightAnimationDrawable.addFrame(getResources().getDrawable(R.mipmap.left_4), 200);
+//        mRightAnimationDrawable.setOneShot(false);
 
     }
 
