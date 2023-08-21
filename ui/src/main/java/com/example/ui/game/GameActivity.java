@@ -1,16 +1,16 @@
 package com.example.ui.game;
 
-import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.ui.R;
+import com.example.ui.game.map.Map;
+import com.example.ui.game.player.Player;
 import com.wang.logtools.KLog;
 
 public class GameActivity extends AppCompatActivity {
@@ -26,6 +26,8 @@ public class GameActivity extends AppCompatActivity {
     private static final int BOTTOM = 4;
     private static int currentDirection;
 
+    private Map mMap;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -33,7 +35,11 @@ public class GameActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_game);
 
-        mPlayer = findViewById(R.id.player);
+//        mPlayer = findViewById(R.id.player);
+        mMap = findViewById(R.id.map);
+        mPlayer = mMap.findViewById(R.id.player);
+
+
     }
 
 
@@ -48,28 +54,9 @@ public class GameActivity extends AppCompatActivity {
             case MotionEvent.ACTION_UP:
                 int x = (int) event.getX();
                 int y = (int) event.getY();
+                mMap.move(mPlayer, x, y);
 
-                // 获取 View 的中心点
-                float centerX = mPlayer.getX() + mPlayer.getWidth() / 2f;
-                float centerY = mPlayer.getY() + mPlayer.getHeight() / 2f;
-
-                // 计算位移后的目标位置
-                float targetX = centerX + x;
-                float targetY = centerY + y;
-
-                // 创建平移动画
-                ObjectAnimator animatorX = ObjectAnimator.ofFloat(mPlayer, "translationX", x);
-                ObjectAnimator animatorY = ObjectAnimator.ofFloat(mPlayer, "translationY", y);
-
-                // 设置动画的持续时间
-                animatorX.setDuration(1000);
-                animatorY.setDuration(1000);
-
-                // 启动动画
-                animatorX.start();
-                animatorY.start();
-
-               mPlayer.setAutoOrientation(x,y);
+//                mPlayer.setAutoOrientation(x, y);
                 break;
 
         }

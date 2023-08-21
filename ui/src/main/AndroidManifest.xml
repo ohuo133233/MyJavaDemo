@@ -8,6 +8,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyNoActionBar">
         <activity
+            android:name=".demo.ImageActivity"
+            android:exported="false" />
+        <activity
+            android:name=".demo.ButtonMenuActivity"
+            android:exported="false" />
+        <activity
             android:name=".interpolator.CustomInterpolatorActivity"
             android:exported="false" />
         <activity
