@@ -3,7 +3,6 @@ package com.example.ui.game;
 import android.animation.ValueAnimator;
 import android.os.Bundle;
 import android.view.MotionEvent;
-import android.view.View;
 import android.view.WindowManager;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,11 +10,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.ui.R;
 import com.example.ui.game.map.Map;
 import com.example.ui.game.player.Player;
+import com.example.ui.game.ui.UI;
 import com.wang.logtools.KLog;
 
 public class GameActivity extends AppCompatActivity {
 
     private final String TAG = "GameActivity";
+    private Map mMap;
+    private UI mUI;
+
     private Player mPlayer;
 
     private float down_x;
@@ -26,7 +29,7 @@ public class GameActivity extends AppCompatActivity {
     private static final int BOTTOM = 4;
     private static int currentDirection;
 
-    private Map mMap;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +40,8 @@ public class GameActivity extends AppCompatActivity {
 
 //        mPlayer = findViewById(R.id.player);
         mMap = findViewById(R.id.map);
+        mUI = findViewById(R.id.ui);
+
         mPlayer = mMap.findViewById(R.id.player);
 
 
@@ -55,7 +60,7 @@ public class GameActivity extends AppCompatActivity {
                 float x =  event.getX();
                 float y =  event.getY();
                 mMap.move(mPlayer, x, y);
-
+//                    mMap.scrollTo(1000,1000);
 //                mPlayer.setAutoOrientation(x, y);
                 break;
 

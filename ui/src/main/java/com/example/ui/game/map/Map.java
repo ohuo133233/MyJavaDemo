@@ -60,9 +60,7 @@ public class Map extends ConstraintLayout {
             view.layout(animatedValue.getX(), animatedValue.getY(), animatedValue.getX() + width, animatedValue.getY() + height);
         });
 
-
         valueAnimator.start();
-
     }
 
 
