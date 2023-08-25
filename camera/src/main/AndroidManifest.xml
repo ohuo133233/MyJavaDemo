@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyJavaDemo">
         <activity
+            android:name=".demo.CameraTwoActivity"
+            android:exported="false" />
+        <activity
             android:name=".demo.CameraXActivity"
             android:exported="false" />
         <activity
