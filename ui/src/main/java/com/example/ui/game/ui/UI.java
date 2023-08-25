@@ -4,6 +4,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.ProgressBar;
 
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -37,10 +38,19 @@ public class UI extends ConstraintLayout {
 
     private void init(Context context) {
         mRoot = LayoutInflater.from(context).inflate(R.layout.ui, this);
+
+        initView();
     }
 
     private void initView() {
+        ProgressBar hp_progress_bar = findViewById(R.id.hp_progress_bar);
+        ProgressBar mp_progress_bar = findViewById(R.id.mp_progress_bar);
+        ProgressBar xp_progress_bar = findViewById(R.id.xp_progress_bar);
 
+        hp_progress_bar.setProgress(50);
+        mp_progress_bar.setProgress(50);
+        xp_progress_bar.setProgress(50);
 
     }
 }
+

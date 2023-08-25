@@ -1,8 +1,9 @@
 package com.example.ui.game.map;
 
-import android.animation.ValueAnimator;
 import android.content.Context;
+import android.graphics.Rect;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 
@@ -10,11 +11,15 @@ import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.example.ui.R;
-import com.example.ui.evaluator.RouteEvaluator;
-import com.wang.logtools.KLog;
 
 public class Map extends ConstraintLayout {
     private String TAG = Map.class.getSimpleName();
+    private View root;
+
+    private MapCriteria mapCriteria = new MapCriteria();
+    private float mCurrentPositionX;
+    private float mCurrentPositionY;
+
 
     public Map(Context context) {
         super(context);
@@ -33,34 +38,56 @@ public class Map extends ConstraintLayout {
 
 
     private void init(Context context) {
-        View root = LayoutInflater.from(context).inflate(R.layout.map, this);
+        root = LayoutInflater.from(context).inflate(R.layout.map, this);
+        View button3 = root.findViewById(R.id.button3);
+        View button = root.findViewById(R.id.button);
+
+//        findViewById(R.id.)
 
 
     }
 
 
-    public void move(View view, float x, float y) {
-        Route myRoute = new Route();
-        myRoute.setX((int) view.getX());
-        myRoute.setY((int) view.getY());
+    @Override
+    public void onWindowFocusChanged(boolean hasWindowFocus) {
+        super.onWindowFocusChanged(hasWindowFocus);
 
-        Route toRoute = new Route();
-        toRoute.setX((int) x);
-        toRoute.setY((int) y);
+        View view = root.findViewById(R.id.view);
+        registerIsPlayerPosition(view);
+    }
 
-        ValueAnimator valueAnimator = ValueAnimator.ofObject(new RouteEvaluator(), myRoute,toRoute);
-        valueAnimator.setDuration(1000);
-        valueAnimator.addUpdateListener(animation -> {
-            Route animatedValue = (Route) animation.getAnimatedValue();
-            int width = view.getWidth();
-            int height = view.getHeight();
-            KLog.d(TAG, "mPlayer width: " + width);
-            KLog.d(TAG, "mPlayer height: " + height);
-            KLog.d(TAG, "animatedValue: " + animatedValue);
-            view.layout(animatedValue.getX(), animatedValue.getY(), animatedValue.getX() + width, animatedValue.getY() + height);
-        });
 
-        valueAnimator.start();
+    private void check() {
+        mapCriteria.filtered((int) mCurrentPositionX, (int) mCurrentPositionY);
+
+    }
+
+
+    /**
+     * 判断角色是否在指定的区域之内
+     *
+     * @param view 指定的区域
+     */
+    private void registerIsPlayerPosition(View view) {
+
+        Rect rect = new Rect(view.getLeft(), view.getTop(), view.getRight(), view.getBottom());
+        Log.d(TAG, "rect范围： " + rect);
+        Log.d(TAG, "mCurrentPositionX: " + mCurrentPositionX);
+        Log.d(TAG, "mCurrentPositionY: " + mCurrentPositionY);
+
+        mapCriteria.addRect(rect);
+    }
+
+    /**
+     * 角色移动后更新地图位置
+     *
+     * @param view 角色
+     */
+    public void movePlayer(View view) {
+        mCurrentPositionX = view.getX();
+        mCurrentPositionY = view.getY();
+        check();
+
     }
 
 

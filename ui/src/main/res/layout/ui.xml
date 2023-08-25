@@ -26,6 +26,7 @@
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="100dp"
         android:layout_height="20dp"
+        android:progressDrawable="@drawable/hp_progress_bar"
         app:layout_constraintStart_toEndOf="@+id/head"
         app:layout_constraintTop_toTopOf="@+id/head" />
 
@@ -50,6 +51,7 @@
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="match_parent"
         android:layout_height="20dp"
+        android:progressDrawable="@drawable/xp_progress_bar"
         app:layout_constraintBottom_toBottomOf="parent" />
 
 

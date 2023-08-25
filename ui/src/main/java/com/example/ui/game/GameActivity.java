@@ -2,12 +2,13 @@ package com.example.ui.game;
 
 import android.animation.ValueAnimator;
 import android.os.Bundle;
-import android.view.MotionEvent;
+import android.util.Log;
 import android.view.WindowManager;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.ui.R;
+import com.example.ui.game.ui.PlayerController;
 import com.example.ui.game.map.Map;
 import com.example.ui.game.player.Player;
 import com.example.ui.game.ui.UI;
@@ -30,7 +31,6 @@ public class GameActivity extends AppCompatActivity {
     private static int currentDirection;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -44,29 +44,63 @@ public class GameActivity extends AppCompatActivity {
 
         mPlayer = mMap.findViewById(R.id.player);
 
+        PlayerController playerController = findViewById(R.id.controller);
+
+        playerController.setControllerCallBack(new PlayerController.ControllerCallBack() {
+            @Override
+            public void up() {
+                Log.d(TAG, "up");
+                GameActivity.this.up();
+            }
+
+            @Override
+            public void right() {
+                Log.d(TAG, "right");
+                GameActivity.this.right();
+            }
+
+            @Override
+            public void bottom() {
+                Log.d(TAG, "bottom");
+                GameActivity.this.bottom();
+            }
+
+            @Override
+            public void left() {
+                Log.d(TAG, "left");
+                GameActivity.this.left();
+            }
+        });
+
 
     }
-
 
     @Override
-    public boolean onTouchEvent(MotionEvent event) {
-        switch (event.getAction()) {
-            case MotionEvent.ACTION_DOWN:
-                down_x = event.getX();
-                down_y = event.getY();
+    protected void onResume() {
+        super.onResume();
 
-                break;
-            case MotionEvent.ACTION_UP:
-                float x =  event.getX();
-                float y =  event.getY();
-                mMap.move(mPlayer, x, y);
-//                    mMap.scrollTo(1000,1000);
-//                mPlayer.setAutoOrientation(x, y);
-                break;
-
-        }
-        return true;
     }
+
+    //    @Override
+//    public boolean onTouchEvent(MotionEvent event) {
+//        switch (event.getAction()) {
+//            case MotionEvent.ACTION_DOWN:
+//                down_x = event.getX();
+//                down_y = event.getY();
+//
+//                break;
+//            case MotionEvent.ACTION_UP:
+//                float x = event.getX();
+//                float y = event.getY();
+////                mMap.move(mPlayer, x, y);
+////                    mMap.scrollTo(1000,1000);
+////                mPlayer.setAutoOrientation(x, y);
+//
+//                break;
+//
+//        }
+//        return true;
+//    }
 
 
     /**
@@ -115,41 +149,82 @@ public class GameActivity extends AppCompatActivity {
 
     private void up() {
         KLog.d(TAG, "up");
-        mPlayer.up();
-        move((int) mPlayer.getY(), (int) mPlayer.getY() - 200);
+        KLog.d(TAG, "mPlayer.getY(): " + mPlayer.getY());
+
+        int width = mPlayer.getWidth();
+        int height = mPlayer.getHeight();
+        ValueAnimator valueAnimator = ValueAnimator.ofInt(20);
+        valueAnimator.setDuration(10);
+        valueAnimator.addUpdateListener(animation -> {
+            Integer animatedValue = (Integer) animation.getAnimatedValue();
+            KLog.d(TAG, "animatedValue: " + animatedValue);
+            mPlayer.layout((int) mPlayer.getX(), (int) (mPlayer.getY() - animatedValue), (int) (mPlayer.getX() + width), (int) (mPlayer.getY() + height - animatedValue));
+            mMap.movePlayer(mPlayer);
+        });
+        if (valueAnimator.isRunning()) {
+            return;
+        }
+        valueAnimator.start();
+
     }
 
     private void bottom() {
         KLog.d(TAG, "bottom");
-        mPlayer.bottom();
-        move((int) mPlayer.getY(), (int) mPlayer.getY() + 200);
+
+
+        int width = mPlayer.getWidth();
+        int height = mPlayer.getHeight();
+        ValueAnimator valueAnimator = ValueAnimator.ofInt(20);
+        valueAnimator.setDuration(10);
+        valueAnimator.addUpdateListener(animation -> {
+            Integer animatedValue = (Integer) animation.getAnimatedValue();
+            KLog.d(TAG, "animatedValue: " + animatedValue);
+            mPlayer.layout((int) mPlayer.getX(), (int) (mPlayer.getY() + animatedValue), (int) (mPlayer.getX() + width), (int) (mPlayer.getY() + height + animatedValue));
+            mMap.movePlayer(mPlayer);
+        });
+        if (valueAnimator.isRunning()) {
+            return;
+        }
+        valueAnimator.start();
     }
 
     private void left() {
         KLog.d(TAG, "left");
-        mPlayer.left();
-        move((int) mPlayer.getX(), (int) mPlayer.getX() - 200);
+
+        int width = mPlayer.getWidth();
+        int height = mPlayer.getHeight();
+        ValueAnimator valueAnimator = ValueAnimator.ofInt(20);
+        valueAnimator.setDuration(10);
+        valueAnimator.addUpdateListener(animation -> {
+            Integer animatedValue = (Integer) animation.getAnimatedValue();
+            KLog.d(TAG, "animatedValue: " + animatedValue);
+            mPlayer.layout((int) mPlayer.getX() - animatedValue, (int) (mPlayer.getY()), (int) (mPlayer.getX() + width - animatedValue), (int) (mPlayer.getY() + height));
+            mMap.movePlayer(mPlayer);
+        });
+        if (valueAnimator.isRunning()) {
+            return;
+        }
+        valueAnimator.start();
 
     }
 
     private void right() {
+        int width = mPlayer.getWidth();
+        int height = mPlayer.getHeight();
         KLog.d(TAG, "right");
-        mPlayer.right();
-        move((int) mPlayer.getX(), (int) mPlayer.getX() + 200);
-    }
-
-    private void move(int x, int y) {
-        ValueAnimator valueAnimator = ValueAnimator.ofInt(x, y);
-        valueAnimator.setDuration(1000);
+        ValueAnimator valueAnimator = ValueAnimator.ofInt(20);
+        valueAnimator.setDuration(10);
         valueAnimator.addUpdateListener(animation -> {
             Integer animatedValue = (Integer) animation.getAnimatedValue();
-            int width = mPlayer.getWidth();
-            int height = mPlayer.getHeight();
-//                KLog.d(TAG, "mPlayer width: " + width);
-//                KLog.d(TAG, "mPlayer height: " + height);
-//                KLog.d(TAG, "animatedValue: " + animatedValue);
-            mPlayer.layout(animatedValue, animatedValue, animatedValue + width, animatedValue + height);
+            KLog.d(TAG, "animatedValue: " + animatedValue);
+            mPlayer.layout((int) mPlayer.getX() + animatedValue, (int) (mPlayer.getY()), (int) (mPlayer.getX() + width + animatedValue), (int) (mPlayer.getY() + height));
+            mMap.movePlayer(mPlayer);
         });
+        if (valueAnimator.isRunning()) {
+            return;
+        }
         valueAnimator.start();
     }
+
+
 }
