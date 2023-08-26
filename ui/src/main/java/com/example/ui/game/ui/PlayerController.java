@@ -4,7 +4,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.Button;
+import android.widget.ImageButton;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -34,10 +34,10 @@ public class PlayerController extends ConstraintLayout {
 
     private void initView(Context context) {
         View layout = LayoutInflater.from(context).inflate(R.layout.controller, this);
-        Button up = layout.findViewById(R.id.up);
-        Button right = layout.findViewById(R.id.right);
-        Button bottom = layout.findViewById(R.id.bottom);
-        Button left = layout.findViewById(R.id.left);
+        ImageButton up = layout.findViewById(R.id.up);
+        ImageButton right = layout.findViewById(R.id.right);
+        ImageButton bottom = layout.findViewById(R.id.bottom);
+        ImageButton left = layout.findViewById(R.id.left);
 
 
         up.setOnTouchListener((view, motionEvent) -> {

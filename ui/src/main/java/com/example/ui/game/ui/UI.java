@@ -47,7 +47,7 @@ public class UI extends ConstraintLayout {
         ProgressBar mp_progress_bar = findViewById(R.id.mp_progress_bar);
         ProgressBar xp_progress_bar = findViewById(R.id.xp_progress_bar);
 
-        hp_progress_bar.setProgress(50);
+        hp_progress_bar.setProgress(100);
         mp_progress_bar.setProgress(50);
         xp_progress_bar.setProgress(50);
 
