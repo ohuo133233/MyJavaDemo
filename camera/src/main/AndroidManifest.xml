@@ -2,6 +2,27 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <uses-permission android:name="android.permission.CAMERA" />
+    <!--
+ Required only if your app needs to access images or photos
+     that other apps created.
+    -->
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+    <!--
+ Required only if your app needs to access videos
+         that other apps created.
+    -->
+    <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" />
+    <!--
+ Required only if your app needs to access audio files
+         that other apps created.
+    -->
+    <uses-permission android:name="android.permission.READ_MEDIA_AUDIO" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="29" />
 
     <application
         android:allowBackup="true"
@@ -10,13 +31,22 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyJavaDemo">
         <activity
-            android:name=".demo.CameraTwoActivity"
+            android:name=".camerax.CameraVideoActivity"
             android:exported="false" />
         <activity
-            android:name=".demo.CameraXActivity"
+            android:name=".camerax.CameraProviderActivity"
             android:exported="false" />
         <activity
-            android:name=".demo.CameraOneActivity"
+            android:name=".camerax.CameraControllerActivity"
+            android:exported="false" />
+        <activity
+            android:name=".camera2.CameraTwoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".camerax.CameraXActivity"
+            android:exported="false" />
+        <activity
+            android:name=".camera1.CameraOneActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

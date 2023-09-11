@@ -34,7 +34,7 @@ dependencies {
     implementation(libs.material)
     implementation(libs.constraintlayout)
 
-    implementation 'fast.wang:dialog:0.0.1'
-    implementation 'fast.wang:logtools:0.0.1'
-    implementation 'fast.wang:tools:0.0.8'
+    implementation(libs.logtools)
+    implementation(libs.dialog)
+    implementation(libs.tools)
 }

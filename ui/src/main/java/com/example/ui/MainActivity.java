@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
         Button start_interpolator = findViewById(R.id.start_interpolator);
         Button start_evaluator = findViewById(R.id.start_evaluator);
         Button demo = findViewById(R.id.demo);
+        Button slide_view_group = findViewById(R.id.slide_view_group);
 
         start_property_animation.setOnClickListener((v -> {
             Intent intent = new Intent(this, PropertyAnimationActivity.class);
@@ -62,6 +63,10 @@ public class MainActivity extends AppCompatActivity {
 
         demo.setOnClickListener((v -> {
             Intent intent = new Intent(this, DemoAnimationActivity.class);
+            startActivity(intent);
+        }));
+        slide_view_group.setOnClickListener((v -> {
+            Intent intent = new Intent(this, SlideViewGroupActivity.class);
             startActivity(intent);
         }));
 

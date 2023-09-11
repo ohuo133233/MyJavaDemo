@@ -1,18 +1,13 @@
-package com.example.camera.demo;
+package com.example.camera.camera1;
 
 import android.os.Bundle;
-import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
 import android.widget.Button;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.camera.R;
-import com.example.camera.camera1.Camera1;
-
-import java.io.IOException;
 
 public class CameraOneActivity extends AppCompatActivity implements View.OnClickListener {
     private Camera1 mCamera;

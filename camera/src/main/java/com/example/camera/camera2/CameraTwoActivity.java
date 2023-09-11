@@ -1,4 +1,4 @@
-package com.example.camera.demo;
+package com.example.camera.camera2;
 
 import android.content.Context;
 import android.hardware.camera2.CameraAccessException;
@@ -21,8 +21,8 @@ public class CameraTwoActivity extends AppCompatActivity {
         CameraManager cameraManager = (CameraManager) getSystemService(Context.CAMERA_SERVICE);
         try {
             String[] cameraIdList = cameraManager.getCameraIdList();
-            for (int i = 0; i < cameraIdList.length; i++) {
-                Log.d(TAG, "cameraIdList: " + cameraIdList[i]);
+            for (String s : cameraIdList) {
+                Log.d(TAG, "cameraIdList: " + s);
             }
         } catch (CameraAccessException e) {
             throw new RuntimeException(e);

@@ -38,5 +38,5 @@ dependencies {
     androidTestImplementation(libs.androidxjunit)
     androidTestImplementation(libs.espresso.core)
 
-    implementation 'fast.wang:logtools:0.0.1'
+    implementation(libs.logtools)
 }

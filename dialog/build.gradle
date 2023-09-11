@@ -34,5 +34,5 @@ dependencies {
     implementation(libs.material)
     implementation(libs.constraintlayout)
 
-    implementation 'fast.wang:dialog:0.0.1'
+    implementation(libs.dialog)
 }

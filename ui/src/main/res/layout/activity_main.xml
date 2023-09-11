@@ -47,6 +47,12 @@
         android:id="@+id/demo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="演示动画"/>
+        android:text="演示动画" />
+
+    <Button
+        android:id="@+id/slide_view_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="滑动的布局" />
 
 </LinearLayout>

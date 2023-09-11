@@ -8,6 +8,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyNoActionBar">
         <activity
+            android:name=".SlideViewGroupActivity"
+            android:exported="false" />
+        <activity
             android:name=".demo.ImageActivity"
             android:exported="false" />
         <activity

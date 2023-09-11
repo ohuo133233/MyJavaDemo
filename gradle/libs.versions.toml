@@ -5,6 +5,10 @@ appcompat = "1.6.1"
 junit = "4.13.2"
 androidxjunit = "1.1.5"
 espresso-core = "3.5.1"
+logtools = "0.0.1"
+dialog = "0.0.1"
+tools = "0.0.8"
+permission = "0.0.1"
 [libraries]
 appcompat = { module = "androidx.appcompat:appcompat", version.ref = "appcompat" }
 material = { module = "com.google.android.material:material", version.ref = "material" }
@@ -12,6 +16,11 @@ constraintlayout = { module = "androidx.constraintlayout:constraintlayout", vers
 junit = { module = "junit:junit", version.ref = "junit" }
 androidxjunit = { module = "androidx.test.ext:junit", version.ref = "androidxjunit" }
 espresso-core = { module = "androidx.test.espresso:espresso-core", version.ref = "espresso-core" }
+logtools = { module = "fast.wang:logtools", version.ref = "logtools" }
+dialog = { module = "fast.wang:dialog", version.ref = "dialog" }
+tools = { module = "fast.wang:dialog", version.ref = "tools" }
+permission = { module = "fast.wang:permission", version.ref = "permission" }
+
 [plugins]
 
 [bundles]
