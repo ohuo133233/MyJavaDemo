@@ -15,7 +15,7 @@
 
 
     <Button
-        android:id="@+id/video"
+        android:id="@+id/start_video"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="录制视频"
@@ -28,7 +28,48 @@
         android:layout_height="wrap_content"
         android:text="停止录制"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/video" />
+        app:layout_constraintStart_toEndOf="@+id/start_video" />
+
+
+    <Button
+        android:id="@+id/SD"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SD"
+        android:visibility="gone"
+        tools:visibility="visible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/HD"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="HD"
+        android:visibility="gone"
+        tools:visibility="visible"
+        app:layout_constraintStart_toEndOf="@+id/SD"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/FHD"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="FHD"
+        android:visibility="gone"
+        tools:visibility="visible"
+        app:layout_constraintStart_toEndOf="@+id/HD"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/UHD"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="UHD"
+        android:visibility="gone"
+        tools:visibility="visible"
+        app:layout_constraintStart_toEndOf="@+id/FHD"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
