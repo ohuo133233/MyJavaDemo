@@ -128,12 +128,13 @@ public class CameraVideoActivity extends AppCompatActivity implements View.OnCli
         KLog.d(TAG, "qualitySelector: " + qualitySelector);
         Toast.makeText(this, "默认使用机器最大分辨率录制", Toast.LENGTH_SHORT).show();
 
-        mRecorder = new Recorder.Builder().setQualitySelector(qualitySelector).build();
+        mRecorder = new Recorder.Builder()
+                .setQualitySelector(qualitySelector)
+                .build();
 
 
         mVideoCapture = VideoCapture.withOutput(mRecorder);
         mVideoCapture.setTargetRotation(Surface.ROTATION_0);
-
 
     }
 
@@ -161,7 +162,7 @@ public class CameraVideoActivity extends AppCompatActivity implements View.OnCli
                 startVideo();
                 break;
             case R.id.stop_video:
-                mRecording.stop();
+                mRecording.resume();
                 break;
         }
     }
@@ -175,9 +176,15 @@ public class CameraVideoActivity extends AppCompatActivity implements View.OnCli
         String name = "CameraX-recording-" + new SimpleDateFormat(FILENAME, Locale.US).format(System.currentTimeMillis()) + ".mp4";
         ContentValues contentValues = new ContentValues();
         contentValues.put(MediaStore.Video.Media.DISPLAY_NAME, name);
-        MediaStoreOutputOptions mediaStoreOutput = new MediaStoreOutputOptions.Builder(CameraVideoActivity.this.getContentResolver(), MediaStore.Video.Media.EXTERNAL_CONTENT_URI).setContentValues(contentValues).build();
 
-        mRecording = mVideoCapture.getOutput().prepareRecording(CameraVideoActivity.this, mediaStoreOutput).withAudioEnabled().start(ContextCompat.getMainExecutor(CameraVideoActivity.this), videoRecordEvent -> {
+        MediaStoreOutputOptions mediaStoreOutput = new MediaStoreOutputOptions.Builder(CameraVideoActivity.this.getContentResolver(),
+                MediaStore.Video.Media.EXTERNAL_CONTENT_URI)
+                .setContentValues(contentValues)
+                .build();
+
+        mRecording = mVideoCapture.getOutput().prepareRecording(CameraVideoActivity.this, mediaStoreOutput)
+                .withAudioEnabled()
+                .start(ContextCompat.getMainExecutor(CameraVideoActivity.this), videoRecordEvent -> {
             //  VideoRecordEvent.EVENT_TYPE_STATUS 用于录制统计信息，例如当前文件的大小和录制的时间跨度。
             //  VideoRecordEvent.EVENT_TYPE_FINALIZE 用于录制结果，会包含最终文件的 URI 以及任何相关错误等信息
             KLog.d(TAG, "RecordingStats :" + videoRecordEvent.getRecordingStats());
@@ -204,4 +211,6 @@ public class CameraVideoActivity extends AppCompatActivity implements View.OnCli
     public void updateConfig() {
         mCamera = mProcessCameraProvider.bindToLifecycle(CameraVideoActivity.this, CameraSelector.DEFAULT_BACK_CAMERA, mPreview, mVideoCapture);
     }
+
+
 }

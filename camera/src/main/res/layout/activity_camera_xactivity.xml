@@ -11,22 +11,40 @@
         android:id="@+id/camera_controller"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAllCaps="false"
-        android:text="Camera_Controller" />
+        android:text="Camera_Controller"
+        android:textAllCaps="false" />
 
     <Button
         android:id="@+id/camera_provider"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAllCaps="false"
-        android:text="Camera_Provider" />
+        android:text="Camera_Provider"
+        android:textAllCaps="false" />
 
     <Button
         android:id="@+id/camera_video"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAllCaps="false"
-        android:text="camera_video" />
+        android:text="camera_video"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/multiple_camera"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="多相机"/>
+
+    <Button
+        android:id="@+id/qr_code"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="二维码识别" />
+
+    <Button
+        android:id="@+id/faces"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="人脸识别" />
 
 
 </LinearLayout>

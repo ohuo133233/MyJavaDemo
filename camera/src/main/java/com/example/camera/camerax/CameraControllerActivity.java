@@ -21,6 +21,7 @@ import androidx.core.content.ContextCompat;
 
 import com.example.camera.R;
 
+import java.io.File;
 import java.nio.ByteBuffer;
 import java.text.SimpleDateFormat;
 import java.util.Locale;
@@ -39,6 +40,7 @@ public class CameraControllerActivity extends AppCompatActivity {
 
         // 加入PreviewView到布局
         mPreviewView = findViewById(R.id.preview_view);
+        // mPreviewView.setImplementationMode(PreviewView.ImplementationMode.COMPATIBLE);
         // 获取mCameraController
         mCameraController = new LifecycleCameraController(this);
         mCameraController.setCameraSelector(CameraSelector.DEFAULT_FRONT_CAMERA);
@@ -47,13 +49,19 @@ public class CameraControllerActivity extends AppCompatActivity {
         // 和PreviewView绑定
         mPreviewView.setController(mCameraController);
 
-
+//        mCameraController.setEnabledUseCases(CameraController.IMAGE_ANALYSIS);
         findViewById(R.id.take_photo).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 takePicture2();
             }
+        });
+
+        findViewById(R.id.overturn).setOnClickListener(view -> {
+            mCameraController.unbind();
+            mCameraController.setCameraSelector(CameraSelector.DEFAULT_BACK_CAMERA);
+            // 绑定生命周期
+            mCameraController.bindToLifecycle(CameraControllerActivity.this);
         });
 
     }
@@ -112,15 +120,14 @@ public class CameraControllerActivity extends AppCompatActivity {
 
         mCameraController.takePicture(outputFileOptions, Executors.newSingleThreadExecutor(), new ImageCapture.OnImageSavedCallback() {
             @Override
-
             public void onImageSaved(@NonNull ImageCapture.OutputFileResults outputFileResults) {
                 Log.d(TAG, "onImageSaved");
 
-//                ImageView imageView = findViewById(R.id.image);
-//                File file = outputFileOptions.getFile();
-//                Bitmap bitmap = BitmapFactory.decodeFile(file.getName());
-//                // toBitmap 只有1.3.0-alpha04才有
-//                imageView.post(() -> imageView.setImageBitmap(bitmap));
+                ImageView imageView = findViewById(R.id.image);
+                File file = outputFileOptions.getFile();
+                Bitmap bitmap = BitmapFactory.decodeFile(file.getName());
+                // toBitmap 只有1.3.0-alpha04才有
+                imageView.post(() -> imageView.setImageBitmap(bitmap));
             }
 
             @Override

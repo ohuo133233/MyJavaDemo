@@ -25,7 +25,6 @@ public class PoorFrameTracker implements Choreographer.FrameCallback {
         mLastFrameTime = 0L;
         mFrameCount = 0;
         Choreographer.getInstance().postFrameCallback(this);
-
     }
 
     @Override

@@ -9,6 +9,7 @@ logtools = "0.0.1"
 dialog = "0.0.1"
 tools = "0.0.8"
 permission = "0.0.1"
+recyclerview = "0.0.1"
 [libraries]
 appcompat = { module = "androidx.appcompat:appcompat", version.ref = "appcompat" }
 material = { module = "com.google.android.material:material", version.ref = "material" }
@@ -20,6 +21,7 @@ logtools = { module = "fast.wang:logtools", version.ref = "logtools" }
 dialog = { module = "fast.wang:dialog", version.ref = "dialog" }
 tools = { module = "fast.wang:dialog", version.ref = "tools" }
 permission = { module = "fast.wang:permission", version.ref = "permission" }
+recyclerview = { module = "fast.wang:recyclerview", version.ref = "recyclerview" }
 
 [plugins]
 

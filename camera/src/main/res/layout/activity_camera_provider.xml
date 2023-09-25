@@ -6,22 +6,26 @@
     android:layout_height="match_parent"
     tools:context=".camerax.CameraProviderActivity">
 
-    <androidx.camera.view.PreviewView
-        android:id="@+id/preview_view"
+    <View
+        android:id="@+id/view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/capture_mode"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
 
-    <Button
-        android:id="@+id/take_photo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="拍照"
+    <androidx.camera.view.PreviewView
+        android:id="@+id/preview_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view" />
+
 
     <ImageView
         android:id="@+id/image"
@@ -30,20 +34,140 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <Button
-        android:id="@+id/flash"
+    <ImageButton
+        android:id="@+id/flash_no"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="闪光灯"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@drawable/icon_flash_on"
+        app:layout_constraintEnd_toStartOf="@+id/torch"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/flash_off"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/flash_off"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/icon_flash_off"
+        app:layout_constraintEnd_toStartOf="@+id/flash_no"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/flash_auto"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/flash_auto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/icon_flash_auto"
+        app:layout_constraintEnd_toStartOf="@+id/flash_off"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/capture_mode"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/torch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/icon_flashlight"
+        app:layout_constraintEnd_toStartOf="@+id/settings"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/flash_no"
         app:layout_constraintTop_toTopOf="parent" />
 
 
-    <Button
+    <ImageButton
         android:id="@+id/capture_mode"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="高质量"/>
+        android:background="@drawable/icon_high_quality"
+        app:layout_constraintEnd_toStartOf="@+id/flash_auto"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/view"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
+
+    <ImageButton
+        android:id="@+id/settings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/icon_settings"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/torch"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatSeekBar
+        android:id="@+id/seek_bar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/iso"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/preview_view"
+        tools:visibility="visible" />
+
+    <TextView
+        android:id="@+id/iso"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginBottom="32dp"
+        android:text="ISO"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/view2"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+    <TextView
+        android:id="@+id/ev"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:text="EV"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toEndOf="@+id/iso"
+        app:layout_constraintTop_toTopOf="@+id/iso" />
+
+
+    <View
+        android:id="@+id/view2"
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:background="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+    <ImageButton
+        android:id="@+id/switch_camera"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="32dp"
+        android:background="@drawable/icon_switch_camera"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageButton
+        android:id="@+id/take_photo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:background="@drawable/icon_take_picture"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+    <com.example.camera.utils.VerticalSeekBar
+        android:id="@+id/vertical_seek_bar"
+        android:layout_width="20dp"
+        android:layout_height="200dp"
+        android:layout_marginEnd="32dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

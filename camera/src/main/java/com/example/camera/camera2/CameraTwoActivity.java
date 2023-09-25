@@ -1,16 +1,15 @@
 package com.example.camera.camera2;
 
-import android.content.Context;
-import android.hardware.camera2.CameraAccessException;
-import android.hardware.camera2.CameraManager;
+import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.camera.R;
 
-public class CameraTwoActivity extends AppCompatActivity {
+public class CameraTwoActivity extends AppCompatActivity implements View.OnClickListener {
     private String TAG = CameraTwoActivity.class.getSimpleName();
 
     @Override
@@ -18,14 +17,24 @@ public class CameraTwoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_camera_two);
 
-        CameraManager cameraManager = (CameraManager) getSystemService(Context.CAMERA_SERVICE);
-        try {
-            String[] cameraIdList = cameraManager.getCameraIdList();
-            for (String s : cameraIdList) {
-                Log.d(TAG, "cameraIdList: " + s);
-            }
-        } catch (CameraAccessException e) {
-            throw new RuntimeException(e);
+        Button surface_view_activity = findViewById(R.id.surface_view_activity);
+        Button texture_view_activity = findViewById(R.id.texture_view_activity);
+
+        surface_view_activity.setOnClickListener(this);
+        texture_view_activity.setOnClickListener(this);
+
+    }
+
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.surface_view_activity:
+                startActivity(new Intent(CameraTwoActivity.this, SurfaceViewActivity.class));
+                break;
+            case R.id.texture_view_activity:
+                startActivity(new Intent(CameraTwoActivity.this, TextureViewActivity.class));
+                break;
         }
     }
 }
