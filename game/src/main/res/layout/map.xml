@@ -13,6 +13,7 @@
         android:layout_marginStart="2000dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
     <com.wang.game.player.Player
         android:id="@+id/player"
         android:layout_width="wrap_content"
@@ -21,7 +22,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-    n
+
+
     <View
         android:id="@+id/view"
         android:layout_width="100dp"

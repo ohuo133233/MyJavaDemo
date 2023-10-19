@@ -199,7 +199,7 @@ public class GameActivity extends AppCompatActivity {
             KLog.d(TAG, "animatedValue: " + animatedValue);
             mPlayer.layout((int) mPlayer.getX() - animatedValue, (int) (mPlayer.getY()), (int) (mPlayer.getX() + width - animatedValue), (int) (mPlayer.getY() + height));
             mMap.movePlayer(mPlayer);
-        });*
+        });
         if (valueAnimator.isRunning()) {
             return;
         }

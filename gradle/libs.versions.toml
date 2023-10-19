@@ -7,7 +7,7 @@ androidxjunit = "1.1.5"
 espresso-core = "3.5.1"
 logtools = "0.0.1"
 dialog = "0.0.1"
-tools = "0.0.8"
+tools = "0.0.1"
 permission = "0.0.1"
 recyclerview = "0.0.1"
 [libraries]
