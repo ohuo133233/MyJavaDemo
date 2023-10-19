@@ -52,6 +52,7 @@ public class QRCodeActivity extends AppCompatActivity {
                 bindCameraUseCases(cameraProvider);
             } catch (ExecutionException | InterruptedException e) {
                 // 处理异常
+                e.printStackTrace();
             }
         }, ContextCompat.getMainExecutor(this));
     }
@@ -69,7 +70,6 @@ public class QRCodeActivity extends AppCompatActivity {
 
     private void bindCameraUseCases(ProcessCameraProvider cameraProvider) {
 
-
         Preview preview = new Preview.Builder()
                 .build();
 
@@ -85,8 +85,7 @@ public class QRCodeActivity extends AppCompatActivity {
                 .setTargetResolution(new Size(1920, 1080))
                 .build();
 
-
-        // 在 ImageAnalysis 的回调中处理图像帧
+        // 在ImageAnalysis 的回调中处理图像帧
         imageAnalysis.setAnalyzer(ContextCompat.getMainExecutor(this), imageProxy -> {
 
             Bitmap bitmap = mPreviewView.getBitmap();
@@ -96,7 +95,7 @@ public class QRCodeActivity extends AppCompatActivity {
             buffer.get(data);
 
             // 创建 InputImage 对象
-           // InputImage inputImage = InputImage.fromByteArray(data, imageProxy.getWidth(), imageProxy.getHeight(), imageProxy.getImageInfo().getRotationDegrees(), InputImage.IMAGE_FORMAT_BITMAP);
+            // InputImage inputImage = InputImage.fromByteArray(data, imageProxy.getWidth(), imageProxy.getHeight(), imageProxy.getImageInfo().getRotationDegrees(), InputImage.IMAGE_FORMAT_BITMAP);
             InputImage inputImage = InputImage.fromBitmap(bitmap, 0);
             // 使用 ML Kit 来识别二维码
             barcodeScanner.process(inputImage).addOnSuccessListener(barcodes -> {

@@ -14,6 +14,7 @@ import com.wang.game.R;
 import com.wang.logtools.KLog;
 
 public class Player extends ConstraintLayout {
+    private String TAG = Player.class.getSimpleName();
 
     private ImageView mImageView;
 
@@ -21,7 +22,7 @@ public class Player extends ConstraintLayout {
     private AnimationDrawable mUpAnimationDrawable;
     private AnimationDrawable mRightAnimationDrawable;
     private AnimationDrawable mLeftAnimationDrawable;
-    private String TAG = Player.class.getSimpleName();
+
 
     public Player(Context context) {
         super(context);
@@ -32,9 +33,6 @@ public class Player extends ConstraintLayout {
         super(context, attrs);
         init(context);
     }
-
-
-
 
     public Player(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
@@ -143,6 +141,9 @@ public class Player extends ConstraintLayout {
                 } else {
                     // 向上滑动
                     KLog.d(TAG, "向上滑动");
+
+
+
                     // TODO: 在这里处理向上滑动的逻辑
                 }
             }

@@ -42,7 +42,6 @@ public class MultipleCamerasActivity extends AppCompatActivity {
 
         // 创建前置摄像头的 CameraSelector
         CameraSelector cameraSelectorFront = new CameraSelector.Builder().requireLensFacing(CameraSelector.LENS_FACING_FRONT).build();
-
         // 创建后置摄像头的 CameraSelector
         CameraSelector cameraSelectorBack = new CameraSelector.Builder().requireLensFacing(CameraSelector.LENS_FACING_BACK).build();
 
@@ -53,16 +52,12 @@ public class MultipleCamerasActivity extends AppCompatActivity {
             try {
                 ProcessCameraProvider cameraProvider = FrontcameraProviderFuture.get();
 //                ProcessCameraProvider cameraProvider1 = BackcameraProviderFuture.get();
-                Camera cameraFront = cameraProvider.bindToLifecycle((LifecycleOwner) this, cameraSelectorFront, frontPreview);
-                Camera cameraBack = cameraProvider.bindToLifecycle((LifecycleOwner) this, cameraSelectorBack, backPreview);
+                Camera cameraFront = cameraProvider.bindToLifecycle((LifecycleOwner) this, cameraSelectorFront, frontPreview,backPreview);
+//                Camera cameraBack = cameraProvider.bindToLifecycle((LifecycleOwner) this, cameraSelectorBack, backPreview);
             } catch (ExecutionException | InterruptedException e) {
                 // 处理异常
             }
         }, ContextCompat.getMainExecutor(this));
-
-
-
-
 
     }
 }
