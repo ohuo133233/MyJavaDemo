@@ -1,4 +1,4 @@
-package com.wang.game.ui;
+package com.wang.game.ui.widget;
 
 import android.content.Context;
 import android.util.AttributeSet;

@@ -1,15 +1,17 @@
 package com.wang.game;
 
+import android.animation.Animator;
 import android.animation.ValueAnimator;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.WindowManager;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.wang.game.map.Map;
 import com.wang.game.player.Player;
-import com.wang.game.ui.PlayerController;
+import com.wang.game.ui.widget.PlayerController;
 import com.wang.game.ui.UI;
 import com.wang.logtools.KLog;
 
@@ -150,6 +152,7 @@ public class GameActivity extends AppCompatActivity {
         KLog.d(TAG, "up");
         KLog.d(TAG, "mPlayer.getY(): " + mPlayer.getY());
 
+        mPlayer.up();
         int width = mPlayer.getWidth();
         int height = mPlayer.getHeight();
         ValueAnimator valueAnimator = ValueAnimator.ofInt(20);
@@ -159,6 +162,7 @@ public class GameActivity extends AppCompatActivity {
             KLog.d(TAG, "animatedValue: " + animatedValue);
             mPlayer.layout((int) mPlayer.getX(), (int) (mPlayer.getY() - animatedValue), (int) (mPlayer.getX() + width), (int) (mPlayer.getY() + height - animatedValue));
             mMap.movePlayer(mPlayer);
+
         });
         if (valueAnimator.isRunning()) {
             return;
@@ -170,7 +174,7 @@ public class GameActivity extends AppCompatActivity {
     private void bottom() {
         KLog.d(TAG, "bottom");
 
-
+        mPlayer.bottom();
         int width = mPlayer.getWidth();
         int height = mPlayer.getHeight();
         ValueAnimator valueAnimator = ValueAnimator.ofInt(20);
@@ -190,6 +194,7 @@ public class GameActivity extends AppCompatActivity {
     private void left() {
         KLog.d(TAG, "left");
 
+        mPlayer.left();
         int width = mPlayer.getWidth();
         int height = mPlayer.getHeight();
         ValueAnimator valueAnimator = ValueAnimator.ofInt(20);
@@ -208,6 +213,8 @@ public class GameActivity extends AppCompatActivity {
     }
 
     private void right() {
+
+        mPlayer.right();
         int width = mPlayer.getWidth();
         int height = mPlayer.getHeight();
         KLog.d(TAG, "right");
@@ -223,6 +230,27 @@ public class GameActivity extends AppCompatActivity {
             return;
         }
         valueAnimator.start();
+        valueAnimator.addListener(new Animator.AnimatorListener() {
+            @Override
+            public void onAnimationStart(@NonNull Animator animation) {
+
+            }
+
+            @Override
+            public void onAnimationEnd(@NonNull Animator animation) {
+
+            }
+
+            @Override
+            public void onAnimationCancel(@NonNull Animator animation) {
+
+            }
+
+            @Override
+            public void onAnimationRepeat(@NonNull Animator animation) {
+
+            }
+        });
     }
 
 

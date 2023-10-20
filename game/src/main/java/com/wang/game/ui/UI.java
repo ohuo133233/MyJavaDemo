@@ -4,12 +4,14 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.ProgressBar;
 
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.wang.game.R;
+import com.wang.game.ui.widget.HpProgressBar;
+import com.wang.game.ui.widget.MpProgressBar;
+import com.wang.game.ui.widget.XpProgressBar;
 
 
 public class UI extends ConstraintLayout {
@@ -44,9 +46,9 @@ public class UI extends ConstraintLayout {
     }
 
     private void initView() {
-        ProgressBar hp_progress_bar = findViewById(R.id.hp_progress_bar);
-        ProgressBar mp_progress_bar = findViewById(R.id.mp_progress_bar);
-        ProgressBar xp_progress_bar = findViewById(R.id.xp_progress_bar);
+        HpProgressBar hp_progress_bar = findViewById(R.id.hp_progress_bar);
+        MpProgressBar mp_progress_bar = findViewById(R.id.mp_progress_bar);
+        XpProgressBar xp_progress_bar = findViewById(R.id.xp_progress_bar);
 
         hp_progress_bar.setProgress(100);
         mp_progress_bar.setProgress(50);

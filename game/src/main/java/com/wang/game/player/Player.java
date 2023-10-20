@@ -45,9 +45,8 @@ public class Player extends ConstraintLayout {
 
 //        addView(view);
 
-
         mImageView = view.findViewById(R.id.imageView);
-        mImageView.setVisibility(GONE);
+//        mImageView.setVisibility(GONE);
 
 //        mBottomAnimationDrawable = new AnimationDrawable();
 //        mBottomAnimationDrawable.addFrame(getResources().getDrawable(R.mipmap.bottom_1), 200);
