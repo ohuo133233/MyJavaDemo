@@ -1,4 +1,4 @@
-package com.wang.game.ui.widget;
+package com.wang.game.widget;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -14,6 +14,8 @@ import com.wang.game.R;
 
 
 public class PlayerController extends ConstraintLayout {
+    public ControllerCallBack controllerCallBack;
+
     public PlayerController(@NonNull Context context) {
         super(context);
     }
@@ -48,12 +50,13 @@ public class PlayerController extends ConstraintLayout {
             return false;
         });
 
-        bottom.setOnTouchListener((view, motionEvent) -> {
+        bottom.setOnTouchListener((view, motionkEvent) -> {
             if (controllerCallBack != null) {
-                controllerCallBack.bottom();
+                controllerCallBack.down();
             }
             return false;
         });
+
 
         right.setOnTouchListener((view, motionEvent) -> {
             if (controllerCallBack != null) {
@@ -72,7 +75,6 @@ public class PlayerController extends ConstraintLayout {
 
     }
 
-    public ControllerCallBack controllerCallBack;
 
     public void setControllerCallBack(ControllerCallBack controllerCallBack) {
         this.controllerCallBack = controllerCallBack;
@@ -83,7 +85,7 @@ public class PlayerController extends ConstraintLayout {
 
         void right();
 
-        void bottom();
+        void down();
 
         void left();
     }

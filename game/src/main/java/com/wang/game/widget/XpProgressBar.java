@@ -1,10 +1,13 @@
-package com.wang.game.ui.widget;
+package com.wang.game.widget;
 
 import android.content.Context;
 import android.util.AttributeSet;
 
 import com.wang.game.R;
-
+/**
+ * 经验条
+ * 1.提供背景黄色
+ */
 public class XpProgressBar extends ProgressBar{
     public XpProgressBar(Context context) {
         super(context);

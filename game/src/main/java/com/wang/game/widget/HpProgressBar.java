@@ -1,10 +1,14 @@
-package com.wang.game.ui.widget;
+package com.wang.game.widget;
 
 import android.content.Context;
 import android.util.AttributeSet;
 
 import com.wang.game.R;
 
+/**
+ * 血条
+ * 1.提供背景红色
+ */
 public class HpProgressBar extends ProgressBar{
     public HpProgressBar(Context context) {
         super(context);
@@ -30,6 +34,5 @@ public class HpProgressBar extends ProgressBar{
     private void init(Context context){
         // 设置为红色的
         setProgressDrawable(context.getResources().getDrawable(R.drawable.hp_progress_bar));
-
     }
 }

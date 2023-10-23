@@ -1,5 +1,8 @@
 package com.wang.game.map;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.animation.ValueAnimator;
 import android.content.Context;
 import android.graphics.Rect;
 import android.util.AttributeSet;
@@ -10,7 +13,10 @@ import android.view.View;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
+import com.wang.game.Constant;
 import com.wang.game.R;
+import com.wang.game.player.Player;
+import com.wang.game.tools.AnimationUtils;
 import com.wang.logtools.KLog;
 
 
@@ -40,34 +46,13 @@ public class Map extends ConstraintLayout {
         init(context);
     }
 
-
     private void init(Context context) {
         root = LayoutInflater.from(context).inflate(R.layout.map, this);
-
 
         View button3 = root.findViewById(R.id.button3);
         View button = root.findViewById(R.id.button);
 
-
-//        findViewById(R.id.)
-
-
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     @Override
     public void onWindowFocusChanged(boolean hasWindowFocus) {
@@ -86,10 +71,13 @@ public class Map extends ConstraintLayout {
     /**
      * 检查监听事项
      */
-    private void check() {
+    private void check(View view) {
+        KLog.d(TAG,"检查位置");
+        // 获取角色的位置更新到地图，并检查是否可以触发监听的事项就
+        mCurrentPositionX = view.getX();
+        mCurrentPositionY = view.getY();
         mapCriteria.filtered((int) mCurrentPositionX, (int) mCurrentPositionY);
     }
-
 
     /**
      * 判断角色是否在指定的区域之内
@@ -106,20 +94,93 @@ public class Map extends ConstraintLayout {
         mapCriteria.addRect(rect);
     }
 
-    /**
-     * 角色移动后更新地图位置
-     *
-     * @param view 角色
-     */
-    public void movePlayer(View view) {
-        // 获取角色的位置更新到地图，并检查是否可以触发监听的事项就，
-        mCurrentPositionX = view.getX();
-        mCurrentPositionY = view.getY();
-        check();
 
-        // 判断角色位置是否到了边缘，到了边缘会移动地图跟着角色走
+    public void moveView(Player player, int orientation) {
+
+        if (orientation == Constant.UP) {
+            KLog.d(TAG, "up");
+
+            AnimationUtils animationUtils = new AnimationUtils();
+            ValueAnimator moveAnimation = animationUtils.up(player);
+
+            if (moveAnimation.isRunning()) {
+                return;
+            }
+            moveAnimation.start();
+            moveAnimation.addListener(new AnimatorListenerAdapter() {
+
+                @Override
+                public void onAnimationEnd(Animator animation) {
+                    super.onAnimationEnd(animation);
+                    // TODO 看看能不能做到边走边检查
+                    check(player);
+                    player.up();
+                }
+            });
+        }
+
+        if (orientation == Constant.DOWN) {
+            KLog.d(TAG, "down");
+
+            AnimationUtils animationUtils = new AnimationUtils();
+            ValueAnimator moveAnimation = animationUtils.down(player);
+
+            if (moveAnimation.isRunning()) {
+                return;
+            }
+            moveAnimation.start();
+            moveAnimation.addListener(new AnimatorListenerAdapter() {
 
 
+                @Override
+                public void onAnimationEnd(Animator animation) {
+                    super.onAnimationEnd(animation);
+                    check(player);
+                    player.down();
+                }
+            });
+        }
+
+        if (orientation == Constant.RIGHT) {
+
+            KLog.d(TAG, "right");
+
+            AnimationUtils animationUtils = new AnimationUtils();
+            ValueAnimator moveAnimation = animationUtils.right(player);
+
+            if (moveAnimation.isRunning()) {
+                return;
+            }
+            moveAnimation.start();
+            moveAnimation.addListener(new AnimatorListenerAdapter() {
+                @Override
+                public void onAnimationEnd(Animator animation) {
+                    super.onAnimationEnd(animation);
+                    check(player);
+                    player.right();
+                }
+            });
+        }
+
+        if (orientation == Constant.LEFT) {
+            KLog.d(TAG, "left");
+            AnimationUtils animationUtils = new AnimationUtils();
+            ValueAnimator moveAnimation = animationUtils.left(player);
+
+            if (moveAnimation.isRunning()) {
+                return;
+            }
+            moveAnimation.start();
+            moveAnimation.addListener(new AnimatorListenerAdapter() {
+                @Override
+                public void onAnimationEnd(Animator animation) {
+                    super.onAnimationEnd(animation);
+                    check(player);
+                    player.left();
+                }
+            });
+
+        }
     }
 
 
