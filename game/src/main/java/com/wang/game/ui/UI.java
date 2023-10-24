@@ -13,10 +13,14 @@ import com.wang.game.Constant;
 import com.wang.game.R;
 import com.wang.game.map.Map;
 import com.wang.game.player.Player;
+import com.wang.game.widget.Dialogue;
 import com.wang.game.widget.HpProgressBar;
+import com.wang.game.widget.Knapsack;
 import com.wang.game.widget.MpProgressBar;
 import com.wang.game.widget.PlayerController;
 import com.wang.game.widget.XpProgressBar;
+
+import java.util.ArrayList;
 
 
 public class UI extends ConstraintLayout {
@@ -152,5 +156,8 @@ public class UI extends ConstraintLayout {
     public void setMap(Map map) {
         mMap = map;
     }
+
+
+
 }
 
