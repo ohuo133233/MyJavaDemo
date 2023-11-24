@@ -10,6 +10,7 @@ dialog = "0.0.1"
 tools = "0.0.1"
 permission = "0.0.1"
 recyclerview = "0.0.1"
+agp = "7.3.1"
 [libraries]
 appcompat = { module = "androidx.appcompat:appcompat", version.ref = "appcompat" }
 material = { module = "com.google.android.material:material", version.ref = "material" }
@@ -24,6 +25,7 @@ permission = { module = "fast.wang:permission", version.ref = "permission" }
 recyclerview = { module = "fast.wang:recyclerview", version.ref = "recyclerview" }
 
 [plugins]
+com-android-application = { id = "com.android.application", version.ref = "agp" }
 
 [bundles]
 

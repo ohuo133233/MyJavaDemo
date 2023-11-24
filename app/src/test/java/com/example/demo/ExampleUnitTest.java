@@ -1,12 +1,9 @@
 package com.example.demo;
 
-import org.junit.Test;
-
 import com.example.demo.adapter.DC5;
 import com.example.demo.adapter.PowerAdapter;
-import com.example.demo.drive.Computer;
-import com.example.demo.drive.HardDiskDrive;
-import com.example.demo.drive.SolidStateDisk;
+
+import org.junit.Test;
 
 /**
  * Example local unit test, which will execute on the development machine (host).
@@ -17,14 +14,18 @@ public class ExampleUnitTest {
     @Test
     public void drive() {
 
-        HardDiskDrive hardDiskDrive = new HardDiskDrive();
-        SolidStateDisk solidStateDisk = new SolidStateDisk();
+//        HardDiskDrive hardDiskDrive = new HardDiskDrive();
+//        SolidStateDisk solidStateDisk = new SolidStateDisk();
+//
+//        Computer hardDiskDriveComputer = new Computer(hardDiskDrive);
+//        Computer solidStateDiskComputer = new Computer(solidStateDisk);
+//
+//        hardDiskDriveComputer.save("这段文字");
+//        solidStateDiskComputer.save("这段文字");
 
-        Computer hardDiskDriveComputer = new Computer(hardDiskDrive);
-        Computer solidStateDiskComputer = new Computer(solidStateDisk);
 
-        hardDiskDriveComputer.save("这段文字");
-        solidStateDiskComputer.save("这段文字");
+        String test123456 = stringToSixDigitNumber("FTEST123456");
+        System.out.println("stringToSixDigitNumber： "+test123456);
     }
 
     @Test
@@ -56,5 +57,19 @@ public class ExampleUnitTest {
 
         System.out.println("输出姓王的： "+wang.getUserArrayList());
         System.out.println("输出姓李的： "+li.getUserArrayList());
+    }
+
+
+    public static String stringToSixDigitNumber(String str) {
+
+        int hash = str.hashCode();  // 使用默认哈希函数计算哈希值
+        hash = Math.abs(hash);      // 取绝对值，避免负数出现
+        hash %= 1000000;            // 取模，使结果在0到999999之间
+        // 格式化为字符串，并在前面补0
+        return  String.format("%06d", hash);
+    }
+
+    public int toHashCode(String str){
+        return str.hashCode();  // 使用默认哈希函数计算哈希值
     }
 }

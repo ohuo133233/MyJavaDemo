@@ -1,31 +1,20 @@
 package com.example.mediaplayer;
 
-import android.content.Context;
 import android.content.pm.ActivityInfo;
-import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.PowerManager;
-import android.util.Log;
-import android.view.SurfaceHolder;
-import android.view.SurfaceView;
 import android.view.View;
 import android.widget.ImageButton;
-import android.widget.ProgressBar;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.Group;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.wang.recyclerview.CommonRecyclerViewAdapter;
-import com.wang.recyclerview.CommonRecyclerViewAdapterBackCall;
-import com.wang.recyclerview.CommonRecyclerViewHolder;
 
-import java.io.IOException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
@@ -100,22 +89,19 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        mPlayer.setPlayer(new IPlayer() {
-            @Override
-            public void OnProgressListener(MediaPlayer mp, int progress, int duration) {
+        mPlayer.setPlayer((mp, progress, duration) -> {
 //                Log.d(TAG, "OnProgressListener: progress: " + progress);
 //                Log.d(TAG, "OnProgressListener: duration: " + duration);
-                if (isDrag) {
-                    return;
-                }
-                runOnUiThread(() -> {
-                    seekbar.setMax(duration);
-                    seekbar.setProgress(progress);
-                    end_time.setText(mPlayer.getTime());
-                    start_time.setText(mPlayer.getCurrentTime());
-                });
-
+            if (isDrag) {
+                return;
             }
+            runOnUiThread(() -> {
+                seekbar.setMax(duration);
+                seekbar.setProgress(progress);
+                end_time.setText(mPlayer.getTime());
+                start_time.setText(mPlayer.getCurrentTime());
+            });
+
         });
 
         seekbar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
@@ -130,6 +116,7 @@ public class MainActivity extends AppCompatActivity {
 //                Log.d(TAG, "onStartTrackingTouch: ");
                 isDrag = true;
             }
+
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {

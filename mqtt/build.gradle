@@ -1,13 +1,13 @@
 plugins {
-    id 'com.android.application'
+    alias(libs.plugins.com.android.application)
 }
 
 android {
-    namespace 'com.example.virtualdisplay'
+    namespace 'com.example.mqtt'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.example.virtualdisplay"
+        applicationId "com.example.mqtt"
         minSdk 24
         targetSdk 33
         versionCode 1
@@ -30,15 +30,14 @@ android {
 
 dependencies {
 
-    implementation(libs.appcompat)
-    implementation(libs.material)
-    implementation(libs.constraintlayout)
+    implementation libs.appcompat
+    implementation libs.material
+    implementation libs.constraintlayout
+    testImplementation libs.junit
+    androidTestImplementation libs.androidxjunit
+    androidTestImplementation libs.espresso.core
 
-    implementation(libs.junit)
-    androidTestImplementation(libs.androidxjunit)
-    androidTestImplementation(libs.espresso.core)
 
-
-    implementation 'com.arthenica:ffmpeg-kit-full:6.0-2'
-
+    implementation 'org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.2.0'
+    implementation 'org.eclipse.paho:org.eclipse.paho.android.service:1.1.1'
 }

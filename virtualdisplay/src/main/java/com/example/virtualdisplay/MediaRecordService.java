@@ -82,7 +82,11 @@ public class MediaRecordService extends Service {
     public int onStartCommand(Intent intent, int flags, int startId) {
         notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 
-        Notification notification = new NotificationCompat.Builder(this, "123123").setSmallIcon(R.mipmap.ic_launcher).setContentTitle("录屏").setContentText(getString(R.string.app_name) + "录屏中").build();
+        Notification notification = new NotificationCompat.Builder(this, "123123")
+                .setSmallIcon(R.mipmap.ic_launcher)
+                .setContentTitle("录屏")
+                .setContentText(getString(R.string.app_name) + "录屏中")
+                .build();
 
         if (Build.VERSION.SDK_INT >= 26) {
             // 推送通道
@@ -125,7 +129,10 @@ public class MediaRecordService extends Service {
                  * flags VIRTUAL_DISPLAY_FLAG_PUBLIC 通用显示屏
                  * Surface 输出位置
                  */
-                virtualDisplay = mediaProjection.createVirtualDisplay("record-video", width, height, 6000000, DisplayManager.VIRTUAL_DISPLAY_FLAG_PUBLIC, inputSurface, null, null);
+                virtualDisplay = mediaProjection.createVirtualDisplay("record-video",
+                        width, height,
+                        6000000, DisplayManager.VIRTUAL_DISPLAY_FLAG_PUBLIC,
+                        mediaRecorder.getSurface(), null, null);
 
                 isRecord = true;
                 bufferInfo = new MediaCodec.BufferInfo();
@@ -136,49 +143,45 @@ public class MediaRecordService extends Service {
                 e.printStackTrace();
             }
 
-//                    mediaRecorder.start();
+            mediaRecorder.start();
         }
 
         return super.onStartCommand(intent, flags, startId);
     }
 
     private void readEncoderData() {
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                while (isRecord) {
-                    // 获取已经解码的缓冲区索引
-                    int index = videoEncoder.dequeueOutputBuffer(bufferInfo, 10000);
-                    if (index == MediaCodec.INFO_OUTPUT_FORMAT_CHANGED) {
-                        // 输出格式已改变
-                        resetOutputFormat();
-                    } else if (index == MediaCodec.INFO_TRY_AGAIN_LATER) {
-                        // 超时
+        new Thread(() -> {
+            while (isRecord) {
+                // 获取已经解码的缓冲区索引
+                int index = videoEncoder.dequeueOutputBuffer(bufferInfo, 10000);
+                if (index == MediaCodec.INFO_OUTPUT_FORMAT_CHANGED) {
+                    // 输出格式已改变
+                    resetOutputFormat();
+                } else if (index == MediaCodec.INFO_TRY_AGAIN_LATER) {
+                    // 超时
 
-                    } else if (index >= 0) {
-                        // 获取数据
-                        ByteBuffer outputBuffer = videoEncoder.getOutputBuffer(index);
+                } else if (index >= 0) {
+                    // 获取数据
+                    ByteBuffer outputBuffer = videoEncoder.getOutputBuffer(index);
 
-                        if ((bufferInfo.flags & MediaCodec.BUFFER_FLAG_CODEC_CONFIG) != 0) {
-                            bufferInfo.size = 0;
-                        }
-                        if (bufferInfo.size == 0) {
-                            outputBuffer = null;
-                        } else {
-                            if (outputBuffer != null) {
-                                // 将 ByteBuffer 转换为 byte[]
+                    if ((bufferInfo.flags & MediaCodec.BUFFER_FLAG_CODEC_CONFIG) != 0) {
+                        bufferInfo.size = 0;
+                    }
+                    if (bufferInfo.size == 0) {
+                        outputBuffer = null;
+                    } else {
+                        if (outputBuffer != null) {
+                            // 将 ByteBuffer 转换为 byte[]
 //                                byte[] bytes = bytebuffer2ByteArray(outputBuffer);
 
-                                mediaMuxer.writeSampleData(videoTrackIndex, outputBuffer, bufferInfo);
-                            }
+                            mediaMuxer.writeSampleData(videoTrackIndex, outputBuffer, bufferInfo);
                         }
-                        videoEncoder.releaseOutputBuffer(index, false);
                     }
+                    videoEncoder.releaseOutputBuffer(index, false);
                 }
             }
         }).start();
     }
-
 
 
     private void initMediaCodec() {
@@ -216,7 +219,7 @@ public class MediaRecordService extends Service {
     private void initMediaRecorder() {
         mediaRecorder = new MediaRecorder();
         // 设置音频来源
-//        mediaRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
+        mediaRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
         // 设置视频来源
         mediaRecorder.setVideoSource(MediaRecorder.VideoSource.SURFACE);
         // 设置输出格式
@@ -231,7 +234,7 @@ public class MediaRecordService extends Service {
         // 设置视频编码比特率
         mediaRecorder.setVideoEncodingBitRate(6000000);
         // 设置音频编码
-//        mediaRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AAC);
+        mediaRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AAC);
         // 设置视频编码
         mediaRecorder.setVideoEncoder(MediaRecorder.VideoEncoder.H264);
 
@@ -241,4 +244,31 @@ public class MediaRecordService extends Service {
             e.printStackTrace();
         }
     }
+
+
+    private void stopScreenRecording() {
+        if (mediaRecorder != null) {
+            try {
+                // 停止录制
+                mediaRecorder.stop();
+            } catch (RuntimeException e) {
+                // 处理异常，例如停止录制前可能没有调用 prepare()
+                e.printStackTrace();
+            }
+
+            // 释放MediaRecorder资源
+            mediaRecorder.reset();
+            mediaRecorder.release();
+            mediaRecorder = null;
+
+            // 停止VirtualDisplay并释放MediaProjection资源
+            if (virtualDisplay != null) {
+                virtualDisplay.release();
+                virtualDisplay = null;
+            }
+
+
+        }
+    }
+
 }

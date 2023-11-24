@@ -40,11 +40,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
         path_view.setOnClickListener(this);
         surface_view.setOnClickListener(this);
-        /**
-         * 在30之前去尝试创业和投资，一旦有了家庭就有了负担。现在的家庭无法允许风险投资
-         *
-         *
-         */
+
     }
 
     @Override

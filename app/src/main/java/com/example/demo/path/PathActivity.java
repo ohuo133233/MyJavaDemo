@@ -22,16 +22,11 @@ public class PathActivity extends BaseActivity implements View.OnClickListener {
         path_view.setOnClickListener(this);
         touch_path_view.setOnClickListener(this);
         role_move_path.setOnClickListener(this);
-
-
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.path_view:
-                startActivity(new Intent(PathActivity.this, PathViewActivity.class));
-                break;
             case R.id.touch_path_view:
                 startActivity(new Intent(PathActivity.this, TouchPathViewActivity.class));
                 break;

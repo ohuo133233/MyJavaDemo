@@ -31,10 +31,6 @@ public class PathView extends View {
         initView();
     }
 
-    public PathView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
-        super(context, attrs, defStyleAttr, defStyleRes);
-        initView();
-    }
 
     /**
      * 初始化View
@@ -55,7 +51,7 @@ public class PathView extends View {
         canvas.drawPath(path, paint);
         if (isClear) {
             canvas.drawColor(Color.WHITE);
-            isClear=false;
+            isClear = false;
         }
     }
 
@@ -71,10 +67,11 @@ public class PathView extends View {
         path.lineTo(300, 100);
         path.close();
         invalidate();
-}
-    // TODO 改为画圆弧
+    }
+
+
     public void circular() {
-        path.moveTo(1000,1000);
+        path.moveTo(1000, 1000);
         RectF rectF = new RectF(100, 10, 200, 100);
         path.arcTo(rectF, 0, 359, true);
         invalidate();
