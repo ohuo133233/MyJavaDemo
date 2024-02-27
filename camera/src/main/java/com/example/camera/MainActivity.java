@@ -14,7 +14,6 @@ import androidx.core.content.ContextCompat;
 import com.example.camera.camera1.CameraOneActivity;
 import com.example.camera.camera2.CameraTwoActivity;
 import com.example.camera.camerax.CameraXActivity;
-import com.wang.permission.PermissionManager;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -66,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        PermissionManager permissionManager = new PermissionManager(this);
+//        PermissionManager permissionManager = new PermissionManager(this);
 //        permissionManager.requestPermission(Manifest.permission.RECORD_AUDIO, new IPermissionCallBack() {
 //            @Override
 //            public void success() {

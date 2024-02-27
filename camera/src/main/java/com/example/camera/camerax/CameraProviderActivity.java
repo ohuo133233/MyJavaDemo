@@ -42,7 +42,7 @@ import androidx.core.content.ContextCompat;
 import com.example.camera.R;
 import com.example.camera.utils.VerticalSeekBar;
 import com.google.common.util.concurrent.ListenableFuture;
-import com.wang.logtools.KLog;
+
 
 import java.io.File;
 import java.io.IOException;
@@ -131,8 +131,8 @@ public class CameraProviderActivity extends AppCompatActivity implements View.On
         float maxZoomRatio = mCameraInfo.getZoomState().getValue().getMaxZoomRatio();
         // 获取最小缩放值
         float minZoomRatio = mCameraInfo.getZoomState().getValue().getMinZoomRatio();
-        KLog.d(TAG, "maxZoomRatio: " + maxZoomRatio);
-        KLog.d(TAG, "minZoomRatio: " + minZoomRatio);
+        Log.d(TAG, "maxZoomRatio: " + maxZoomRatio);
+        Log.d(TAG, "minZoomRatio: " + minZoomRatio);
 
         VerticalSeekBar vertical_seek_bar = findViewById(R.id.vertical_seek_bar);
 //        mCameraControl.setZoomRatio()
@@ -140,19 +140,19 @@ public class CameraProviderActivity extends AppCompatActivity implements View.On
         vertical_seek_bar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                KLog.d(TAG, "onProgressChanged  progress:" + progress + " , fromUser: " + fromUser);
+                Log.d(TAG, "onProgressChanged  progress:" + progress + " , fromUser: " + fromUser);
                 // 设置相机的缩放
                 mCameraControl.setZoomRatio(progress);
             }
 
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
-                KLog.d(TAG, "onStartTrackingTouch");
+                Log.d(TAG, "onStartTrackingTouch");
             }
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-                KLog.d(TAG, "onStopTrackingTouch");
+                Log.d(TAG, "onStopTrackingTouch");
             }
         });
 
@@ -329,8 +329,8 @@ public class CameraProviderActivity extends AppCompatActivity implements View.On
                 // 当前支持EV曝光补偿的范围
                 Range<Integer> exposureCompensationRange = mCameraInfo.getExposureState().getExposureCompensationRange();
 
-                KLog.d(TAG, "exposureCompensationIndex： " + exposureCompensationIndex);
-                KLog.d(TAG, "exposureCompensationRange： " + exposureCompensationRange);
+                Log.d(TAG, "exposureCompensationIndex： " + exposureCompensationIndex);
+                Log.d(TAG, "exposureCompensationRange： " + exposureCompensationRange);
 
 
                 mAppCompatSeekBar.setMax(8);
@@ -343,7 +343,7 @@ public class CameraProviderActivity extends AppCompatActivity implements View.On
                         mCameraControl.setExposureCompensationIndex(progress - 4);
 
                         int exposureCompensationIndex = mCameraInfo.getExposureState().getExposureCompensationIndex();
-                        KLog.d(TAG, "onProgressChanged exposureCompensationIndex： " + exposureCompensationIndex);
+                        Log.d(TAG, "onProgressChanged exposureCompensationIndex： " + exposureCompensationIndex);
                     }
 
                     @Override
@@ -361,9 +361,9 @@ public class CameraProviderActivity extends AppCompatActivity implements View.On
                 break;
             case R.id.torch:
                 boolean isHasFlashUnit = mCameraInfo.hasFlashUnit();
-                KLog.d(TAG, "手电筒是否可用： " + isHasFlashUnit);
+                Log.d(TAG, "手电筒是否可用： " + isHasFlashUnit);
                 Integer value = mCameraInfo.getTorchState().getValue();
-                KLog.d(TAG, "手电筒状态：" + value);
+                Log.d(TAG, "手电筒状态：" + value);
                 // 设置和当前相反的手电筒状态
                 mCameraControl.enableTorch(value == TorchState.OFF);
 
@@ -377,7 +377,7 @@ public class CameraProviderActivity extends AppCompatActivity implements View.On
 
 
                 boolean zslSupported = mCamera.getCameraInfo().isZslSupported();
-                KLog.d(TAG, "是否支持0快门: " + zslSupported);
+                Log.d(TAG, "是否支持0快门: " + zslSupported);
 //                mImageCapture = new ImageCapture.Builder()
 //                        .setTargetRotation(Surface.ROTATION_0)
 //                        .setCaptureMode(ImageCapture.CAPTURE_MODE_ZERO_SHUTTER_LAG)

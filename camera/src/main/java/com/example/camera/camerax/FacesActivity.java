@@ -3,6 +3,7 @@ package com.example.camera.camerax;
 import android.graphics.PointF;
 import android.graphics.Rect;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.Size;
 import android.widget.Toast;
 
@@ -27,7 +28,6 @@ import com.google.mlkit.vision.face.FaceDetection;
 import com.google.mlkit.vision.face.FaceDetector;
 import com.google.mlkit.vision.face.FaceDetectorOptions;
 import com.google.mlkit.vision.face.FaceLandmark;
-import com.wang.logtools.KLog;
 
 import java.util.List;
 import java.util.concurrent.ExecutionException;
@@ -79,7 +79,7 @@ public class FacesActivity extends AppCompatActivity {
                                 new OnSuccessListener<List<Face>>() {
                                     @Override
                                     public void onSuccess(List<Face> faces) {
-                                        KLog.d(TAG, "onSuccess");
+                                        Log.d(TAG, "onSuccess");
                                         faces(faces);
 
                                     }
@@ -89,7 +89,7 @@ public class FacesActivity extends AppCompatActivity {
                             public void onFailure(@NonNull Exception e) {
                                 // Task failed with an exception
                                 // ...
-                                KLog.d(TAG, "onFailure"+e.toString());
+                                Log.d(TAG, "onFailure"+e.toString());
                             }
                         });
                 imageProxy.close();
@@ -113,7 +113,7 @@ public class FacesActivity extends AppCompatActivity {
     private void faces(List<Face> faces) {
 
         for (Face face : faces) {
-            KLog.d(TAG,"face： "+face.toString());
+            Log.d(TAG,"face： "+face.toString());
             mPreviewView.post(new Runnable() {
                 @Override
                 public void run() {
@@ -148,7 +148,7 @@ public class FacesActivity extends AppCompatActivity {
             // If face tracking was enabled:
             if (face.getTrackingId() != null) {
                 int id = face.getTrackingId();
-                KLog.d(TAG, "ID： " + id);
+                Log.d(TAG, "ID： " + id);
             }
         }
     }

@@ -1,8 +1,8 @@
 package com.example.camera.utils;
 
+import android.util.Log;
 import android.view.Choreographer;
 
-import com.wang.logtools.KLog;
 
 public class PoorFrameTracker implements Choreographer.FrameCallback {
     public static final String TAG = "PoorFrameTracker";
@@ -37,7 +37,7 @@ public class PoorFrameTracker implements Choreographer.FrameCallback {
             double fps = mFrameCount / diff * 1000;
             mFrameCount = 0;
             mLastFrameTime = -1;
-            KLog.d(TAG, "fps: " + fps);
+            Log.d(TAG, "fps: " + fps);
         } else {
             mFrameCount++;
         }

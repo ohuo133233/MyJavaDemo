@@ -33,9 +33,9 @@ dependencies {
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.constraintlayout)
-    implementation(libs.permission)
-    implementation(libs.logtools)
-    implementation(libs.recyclerview)
+//    implementation(libs.permission)
+//    implementation(libs.logtools)
+//    implementation(libs.recyclerview)
 
     // CameraX core library using the camera2 implementation
     def camerax_version = '1.3.0-alpha05'

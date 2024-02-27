@@ -21,7 +21,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
 import com.example.camera.R;
-import com.wang.logtools.KLog;
 
 import java.util.Arrays;
 
@@ -49,7 +48,7 @@ public class SurfaceViewActivity extends AppCompatActivity {
         mSurfaceHolder.addCallback(new SurfaceHolder.Callback() {
             @Override
             public void surfaceCreated(@NonNull SurfaceHolder holder) {
-                KLog.d(TAG, "surfaceCreated");
+                Log.d(TAG, "surfaceCreated");
                 openCamera();
             }
 
@@ -60,7 +59,7 @@ public class SurfaceViewActivity extends AppCompatActivity {
 
             @Override
             public void surfaceDestroyed(@NonNull SurfaceHolder holder) {
-                KLog.d(TAG, "surfaceDestroyed");
+                Log.d(TAG, "surfaceDestroyed");
             }
         });
     }
@@ -98,7 +97,7 @@ public class SurfaceViewActivity extends AppCompatActivity {
             mCameraManager.openCamera("0", new CameraDevice.StateCallback() {
                 @Override
                 public void onOpened(@NonNull CameraDevice camera) {
-                    KLog.d(TAG, "onOpened");
+                    Log.d(TAG, "onOpened");
                     try {
                         captureRequest = camera.createCaptureRequest(CameraDevice.TEMPLATE_PREVIEW);
                         captureRequest.addTarget(mSurfaceHolder.getSurface());
@@ -127,12 +126,12 @@ public class SurfaceViewActivity extends AppCompatActivity {
 
                 @Override
                 public void onDisconnected(@NonNull CameraDevice camera) {
-                    KLog.d(TAG, "onDisconnected");
+                    Log.d(TAG, "onDisconnected");
                 }
 
                 @Override
                 public void onError(@NonNull CameraDevice camera, int error) {
-                    KLog.e(TAG, "onError： " + error);
+                    Log.e(TAG, "onError： " + error);
                 }
             }, new Handler());
         } catch (CameraAccessException e) {

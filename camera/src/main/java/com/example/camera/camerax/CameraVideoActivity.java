@@ -5,6 +5,7 @@ import android.content.ContentValues;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.Surface;
 import android.view.View;
 import android.widget.Button;
@@ -27,7 +28,6 @@ import androidx.core.content.ContextCompat;
 
 import com.example.camera.R;
 import com.google.common.util.concurrent.ListenableFuture;
-import com.wang.logtools.KLog;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -103,7 +103,7 @@ public class CameraVideoActivity extends AppCompatActivity implements View.OnCli
         // Quality.FHD，适用于全高清视频大小 (1080p)
         // Quality.HD，适用于高清视频大小 (720p)
         // Quality.SD，适用于标清视频大小 (480p)
-        KLog.d(TAG, "supportedQualities: " + supportedQualities);
+        Log.d(TAG, "supportedQualities: " + supportedQualities);
 
         // 根据手机支持的分辨率设置按钮显示
         for (int i = 0; i < supportedQualities.size(); i++) {
@@ -125,7 +125,7 @@ public class CameraVideoActivity extends AppCompatActivity implements View.OnCli
 
         // 查询相机支持的最高录制分辨率；如果所有请求分辨率都不受支持，则授权 CameraX 选择最接近 Quality.SD 分辨率的分辨率
         QualitySelector qualitySelector = QualitySelector.fromOrderedList(supportedQualities);
-        KLog.d(TAG, "qualitySelector: " + qualitySelector);
+        Log.d(TAG, "qualitySelector: " + qualitySelector);
         Toast.makeText(this, "默认使用机器最大分辨率录制", Toast.LENGTH_SHORT).show();
 
         mRecorder = new Recorder.Builder()
@@ -187,10 +187,10 @@ public class CameraVideoActivity extends AppCompatActivity implements View.OnCli
                 .start(ContextCompat.getMainExecutor(CameraVideoActivity.this), videoRecordEvent -> {
             //  VideoRecordEvent.EVENT_TYPE_STATUS 用于录制统计信息，例如当前文件的大小和录制的时间跨度。
             //  VideoRecordEvent.EVENT_TYPE_FINALIZE 用于录制结果，会包含最终文件的 URI 以及任何相关错误等信息
-            KLog.d(TAG, "RecordingStats :" + videoRecordEvent.getRecordingStats());
-            KLog.d(TAG, "DurationLimitMillis :" + videoRecordEvent.getOutputOptions().getDurationLimitMillis());
-            KLog.d(TAG, "Location :" + videoRecordEvent.getOutputOptions().getLocation());
-            KLog.d(TAG, "FileSizeLimit :" + videoRecordEvent.getOutputOptions().getFileSizeLimit());
+                    Log.d(TAG, "RecordingStats :" + videoRecordEvent.getRecordingStats());
+                    Log.d(TAG, "DurationLimitMillis :" + videoRecordEvent.getOutputOptions().getDurationLimitMillis());
+                    Log.d(TAG, "Location :" + videoRecordEvent.getOutputOptions().getLocation());
+                    Log.d(TAG, "FileSizeLimit :" + videoRecordEvent.getOutputOptions().getFileSizeLimit());
 
         });
 
@@ -200,7 +200,7 @@ public class CameraVideoActivity extends AppCompatActivity implements View.OnCli
     public void updateQuality(Quality quality) {
         mQualities.clear();
         mQualities.add(quality);
-        KLog.d(TAG, "qualities: " + mQualities);
+        Log.d(TAG, "qualities: " + mQualities);
         // 查询相机支持的最高录制分辨率；如果所有请求分辨率都不受支持，则授权 CameraX 选择最接近 Quality.SD 分辨率的分辨率
         QualitySelector qualitySelector = QualitySelector.fromOrderedList(mQualities);
         mRecorder = new Recorder.Builder().setQualitySelector(qualitySelector).build();

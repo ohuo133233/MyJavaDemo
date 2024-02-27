@@ -19,7 +19,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
 import com.example.camera.R;
-import com.wang.logtools.KLog;
 
 import java.util.Arrays;
 
@@ -76,7 +75,7 @@ public class TextureViewActivity extends AppCompatActivity {
             manager.openCamera("1", new CameraDevice.StateCallback() {
                 @Override
                 public void onOpened(@NonNull CameraDevice camera) {
-                    KLog.d(TAG, "onOpened");
+                    Log.d(TAG, "onOpened");
                     mCameraDevice = camera;
                     startPreview();
                 }
@@ -88,7 +87,7 @@ public class TextureViewActivity extends AppCompatActivity {
 
                 @Override
                 public void onError(@NonNull CameraDevice camera, int error) {
-                    KLog.d(TAG, "onError： " + error);
+                    Log.d(TAG, "onError： " + error);
                 }
             }, null);
         } catch (CameraAccessException e) {
