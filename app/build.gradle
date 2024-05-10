@@ -38,5 +38,7 @@ dependencies {
     androidTestImplementation(libs.androidxjunit)
     androidTestImplementation(libs.espresso.core)
 
-    implementation(libs.logtools)
+//    implementation(libs.logtools)
+
+    implementation "com.hht.central:platform:24.01.02"
 }

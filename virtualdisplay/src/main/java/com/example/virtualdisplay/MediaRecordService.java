@@ -6,6 +6,7 @@ import android.app.NotificationManager;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.PixelFormat;
 import android.hardware.display.DisplayManager;
 import android.hardware.display.VirtualDisplay;
 import android.media.MediaCodec;
@@ -15,17 +16,25 @@ import android.media.MediaMuxer;
 import android.media.MediaRecorder;
 import android.media.projection.MediaProjection;
 import android.media.projection.MediaProjectionManager;
-import android.os.Binder;
 import android.os.Build;
 import android.os.IBinder;
 import android.util.Log;
+import android.view.Gravity;
+import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.Surface;
+import android.view.View;
+import android.view.WindowManager;
+import android.widget.Button;
 
 import androidx.annotation.Nullable;
 import androidx.core.app.NotificationCompat;
 
+import com.arthenica.ffmpegkit.FFmpegKit;
+import com.arthenica.ffmpegkit.FFmpegSession;
+import com.arthenica.ffmpegkit.ReturnCode;
+
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 
@@ -38,55 +47,99 @@ public class MediaRecordService extends Service {
     private Surface surface;
     private VirtualDisplay virtualDisplay;
     private MediaCodec videoEncoder;
-    private Surface inputSurface;
     private MediaMuxer mediaMuxer;
     private int videoTrackIndex;
     private MediaCodec.BufferInfo bufferInfo;
     private boolean isRecord = false;
     private NotificationManager notificationManager;
+    private Intent mIntent;
+    private MediaProjection mediaProjection;
+    private String absolutePath;
+    private String rtmpUrl = "rtmp://172.21.206.54:1935/live/test";
+    private String TAG = MediaRecordService.class.getSimpleName();
 
     @Nullable
     @Override
     public IBinder onBind(Intent intent) {
-        return new MyBinder();
-    }
-
-    public class MyBinder extends Binder {
-
-        public void paused() {
-            // 置为null时,表示暂停
-            virtualDisplay.setSurface(null);
-        }
-
-        public void stop() {
-            isRecord = false;
-
-            virtualDisplay.setSurface(null);
-            virtualDisplay.release();
-
-            videoEncoder.stop();
-            videoEncoder.release();
-
-            mediaMuxer.stop();
-            mediaMuxer.release();
-
-            notificationManager.cancel(123123);
-        }
-
-        public void resume() {
-            virtualDisplay.setSurface(surface);
-        }
+        return null;
     }
 
     @Override
-    public int onStartCommand(Intent intent, int flags, int startId) {
+    public void onCreate() {
+        super.onCreate();
+        // 创建悬浮按钮视图
+        View floatingView = LayoutInflater.from(this).inflate(R.layout.floating_button_layout, null);
+        Button start_record = floatingView.findViewById(R.id.start_record);
+        Button stop_record = floatingView.findViewById(R.id.stop_record);
+        Button start_push_flow = floatingView.findViewById(R.id.start_push_flow);
+        start_record.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startScreenRecording();
+            }
+        });
+        stop_record.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                stopScreenRecording();
+            }
+        });
+        start_push_flow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startStreaming();
+            }
+        });
+
+
+        // 设置悬浮按钮参数
+        WindowManager.LayoutParams params = new WindowManager.LayoutParams(WindowManager.LayoutParams.WRAP_CONTENT, WindowManager.LayoutParams.WRAP_CONTENT, WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY, WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE, PixelFormat.TRANSLUCENT);
+
+        params.gravity = Gravity.TOP | Gravity.START;
+        params.x = 0;
+        params.y = 100;
+
+        // 获取 WindowManager
+        WindowManager windowManager = (WindowManager) getSystemService(WINDOW_SERVICE);
+
+        // 添加悬浮按钮到窗口
+        windowManager.addView(floatingView, params);
+
+        // 设置悬浮按钮的触摸监听
+        floatingView.setOnTouchListener(new View.OnTouchListener() {
+            private int initialX;
+            private int initialY;
+            private float initialTouchX;
+            private float initialTouchY;
+
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                        initialX = params.x;
+                        initialY = params.y;
+                        initialTouchX = event.getRawX();
+                        initialTouchY = event.getRawY();
+                        return true;
+                    case MotionEvent.ACTION_UP:
+                        return true;
+                    case MotionEvent.ACTION_MOVE:
+                        params.x = initialX + (int) (event.getRawX() - initialTouchX);
+                        params.y = initialY + (int) (event.getRawY() - initialTouchY);
+                        windowManager.updateViewLayout(floatingView, params);
+                        return true;
+                }
+                return false;
+            }
+        });
+    }
+
+    @Override
+    public int onStartCommand(Intent intent,  int flags, int startId) {
+        mIntent = intent;
         notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 
-        Notification notification = new NotificationCompat.Builder(this, "123123")
-                .setSmallIcon(R.mipmap.ic_launcher)
-                .setContentTitle("录屏")
-                .setContentText(getString(R.string.app_name) + "录屏中")
-                .build();
+        Notification notification = new NotificationCompat.Builder(this, "123123").setSmallIcon(R.mipmap.ic_launcher).setContentTitle("录屏").setContentText(getString(R.string.app_name) + "录屏中").build();
 
         if (Build.VERSION.SDK_INT >= 26) {
             // 推送通道
@@ -97,27 +150,30 @@ public class MediaRecordService extends Service {
         startForeground(123123, notification);
 
 
-        int resultCode = intent.getIntExtra("resultCode", -1);
-        width = intent.getIntExtra("width", -1);
-        height = intent.getIntExtra("height", -1);
-        Intent data = intent.getParcelableExtra("data");
-        surface = intent.getParcelableExtra("surface");
+        return super.onStartCommand(intent, flags, startId);
+    }
 
+
+    public void startScreenRecording() {
+        int resultCode = mIntent.getIntExtra("resultCode", -1);
+        width = mIntent.getIntExtra("height", -1);
+        height = mIntent.getIntExtra("width", -1);
+        Intent data = mIntent.getParcelableExtra("data");
+        surface = mIntent.getParcelableExtra("surface");
         MediaProjectionManager mediaProjectionManager = (MediaProjectionManager) getSystemService(Context.MEDIA_PROJECTION_SERVICE);
-        final MediaProjection mediaProjection = mediaProjectionManager.getMediaProjection(resultCode, data);
+        mediaProjection = mediaProjectionManager.getMediaProjection(resultCode, data);
         if (mediaProjection != null) {
             // 获取存储的位置
             recordFile = getExternalFilesDir("RecordFile");
-            boolean mkdirs = recordFile.mkdirs();
 
             initMediaRecorder();
 
             initMediaCodec();
 
-            String absolutePath = new File(recordFile + "/record.mp4").getAbsolutePath();
+            absolutePath = new File(recordFile + "/record.mp4").getAbsolutePath();
             Log.e("TAG", "absolutePath: " + absolutePath);
             try {
-                final FileOutputStream fos = new FileOutputStream(absolutePath);
+
                 mediaMuxer = new MediaMuxer(absolutePath, MediaMuxer.OutputFormat.MUXER_OUTPUT_MPEG_4);
 
                 /**
@@ -129,10 +185,7 @@ public class MediaRecordService extends Service {
                  * flags VIRTUAL_DISPLAY_FLAG_PUBLIC 通用显示屏
                  * Surface 输出位置
                  */
-                virtualDisplay = mediaProjection.createVirtualDisplay("record-video",
-                        width, height,
-                        6000000, DisplayManager.VIRTUAL_DISPLAY_FLAG_PUBLIC,
-                        mediaRecorder.getSurface(), null, null);
+                virtualDisplay = mediaProjection.createVirtualDisplay("record-video", width, height, 6000000, DisplayManager.VIRTUAL_DISPLAY_FLAG_PUBLIC, mediaRecorder.getSurface(), null, null);
 
                 isRecord = true;
                 bufferInfo = new MediaCodec.BufferInfo();
@@ -145,9 +198,8 @@ public class MediaRecordService extends Service {
 
             mediaRecorder.start();
         }
-
-        return super.onStartCommand(intent, flags, startId);
     }
+
 
     private void readEncoderData() {
         new Thread(() -> {
@@ -172,7 +224,7 @@ public class MediaRecordService extends Service {
                     } else {
                         if (outputBuffer != null) {
                             // 将 ByteBuffer 转换为 byte[]
-//                                byte[] bytes = bytebuffer2ByteArray(outputBuffer);
+                            // byte[] bytes = bytebuffer2ByteArray(outputBuffer);
 
                             mediaMuxer.writeSampleData(videoTrackIndex, outputBuffer, bufferInfo);
                         }
@@ -202,8 +254,6 @@ public class MediaRecordService extends Service {
             videoEncoder = MediaCodec.createEncoderByType(MIME_TYPE);
             // 设置编码器属性
             videoEncoder.configure(format, null, null, MediaCodec.CONFIGURE_FLAG_ENCODE);
-            // 创建作为输入的 Surface
-            inputSurface = videoEncoder.createInputSurface();
             videoEncoder.start();
         } catch (IOException e) {
             e.printStackTrace();
@@ -220,7 +270,7 @@ public class MediaRecordService extends Service {
         mediaRecorder = new MediaRecorder();
         // 设置音频来源
         mediaRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
-        // 设置视频来源
+        // 设置视频来源3
         mediaRecorder.setVideoSource(MediaRecorder.VideoSource.SURFACE);
         // 设置输出格式
         mediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.MPEG_4);
@@ -243,32 +293,46 @@ public class MediaRecordService extends Service {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
 
+    }
 
     private void stopScreenRecording() {
         if (mediaRecorder != null) {
-            try {
-                // 停止录制
-                mediaRecorder.stop();
-            } catch (RuntimeException e) {
-                // 处理异常，例如停止录制前可能没有调用 prepare()
-                e.printStackTrace();
-            }
-
-            // 释放MediaRecorder资源
+            mediaRecorder.stop();
             mediaRecorder.reset();
             mediaRecorder.release();
             mediaRecorder = null;
-
-            // 停止VirtualDisplay并释放MediaProjection资源
-            if (virtualDisplay != null) {
-                virtualDisplay.release();
-                virtualDisplay = null;
-            }
-
-
         }
+
+        if (virtualDisplay != null) {
+            virtualDisplay.release();
+            virtualDisplay = null;
+        }
+
+        if (mediaProjection != null) {
+            mediaProjection.stop();
+            mediaProjection = null;
+        }
+    }
+
+
+    private void startStreaming() {
+        // 构建 FFmpeg 命令
+        // ffmpeg -re -stream_loop -1 -i 视频文件.mp4 -c copy -f flv rtmp://127.0.0.1:1935/live/test
+        String ffmpegCommand = "-re -stream_loop -1 -i " + absolutePath + " -c copy -f flv " + rtmpUrl;
+
+        FFmpegSession session = FFmpegKit.execute(ffmpegCommand);
+        if (ReturnCode.isSuccess(session.getReturnCode())) {
+            Log.d(TAG,"SUCCESS");
+            // SUCCESS
+        } else if (ReturnCode.isCancel(session.getReturnCode())) {
+            // CANCEL
+            Log.d(TAG,"CANCEL");
+        } else {
+            // FAILURE
+            Log.d(TAG, String.format("Command failed with state %s and rc %s.%s", session.getState(), session.getReturnCode(), session.getFailStackTrace()));
+        }
+
     }
 
 }

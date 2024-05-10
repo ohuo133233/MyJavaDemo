@@ -1,0 +1,43 @@
+plugins {
+    alias(libs.plugins.com.android.application)
+}
+
+android {
+    namespace 'com.example.gsyvideoplayer'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.example.gsyvideoplayer"
+        minSdk 24
+        targetSdk 34
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+
+    implementation libs.appcompat
+    implementation libs.material
+    implementation libs.constraintlayout
+    testImplementation libs.junit
+    androidTestImplementation libs.androidxjunit
+    androidTestImplementation libs.espresso.core
+
+    implementation 'com.shuyu:GSYVideoPlayer:8.1.2'
+    //更多ijk的编码支持
+    implementation 'com.shuyu:gsyVideoPlayer-ex_so:8.1.2'
+}

@@ -1,0 +1,48 @@
+plugins {
+    alias(libs.plugins.com.android.application)
+}
+
+android {
+    namespace 'com.example.jiaozi'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.example.jiaozi"
+        minSdk 24
+        targetSdk 34
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+
+    implementation libs.appcompat
+    implementation libs.material
+    implementation libs.constraintlayout
+    testImplementation libs.junit
+    androidTestImplementation libs.androidxjunit
+    androidTestImplementation libs.espresso.core
+
+//    implementation 'cn.jzvd:jiaozivideoplayer:7.7.0'
+//    implementation 'com.aliyun.sdk.android:AliyunPlayer:4.5.0-full'
+//    implementation 'com.alivc.conan:AlivcConan:0.9.5'
+
+
+    implementation 'xyz.doikki.android.dkplayer:dkplayer-java:3.3.7'
+    // 可选，使用ijkplayer进行解码
+    implementation 'xyz.doikki.android.dkplayer:player-ijk:3.3.7'
+}

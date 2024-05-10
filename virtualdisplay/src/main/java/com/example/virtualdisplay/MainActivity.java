@@ -4,77 +4,52 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Point;
 import android.media.projection.MediaProjectionManager;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
+import android.provider.Settings;
 import android.view.Surface;
 import android.view.WindowManager;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.arthenica.ffmpegkit.FFmpegKit;
-import com.arthenica.ffmpegkit.FFmpegSession;
-import com.arthenica.ffmpegkit.ReturnCode;
-
 public class MainActivity extends AppCompatActivity {
     protected Surface surface;
-
+    // 录制的视频文件路径
+    private String inputFilePath = "/storage/emulated/0/Android/data/com.example.virtualdisplay/files/RecordFile/123456.mp4";
+    // RTMP 服务器地址
+    private String rtmpUrl = "rtmp://172.21.202.20/live/test";
+    private MediaProjectionManager mMediaProjectionManager;
+    private static final int REQUEST_CODE_OVERLAY_PERMISSION = 123;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-        MediaProjectionManager mediaProjectionManager = (MediaProjectionManager) getSystemService(Context.MEDIA_PROJECTION_SERVICE);
+// 检查是否拥有悬浮窗口权限
+        if (!Settings.canDrawOverlays(this)) {
+            // 如果没有权限，请求权限
+            requestOverlayPermission();
+        }
+        mMediaProjectionManager = (MediaProjectionManager) getSystemService(Context.MEDIA_PROJECTION_SERVICE);
 
         findViewById(R.id.start).setOnClickListener(v -> {
-            Intent screenCaptureIntent = mediaProjectionManager.createScreenCaptureIntent();
+            Intent screenCaptureIntent = mMediaProjectionManager.createScreenCaptureIntent();
             startActivityForResult(screenCaptureIntent, 10012);
         });
 
-        findViewById(R.id.start_live).setOnClickListener(v -> {
-            startStreaming();
-        });
 
 
     }
 
-
-    private String inputFilePath = "/storage/emulated/0/Android/data/com.example.virtualdisplay/files/RecordFile/123456.mp4"; // 录制的视频文件路径
-    private String rtmpUrl = "rtmp://172.21.202.20/live/test"; // RTMP 服务器地址
-
-
-    private void startStreaming() {
-        // 构建 FFmpeg 命令
-//        String[] ffmpegCommand = new String[]{"-i", inputFilePath,        // 输入文件路径
-//                "-c:v", "copy",             // 使用相同的视频编码
-//                "-c:a", "aac",              // 使用 AAC 音频编码
-//                "-f", "flv", rtmpUrl        // 输出为 FLV 格式并推流到 RTMP 服务器
-//        };
-        String[] ffmpegCommand = new String[]{
-                "-re",
-                "-stream_loop", "-1",
-                "-i", inputFilePath,
-                "-c", "copy",
-                "-f", "flv",
-                "rtmp://172.21.202.20:1935/live/test"
-        };
-
-        String ffmpegCommand1 = "-f gdigrab -framerate 30 -i desktop -c:v libx264 -preset ultrafast -tune zerolatency -f flv " + rtmpUrl;
-
-//        FFmpegSession session = FFmpegKit.execute("-re -stream_loop -1 -i "+inputFilePath+" -c copy -f flv rtsp://172.21.121.25:8554/live/test");
-        FFmpegSession session = FFmpegKit.execute(ffmpegCommand1);
-        if (ReturnCode.isSuccess(session.getReturnCode())) {
-            // SUCCESS
-        } else if (ReturnCode.isCancel(session.getReturnCode())) {
-            // CANCEL
-        } else {
-            // FAILURE
-            Log.d("TAG", String.format("Command failed with state %s and rc %s.%s", session.getState(), session.getReturnCode(), session.getFailStackTrace()));
-
-        }
-
+    private void requestOverlayPermission() {
+        // 请求悬浮窗口权限
+        Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION,
+                Uri.parse("package:" + getPackageName()));
+        startActivityForResult(intent, REQUEST_CODE_OVERLAY_PERMISSION);
     }
 
 
@@ -86,17 +61,26 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(this, MediaRecordService.class);
             intent.putExtra("data", data);
             intent.putExtra("resultCode", resultCode);
-            intent.putExtra("width", getScreenWidth(this)); // 屏幕的宽
-            intent.putExtra("height", getScreenHeight(this)); // 屏幕的高
+            intent.putExtra("height",getScreenHeight(this));
+            intent.putExtra("width",getScreenWidth(this));
             intent.putExtra("surface", surface); // Surface 用于显示录屏的数据
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 startForegroundService(intent); // 启动前台服务
             }
         }
+
+        if (requestCode == REQUEST_CODE_OVERLAY_PERMISSION) {
+            // 检查权限是否被授予
+            if (Settings.canDrawOverlays(this)) {
+                Toast.makeText(this, "悬浮窗口权限授予", Toast.LENGTH_SHORT).show();
+            } else {
+                // 如果权限未被授予，可以显示一些提示信息或者采取其他适当的措施
+                Toast.makeText(this, "悬浮窗口权限未授予", Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 
-
-    public int getScreenWidth(Context context) {
+    public int getScreenWidth(@NonNull Context context) {
         WindowManager wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
         if (wm == null) return -1;
         Point point = new Point();
@@ -113,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
      *
      * @return the height of screen, in pixel
      */
-    public int getScreenHeight(Context context) {
+    public int getScreenHeight(@NonNull Context context) {
         WindowManager wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
         if (wm == null) return -1;
         Point point = new Point();
@@ -124,4 +108,6 @@ public class MainActivity extends AppCompatActivity {
         }
         return point.y;
     }
+
+
 }

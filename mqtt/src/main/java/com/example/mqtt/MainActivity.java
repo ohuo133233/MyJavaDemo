@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     try {
                         mMqttClient.reconnect();
                     } catch (MqttException e) {
-                        Log.e(TAG, "MqttException: "+e.toString() );
+                        Log.e(TAG, "MqttException: " + e.toString());
                     }
                 }
             }//每隔10秒使用handler发送一下消息,也就是每隔10秒执行一次,一直重复执行
@@ -62,20 +62,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
     private void connectMqtt() throws MqttException {
-        String broker = "tcp://47.110.155.71";
+
 
         // MQTT 连接选项
         MqttConnectOptions connOpts = new MqttConnectOptions();
         // 设置认证信息
-        connOpts.setUserName("test");
-        connOpts.setPassword("test".toCharArray());
+        connOpts.setUserName(Constant.USER);
+        connOpts.setPassword(Constant.PASS_WORD.toCharArray());
         connOpts.setAutomaticReconnect(false);
         connOpts.setConnectionTimeout(60);
         connOpts.setKeepAliveInterval(60);
         connOpts.setMqttVersion(MqttConnectOptions.MQTT_VERSION_3_1_1);
 
         MemoryPersistence persistence = new MemoryPersistence();
-        mMqttClient = new MqttClient(broker, "clientId", persistence);
+        mMqttClient = new MqttClient(Constant.URL, "clientId", persistence);
         // 设置回调
         mMqttClient.setCallback(new MqttCallbackExtended() {
 
@@ -163,7 +163,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
      */
     private void subscribeAllTopics() {
         //订阅主消息主题和更新消息主题
-        subscribeToTopic("test", 2);
+        subscribeToTopic(Constant.SUB_TOPIC, 2);
     }
 
     /**
@@ -175,7 +175,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         try {
             mMqttClient.subscribe(subTopic, qos);
         } catch (MqttException ex) {
-            Log.d(TAG, "subscribeToTopic: Exception whilst subscribing");
+            Log.e(TAG, "subscribeToTopic: Exception whilst subscribing");
             ex.printStackTrace();
         }
     }

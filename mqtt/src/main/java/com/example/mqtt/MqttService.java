@@ -15,30 +15,11 @@ import org.eclipse.paho.client.mqttv3.MqttException;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
 import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
 
-import java.net.URI;
-import java.net.URISyntaxException;
-
 public class MqttService extends Service {
     private static final String TAG = MqttService.class.getSimpleName();
 
     public MqttService() {
-        Log.d(TAG, "MqttService: ");
 
-
-        String broker = "top://p7e59ee8.ala.cn-hangzhou.emqxsl.cn";
-        URI uri;
-        try {
-            uri = new URI(broker);
-        } catch (URISyntaxException e) {
-            throw new RuntimeException(e);
-        }
-        String scheme = uri.getScheme();
-
-        if (scheme == null || scheme.isEmpty()) {
-            Log.d(TAG, "scheme==null ");
-        }else {
-            Log.d(TAG, "scheme： "+scheme);
-        }
     }
 
     @Override
@@ -66,17 +47,16 @@ public class MqttService extends Service {
     }
 
     private void connectMqtt() throws MqttException {
-        String broker = "tcp://47.110.155.71";
 
         // MQTT 连接选项
         MqttConnectOptions connOpts = new MqttConnectOptions();
         // 设置认证信息
-        connOpts.setUserName("test");
-        connOpts.setPassword("test".toCharArray());
+        connOpts.setUserName(Constant.USER);
+        connOpts.setPassword(Constant.PASS_WORD.toCharArray());
         connOpts.setAutomaticReconnect(false);
 
         MemoryPersistence persistence = new MemoryPersistence();
-        MqttClient client = new MqttClient(broker, "clientId", persistence);
+        MqttClient client = new MqttClient(Constant.URL, "clientId", persistence);
         // 设置回调
         client.setCallback(new MqttCallback() {
             @Override

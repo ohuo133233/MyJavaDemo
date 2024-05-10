@@ -3,24 +3,25 @@ pluginManagement {
         gradlePluginPortal()
         google()
         mavenCentral()
-        repositories {
-            maven {
-                url 'https://maven.aliyun.com/repository/public'
+        maven { url 'https://jitpack.io' }
+        maven { url "https://maven.aliyun.com/repository/public" }
+
+        maven {
+            url 'https://maven.aliyun.com/repository/public'
+        }
+        maven {
+            credentials {
+                username '60f135b8b9ae39c89a58d4f5'
+                password 'IaNqgzT8jQZE'
             }
-            maven {
-                credentials {
-                    username '62556fc72c14288da02db952'
-                    password 'RaKE06cJglFN'
-                }
-                url 'https://packages.aliyun.com/maven/repository/2290848-release-aGamKW/'
+            url 'https://packages.aliyun.com/maven/repository/2000925-release-PCu8W8/'
+        }
+        maven {
+            credentials {
+                username '60f135b8b9ae39c89a58d4f5'
+                password 'IaNqgzT8jQZE'
             }
-            maven {
-                credentials {
-                    username '62556fc72c14288da02db952'
-                    password 'RaKE06cJglFN'
-                }
-                url 'https://packages.aliyun.com/maven/repository/2290848-snapshot-uh38nA/'
-            }
+            url 'https://packages.aliyun.com/maven/repository/2000925-snapshot-lcOqLh/'
         }
     }
 }
@@ -29,26 +30,28 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
-        repositories {
-            maven {
-                url 'https://maven.aliyun.com/repository/public'
+        maven { url 'https://jitpack.io' }
+        maven { url "https://maven.aliyun.com/repository/public" }
+
+        maven {
+            url 'https://maven.aliyun.com/repository/public'
+        }
+        maven {
+            credentials {
+                username '60f135b8b9ae39c89a58d4f5'
+                password 'IaNqgzT8jQZE'
             }
-            maven {
-                credentials {
-                    username '62556fc72c14288da02db952'
-                    password 'RaKE06cJglFN'
-                }
-                url 'https://packages.aliyun.com/maven/repository/2290848-release-aGamKW/'
+            url 'https://packages.aliyun.com/maven/repository/2000925-release-PCu8W8/'
+        }
+        maven {
+            credentials {
+                username '60f135b8b9ae39c89a58d4f5'
+                password 'IaNqgzT8jQZE'
             }
-            maven {
-                credentials {
-                    username '62556fc72c14288da02db952'
-                    password 'RaKE06cJglFN'
-                }
-                url 'https://packages.aliyun.com/maven/repository/2290848-snapshot-uh38nA/'
-            }
+            url 'https://packages.aliyun.com/maven/repository/2000925-snapshot-lcOqLh/'
         }
     }
+
 }
 
 rootProject.name = "MyJavaDemo"
@@ -68,3 +71,5 @@ include ':gradle_demo'
 include ':client'
 include ':game'
 include ':mqtt'
+include ':gsyvideoplayer'
+include ':jiaozi'
