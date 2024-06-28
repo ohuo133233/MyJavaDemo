@@ -17,7 +17,9 @@ import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
 
 public class MqttService extends Service {
     private static final String TAG = MqttService.class.getSimpleName();
-
+    private final String serverUri = "ws://47.99.203.156:8083/mqtt";
+    private final String USER_NAME = "honghe";
+    private final String PASSWORD = "hh123456";
     public MqttService() {
 
     }

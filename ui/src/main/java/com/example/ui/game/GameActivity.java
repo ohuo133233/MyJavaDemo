@@ -12,7 +12,7 @@ import com.example.ui.game.ui.PlayerController;
 import com.example.ui.game.map.Map;
 import com.example.ui.game.player.Player;
 import com.example.ui.game.ui.UI;
-import com.wang.logtools.KLog;
+
 
 public class GameActivity extends AppCompatActivity {
 
